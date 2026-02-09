@@ -1269,15 +1269,6 @@ export default function Page() {
   );
 }
 
-async function fetchWitb() {
-  const res = await fetch("http://localhost:3000/api/witb", {
-    cache: "no-store",
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch WITB");
-  }
-  return await res.json();
-}
 
 type WitbRow = {
   player_id: string;
@@ -1296,21 +1287,6 @@ type WitbRow = {
   wedge_iron_relation?: string;
   note?: string;
 };
-
-async function fetchWitb(): Promise<WitbRow[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : ""}/api/witb`, {
-    cache: "no-store",
-  });
-
-  // Vercelビルド時はURLが空になることがあるので、相対でも試す
-  if (!res.ok) {
-    const fallback = await fetch("/api/witb", { cache: "no-store" }).catch(() => null);
-    if (!fallback || !fallback.ok) return [];
-    return await fallback.json();
-  }
-
-  return await res.json();
-}
 
 async function WitbSection() {
   const rows = await fetchWitb();
@@ -1345,4 +1321,17 @@ async function WitbSection() {
       )}
     </section>
   );
+}
+
+async function fetchWitb(): Promise<WitbRow[]> {
+  const base = process.env.WITB_API_BASE_URL;
+  const token = process.env.WITB_API_TOKEN;
+
+  if (!base || !token) return [];
+
+  const url = `${base}?mode=latest&token=${encodeURIComponent(token)}`;
+  const res = await fetch(url, { cache: "no-store" });
+  const data = await res.json();
+
+  return Array.isArray(data) ? data : [];
 }
