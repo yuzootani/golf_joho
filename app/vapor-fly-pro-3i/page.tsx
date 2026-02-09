@@ -393,6 +393,8 @@ export default function Page() {
         </div>
       </header>
 
+      <WitbSection />
+
       {/* このクラブについて - 横長カード */}
       <div className="aboutCard">
         <div className="aboutCardCol">
@@ -1277,24 +1279,70 @@ async function fetchWitb() {
   return await res.json();
 }
 
-export default async function Page() {
+type WitbRow = {
+  player_id: string;
+  as_of_date: string;
+  source_name: string;
+  source_url: string;
+  published_date?: string;
+
+  wedge_1?: string;
+  wedge_2?: string;
+  wedge_3?: string;
+  wedge_4?: string;
+
+  wedge_shafts?: string;
+  iron_shaft?: string;
+  wedge_iron_relation?: string;
+  note?: string;
+};
+
+async function fetchWitb(): Promise<WitbRow[]> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : ""}/api/witb`, {
+    cache: "no-store",
+  });
+
+  // Vercelビルド時はURLが空になることがあるので、相対でも試す
+  if (!res.ok) {
+    const fallback = await fetch("/api/witb", { cache: "no-store" }).catch(() => null);
+    if (!fallback || !fallback.ok) return [];
+    return await fallback.json();
+  }
+
+  return await res.json();
+}
+
+async function WitbSection() {
   const rows = await fetchWitb();
 
   return (
-    <main>
-      <h2>WITB Wedges</h2>
-      {rows.map((r: any) => (
-        <div key={r.player_id}>
-          <h3>{r.player_id} / {r.as_of_date}</h3>
-          <ul>
-            {[r.wedge_1, r.wedge_2, r.wedge_3, r.wedge_4]
-              .filter(Boolean)
-              .map((w: string, i: number) => (
+    <section style={{ border: "1px solid #ddd", padding: 12, marginTop: 12 }}>
+      <h2>WITB Wedges（Verified Latest）</h2>
+      {rows.length === 0 ? (
+        <p>データがまだありません（verified=true の行がない可能性）</p>
+      ) : (
+        rows.map((r) => (
+          <div key={`${r.player_id}-${r.as_of_date}`} style={{ marginTop: 12 }}>
+            <h3>{r.player_id} / {r.as_of_date}</h3>
+            <div>
+              Source:{" "}
+              <a href={r.source_url} target="_blank" rel="noreferrer">
+                {r.source_name}
+              </a>
+              {r.published_date ? `（公開日: ${r.published_date}）` : null}
+            </div>
+            <ul>
+              {[r.wedge_1, r.wedge_2, r.wedge_3, r.wedge_4].filter(Boolean).map((w, i) => (
                 <li key={i}>{w}</li>
               ))}
-          </ul>
-        </div>
-      ))}
-    </main>
+            </ul>
+            {r.wedge_shafts ? <div>Wedge shafts: {r.wedge_shafts}</div> : null}
+            {r.iron_shaft ? <div>Iron shaft: {r.iron_shaft}</div> : null}
+            {r.wedge_iron_relation ? <div>Relation: {r.wedge_iron_relation}</div> : null}
+            {r.note ? <div>Note: {r.note}</div> : null}
+          </div>
+        ))
+      )}
+    </section>
   );
 }
