@@ -23,6 +23,30 @@ async function fetchWitb(sheet: string): Promise<WitbRow[]> {
   return Array.isArray(data) ? data : [];
 }
 
+function formatYearMonth(input?: string): string {
+  if (!input) return "";
+  if (/^\d{4}-\d{2}$/.test(input)) return input;
+  if (input.length >= 7) return input.slice(0, 7);
+  return input;
+}
+
+function formatYmd(input?: string): string {
+  if (!input) return "";
+  if (/^\d{4}-\d{2}-\d{2}$/.test(input)) return input;
+  if (input.length >= 10) return input.slice(0, 10);
+  return input;
+}
+
+function cleanUrl(raw?: string): string {
+  if (!raw) return "";
+  try {
+    const u = new URL(raw);
+    return `${u.origin}${u.pathname}`;
+  } catch {
+    return raw.split("?")[0].split("#")[0];
+  }
+}
+
 export default async function WedgesHubPage() {
   const rows = await fetchWitb("witb_wedges");
 
@@ -47,15 +71,15 @@ export default async function WedgesHubPage() {
               style={{ border: "1px solid #ddd", padding: 16, marginTop: 16 }}
             >
               <h2>
-                {r.player_name || r.player_id} / {r.as_of_date}
+                {r.player_name || r.player_id} / {formatYmd(r.as_of_date)}
               </h2>
 
               <div style={{ marginBottom: 8 }}>
                 Source:{" "}
-                <a href={r.source_url} target="_blank" rel="noreferrer">
+                <a href={cleanUrl(r.source_url)} target="_blank" rel="noreferrer">
                   {r.source_name}
                 </a>
-                {r.published_date ? `（公開日: ${r.published_date}）` : null}
+                {r.published_date ? `（公開日: ${formatYearMonth(r.published_date)}）` : null}
               </div>
 
               <ul>
