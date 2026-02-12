@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 type WitbItem = {
   id?: string;
@@ -68,6 +69,12 @@ function getShaftDisplay(item: WitbItem): string {
   const s = item?.shaft;
   if (!s || typeof s !== "object") return "";
   return safeString(s?.display);
+}
+
+function getPlayerId(item: WitbItem): string {
+  const p = item?.player;
+  if (!p || typeof p !== "object") return "";
+  return safeString(p?.id);
 }
 
 export default function WitbSearchPage() {
@@ -150,7 +157,10 @@ export default function WitbSearchPage() {
   return (
     <main style={styles.wrap}>
       <h1 style={styles.title}>WITB 横断検索</h1>
-      <p style={styles.sub}>witb_index.json から検索・絞り込み</p>
+      <p style={styles.sub}>
+        witb_index.json から検索・絞り込み |{" "}
+        <Link href="/witb/players" style={styles.topLink}>選手一覧</Link>
+      </p>
 
       <div style={styles.searchRow}>
         <input
@@ -255,9 +265,18 @@ export default function WitbSearchPage() {
             const shaftDisplay = getShaftDisplay(item);
             const sourceLink = getSourceLink(item);
 
+            const pid = getPlayerId(item);
             return (
               <div key={safeString(item?.id) || `item-${i}`} style={styles.card}>
-                <div style={styles.cardPlayer}>{playerName || "-"}</div>
+                <div style={styles.cardPlayer}>
+                  {pid ? (
+                    <Link href={`/witb/player/${encodeURIComponent(pid)}`} style={styles.playerLink}>
+                      {playerName || "-"}
+                    </Link>
+                  ) : (
+                    playerName || "-"
+                  )}
+                </div>
                 <div style={styles.cardBrand}>
                   {[brand, model].filter(Boolean).join(" ")}
                 </div>
@@ -276,6 +295,13 @@ export default function WitbSearchPage() {
                   >
                     出典へ →
                   </a>
+                )}
+                {pid && (
+                  <div style={styles.cardPlayerDetail}>
+                    <Link href={`/witb/player/${encodeURIComponent(pid)}`} style={styles.cardLink}>
+                      選手詳細 →
+                    </Link>
+                  </div>
                 )}
               </div>
             );
@@ -306,6 +332,16 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 14,
     opacity: 0.8,
     marginBottom: 24,
+  },
+  topLink: {
+    color: "#0369a1",
+    textDecoration: "none",
+    fontWeight: 600,
+  },
+  playerLink: {
+    color: "inherit",
+    textDecoration: "none",
+    fontWeight: 900,
   },
   searchRow: {
     marginBottom: 16,
@@ -372,6 +408,10 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: 700,
     color: "#0369a1",
     textDecoration: "none",
+  },
+  cardPlayerDetail: {
+    marginTop: 8,
+    fontSize: 12,
   },
   empty: {
     fontSize: 14,
