@@ -3,20 +3,75 @@
 import { useState, useEffect } from "react";
 
 type WitbItem = {
+  id?: string;
   search_text?: string;
   category?: string;
-  player?: string;
+  player?: { id?: string; name?: string } | string;
+  club?: { brand?: string; model?: string };
   brand?: string;
   model?: string;
-  loft_label?: string;
-  spec?: { raw?: string };
+  loft_label?: string | number;
+  spec?: { raw?: string; loft_label?: string | number };
   shaft?: { display?: string };
-  source?: { link?: string };
+  source?: { link?: string; url?: string };
   [key: string]: unknown;
 };
 
+function safeString(v: unknown): string {
+  if (v == null) return "";
+  if (typeof v === "string") return v;
+  if (typeof v === "number") return String(v);
+  return "";
+}
+
+function getPlayerName(item: WitbItem): string {
+  const p = item?.player;
+  if (!p) return "";
+  if (typeof p === "string") return p;
+  return safeString(p?.name) || safeString(p?.id) || "";
+}
+
+function getBrand(item: WitbItem): string {
+  const c = item?.club;
+  if (c && typeof c === "object") return safeString(c?.brand);
+  return safeString(item?.brand);
+}
+
+function getModel(item: WitbItem): string {
+  const c = item?.club;
+  if (c && typeof c === "object") return safeString(c?.model);
+  return safeString(item?.model);
+}
+
+function getLoftLabel(item: WitbItem): string {
+  const s = item?.spec;
+  if (s && typeof s === "object" && s.loft_label != null) {
+    return String(s.loft_label);
+  }
+  if (item?.loft_label != null) return String(item.loft_label);
+  return "";
+}
+
+function getSourceLink(item: WitbItem): string {
+  const s = item?.source;
+  if (!s || typeof s !== "object") return "";
+  return safeString(s?.url) || safeString(s?.link) || "";
+}
+
+function getSpecRaw(item: WitbItem): string {
+  const s = item?.spec;
+  if (!s || typeof s !== "object") return "";
+  return safeString(s?.raw);
+}
+
+function getShaftDisplay(item: WitbItem): string {
+  const s = item?.shaft;
+  if (!s || typeof s !== "object") return "";
+  return safeString(s?.display);
+}
+
 export default function WitbSearchPage() {
-  const [data, setData] = useState<WitbItem[]>([]);
+  const [data, setData] = useState<WitbItem[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,31 +90,45 @@ export default function WitbSearchPage() {
         setError(null);
       })
       .catch((err) => {
-        setError(err.message || "Failed to load");
+        setError(err?.message ?? "Failed to load");
         setData([]);
       })
       .finally(() => setLoading(false));
   }, []);
 
-  const uniq = (arr: (string | undefined)[], key?: string) =>
-    [...new Set(arr.filter(Boolean))].sort();
+  const docs = data ?? [];
 
-  const categories = uniq(data.map((d) => d.category));
-  const players = uniq(data.map((d) => d.player));
-  const brands = uniq(data.map((d) => d.brand));
-  const models = uniq(data.map((d) => d.model));
-  const loftLabels = uniq(data.map((d) => d.loft_label));
+  const uniq = (arr: string[]): string[] =>
+    [...new Set(arr.filter((x): x is string => typeof x === "string" && x.length > 0))].sort();
 
-  const filtered = data.filter((item) => {
-    if (searchText.trim()) {
-      const st = (item.search_text ?? "").toLowerCase();
-      if (!st.includes(searchText.trim().toLowerCase())) return false;
+  const categories = uniq(
+    docs.map((d) => safeString(d?.category)).filter(Boolean)
+  );
+  const players = uniq(
+    docs.map((d) => getPlayerName(d)).filter(Boolean)
+  );
+  const brands = uniq(
+    docs.map((d) => getBrand(d)).filter(Boolean)
+  );
+  const models = uniq(
+    docs.map((d) => getModel(d)).filter(Boolean)
+  );
+  const loftLabels = uniq(
+    docs.map((d) => getLoftLabel(d)).filter(Boolean)
+  );
+
+  const filtered: WitbItem[] = docs.filter((item) => {
+    if (!item || typeof item !== "object") return false;
+    const q = searchText.trim();
+    if (q) {
+      const st = safeString(item?.search_text).toLowerCase();
+      if (!st.includes(q.toLowerCase())) return false;
     }
-    if (filterCategory && item.category !== filterCategory) return false;
-    if (filterPlayer && item.player !== filterPlayer) return false;
-    if (filterBrand && item.brand !== filterBrand) return false;
-    if (filterModel && item.model !== filterModel) return false;
-    if (filterLoftLabel && item.loft_label !== filterLoftLabel) return false;
+    if (filterCategory && safeString(item?.category) !== filterCategory) return false;
+    if (filterPlayer && getPlayerName(item) !== filterPlayer) return false;
+    if (filterBrand && getBrand(item) !== filterBrand) return false;
+    if (filterModel && getModel(item) !== filterModel) return false;
+    if (filterLoftLabel && getLoftLabel(item) !== filterLoftLabel) return false;
     return true;
   });
 
@@ -100,11 +169,14 @@ export default function WitbSearchPage() {
           style={styles.select}
         >
           <option value="">カテゴリ</option>
-          {categories.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
+          {Array.isArray(categories) &&
+            categories.map((c) =>
+              c ? (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ) : null
+            )}
         </select>
         <select
           value={filterPlayer}
@@ -112,11 +184,14 @@ export default function WitbSearchPage() {
           style={styles.select}
         >
           <option value="">プロ</option>
-          {players.map((p) => (
-            <option key={p} value={p}>
-              {p}
-            </option>
-          ))}
+          {Array.isArray(players) &&
+            players.map((p) =>
+              p ? (
+                <option key={p} value={p}>
+                  {p}
+                </option>
+              ) : null
+            )}
         </select>
         <select
           value={filterBrand}
@@ -124,11 +199,14 @@ export default function WitbSearchPage() {
           style={styles.select}
         >
           <option value="">ブランド</option>
-          {brands.map((b) => (
-            <option key={b} value={b}>
-              {b}
-            </option>
-          ))}
+          {Array.isArray(brands) &&
+            brands.map((b) =>
+              b ? (
+                <option key={b} value={b}>
+                  {b}
+                </option>
+              ) : null
+            )}
         </select>
         <select
           value={filterModel}
@@ -136,11 +214,14 @@ export default function WitbSearchPage() {
           style={styles.select}
         >
           <option value="">モデル</option>
-          {models.map((m) => (
-            <option key={m} value={m}>
-              {m}
-            </option>
-          ))}
+          {Array.isArray(models) &&
+            models.map((m) =>
+              m ? (
+                <option key={m} value={m}>
+                  {m}
+                </option>
+              ) : null
+            )}
         </select>
         <select
           value={filterLoftLabel}
@@ -148,46 +229,60 @@ export default function WitbSearchPage() {
           style={styles.select}
         >
           <option value="">ロフト（wedge用）</option>
-          {loftLabels.map((l) => (
-            <option key={l} value={l}>
-              {l}
-            </option>
-          ))}
+          {Array.isArray(loftLabels) &&
+            loftLabels.map((l) =>
+              l ? (
+                <option key={l} value={l}>
+                  {l}
+                </option>
+              ) : null
+            )}
         </select>
       </div>
 
       <p style={styles.resultCount}>
-        {filtered.length} 件
+        {Array.isArray(filtered) ? filtered.length : 0} 件
       </p>
 
       <div style={styles.grid}>
-        {filtered.map((item, i) => (
-          <div key={i} style={styles.card}>
-            <div style={styles.cardPlayer}>{item.player ?? "-"}</div>
-            <div style={styles.cardBrand}>
-              {[item.brand, item.model].filter(Boolean).join(" ")}
-            </div>
-            {item.spec?.raw && (
-              <div style={styles.cardSpec}>{item.spec.raw}</div>
-            )}
-            {item.shaft?.display && (
-              <div style={styles.cardShaft}>{item.shaft.display}</div>
-            )}
-            {item.source?.link && (
-              <a
-                href={item.source.link}
-                target="_blank"
-                rel="noreferrer"
-                style={styles.cardLink}
-              >
-                出典へ →
-              </a>
-            )}
-          </div>
-        ))}
+        {Array.isArray(filtered) &&
+          filtered.map((item, i) => {
+            if (!item) return null;
+            const playerName = getPlayerName(item);
+            const brand = getBrand(item);
+            const model = getModel(item);
+            const specRaw = getSpecRaw(item);
+            const shaftDisplay = getShaftDisplay(item);
+            const sourceLink = getSourceLink(item);
+
+            return (
+              <div key={safeString(item?.id) || `item-${i}`} style={styles.card}>
+                <div style={styles.cardPlayer}>{playerName || "-"}</div>
+                <div style={styles.cardBrand}>
+                  {[brand, model].filter(Boolean).join(" ")}
+                </div>
+                {specRaw && (
+                  <div style={styles.cardSpec}>{specRaw}</div>
+                )}
+                {shaftDisplay && (
+                  <div style={styles.cardShaft}>{shaftDisplay}</div>
+                )}
+                {sourceLink && (
+                  <a
+                    href={sourceLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={styles.cardLink}
+                  >
+                    出典へ →
+                  </a>
+                )}
+              </div>
+            );
+          })}
       </div>
 
-      {filtered.length === 0 && (
+      {(!Array.isArray(filtered) || filtered.length === 0) && (
         <p style={styles.empty}>該当する結果がありません</p>
       )}
     </main>
