@@ -1,1 +1,63 @@
-[]
+[
+    {
+      "id": "justin_thomas|2025-09|wedge|46",
+      "player": { "id": "justin_thomas", "name": "Justin Thomas" },
+      "category": "wedges",
+      "as_of_ym": "2025-09",
+      "slot": "46",
+      "club": { "brand": "Titleist", "model": "Vokey SM10" },
+      "spec": {
+        "raw": "46-10F @47.5",
+        "loft_label": 46,
+        "bounce": 10,
+        "grind": "F",
+        "loft_actual": 47.5
+      },
+      "shaft": {
+        "raw": "DG TI X100",
+        "brand": "True Temper",
+        "family": "Dynamic Gold",
+        "variant": "Tour Issue",
+        "flex": "X100",
+        "display": "Dynamic Gold Tour Issue X100",
+        "aliases": ["DG", "DG TI", "TI", "Dynamic Gold", "DynamicGold", "Tour Issue", "X100"]
+      },
+      "source": {
+        "name": "GolfWRX",
+        "url": "https://www.golfwrx.com/765715/justin-thomas-witb-2025-september/",
+        "verified": true
+      },
+      "search_text": "Justin Thomas wedges Titleist Vokey SM10 46 47.5 10F Dynamic Gold Tour Issue X100 DG TI GolfWRX"
+    },
+    {
+      "id": "justin_thomas|2025-09|wedge|52",
+      "player": { "id": "justin_thomas", "name": "Justin Thomas" },
+      "category": "wedges",
+      "as_of_ym": "2025-09",
+      "slot": "52",
+      "club": { "brand": "Titleist", "model": "Vokey SM10" },
+      "spec": {
+        "raw": "52-12F @52.5",
+        "loft_label": 52,
+        "bounce": 12,
+        "grind": "F",
+        "loft_actual": 52.5
+      },
+      "shaft": {
+        "raw": "DG TI S400",
+        "brand": "True Temper",
+        "family": "Dynamic Gold",
+        "variant": "Tour Issue",
+        "flex": "S400",
+        "display": "Dynamic Gold Tour Issue S400",
+        "aliases": ["DG", "DG TI", "TI", "Dynamic Gold", "DynamicGold", "Tour Issue", "S400"]
+      },
+      "source": {
+        "name": "GolfWRX",
+        "url": "https://www.golfwrx.com/765715/justin-thomas-witb-2025-september/",
+        "verified": true
+      },
+      "search_text": "Justin Thomas wedges Titleist Vokey SM10 52 52.5 12F Dynamic Gold Tour Issue S400 DG TI GolfWRX"
+    }
+  ]
+  
