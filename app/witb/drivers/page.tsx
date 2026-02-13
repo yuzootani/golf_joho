@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 type WITBDoc = {
   id?: string;
@@ -75,11 +76,17 @@ function uniq(arr: string[]): string[] {
 }
 
 export default function WitbDriversPage() {
+  const searchParams = useSearchParams();
   const [data, setData] = useState<WITBDoc[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const [q, setQ] = useState("");
+
+  useEffect(() => {
+    const qParam = searchParams.get("q");
+    if (qParam) setQ(qParam);
+  }, [searchParams]);
   const [filterPlayer, setFilterPlayer] = useState("");
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");

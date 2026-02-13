@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 type WitbItem = {
   id?: string;
@@ -78,12 +79,20 @@ function getPlayerId(item: WitbItem): string {
 }
 
 export default function WitbSearchPage() {
+  const searchParams = useSearchParams();
   const [data, setData] = useState<WitbItem[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const [searchText, setSearchText] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
+
+  useEffect(() => {
+    const qParam = searchParams.get("q");
+    const catParam = searchParams.get("category");
+    if (qParam) setSearchText(qParam);
+    if (catParam) setFilterCategory(catParam);
+  }, [searchParams]);
   const [filterPlayer, setFilterPlayer] = useState("");
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
