@@ -158,5 +158,1395 @@
       "verified": true
     },
     "search_text": "Justin Thomas wedges Titleist Vokey SM10 60-04T @60.5 60 60.5 4 T Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
+  },
+  {
+    "id": "justin_thomas|2025-09|drivers|",
+    "player": {
+      "id": "justin_thomas",
+      "name": "Justin Thomas"
+    },
+    "category": "drivers",
+    "as_of_ym": "2025-09",
+    "slot": "",
+    "club": {
+      "brand": "Titleist",
+      "model": "GT2"
+    },
+    "spec": {
+      "raw": "9° (A1 SureFit)"
+    },
+    "shaft": {
+      "raw": "Mitsubishi Diamana Prototype",
+      "display": "Mitsubishi Diamana Prototype",
+      "aliases": [
+        "Mitsubishi",
+        "Diamana",
+        "Prototype"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/765715/justin-thomas-witb-2025-september/",
+      "verified": true
+    },
+    "search_text": "Justin Thomas drivers Titleist GT2 9° (A1 SureFit) Mitsubishi Diamana Prototype Mitsubishi Diamana Prototype GolfWRX"
+  },
+  {
+    "id": "chris_gotterup|2026-02|drivers|",
+    "player": {
+      "id": "chris_gotterup",
+      "name": "Chris Gotterup"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Ping",
+      "model": "G440 LST"
+    },
+    "spec": {
+      "raw": "9°"
+    },
+    "shaft": {
+      "raw": "Project X HZRDUS Black RDX 70TX",
+      "display": "Project X HZRDUS Black RDX 70TX",
+      "aliases": [
+        "Project",
+        "X",
+        "HZRDUS",
+        "Black",
+        "RDX",
+        "70TX"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773054/chris-gotterups-winning-witb-2026-wm-phoenix-open/",
+      "verified": true
+    },
+    "search_text": "Chris Gotterup drivers Ping G440 LST 9° Project X HZRDUS Black RDX 70TX Project X HZRDUS Black RDX 70TX GolfWRX"
+  },
+  {
+    "id": "chris_gotterup|2026-02|wedges|46",
+    "player": {
+      "id": "chris_gotterup",
+      "name": "Chris Gotterup"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "46",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "46°"
+    },
+    "shaft": {
+      "raw": "DG TI X100",
+      "display": "Dynamic Gold Tour Issue X100",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "X100",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773054/chris-gotterups-winning-witb-2026-wm-phoenix-open/",
+      "verified": true
+    },
+    "search_text": "Chris Gotterup wedges TaylorMade MG5 46° Dynamic Gold Tour Issue X100 DG Dynamic Gold DynamicGold TI Tour Issue X100 DG TI GolfWRX"
+  },
+  {
+    "id": "chris_gotterup|2026-02|wedges|52",
+    "player": {
+      "id": "chris_gotterup",
+      "name": "Chris Gotterup"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "52",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "52°"
+    },
+    "shaft": {
+      "raw": "DG TI X100",
+      "display": "Dynamic Gold Tour Issue X100",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "X100",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773054/chris-gotterups-winning-witb-2026-wm-phoenix-open/",
+      "verified": true
+    },
+    "search_text": "Chris Gotterup wedges TaylorMade MG5 52° Dynamic Gold Tour Issue X100 DG Dynamic Gold DynamicGold TI Tour Issue X100 DG TI GolfWRX"
+  },
+  {
+    "id": "chris_gotterup|2026-02|wedges|56",
+    "player": {
+      "id": "chris_gotterup",
+      "name": "Chris Gotterup"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "56",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "56°"
+    },
+    "shaft": {
+      "raw": "DG TI X100",
+      "display": "Dynamic Gold Tour Issue X100",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "X100",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773054/chris-gotterups-winning-witb-2026-wm-phoenix-open/",
+      "verified": true
+    },
+    "search_text": "Chris Gotterup wedges TaylorMade MG5 56° Dynamic Gold Tour Issue X100 DG Dynamic Gold DynamicGold TI Tour Issue X100 DG TI GolfWRX"
+  },
+  {
+    "id": "chris_gotterup|2026-02|wedges|60",
+    "player": {
+      "id": "chris_gotterup",
+      "name": "Chris Gotterup"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "60",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "60°"
+    },
+    "shaft": {
+      "raw": "DG TI X100",
+      "display": "Dynamic Gold Tour Issue X100",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "X100",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773054/chris-gotterups-winning-witb-2026-wm-phoenix-open/",
+      "verified": true
+    },
+    "search_text": "Chris Gotterup wedges TaylorMade MG5 60° Dynamic Gold Tour Issue X100 DG Dynamic Gold DynamicGold TI Tour Issue X100 DG TI GolfWRX"
+  },
+  {
+    "id": "hideki_matsuyama|2026-02|drivers|",
+    "player": {
+      "id": "hideki_matsuyama",
+      "name": "Hideki Matsuyama"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Srixon",
+      "model": "ZXi LS"
+    },
+    "spec": {
+      "raw": "9°"
+    },
+    "shaft": {
+      "raw": "Graphite Design Tour AD FI 8TX",
+      "display": "Graphite Design Tour AD FI 8TX",
+      "aliases": [
+        "Graphite",
+        "Design",
+        "Tour",
+        "AD",
+        "FI",
+        "8TX"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773030/hideki-matsuyama-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Hideki Matsuyama drivers Srixon ZXi LS 9° Graphite Design Tour AD FI 8TX Graphite Design Tour AD FI 8TX GolfWRX"
+  },
+  {
+    "id": "hideki_matsuyama|2026-02|wedges|48",
+    "player": {
+      "id": "hideki_matsuyama",
+      "name": "Hideki Matsuyama"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "48",
+    "club": {
+      "brand": "Cleveland",
+      "model": "RTX 4 Forged Prototype"
+    },
+    "spec": {
+      "raw": "48°"
+    },
+    "shaft": {
+      "raw": "DG TI S400",
+      "display": "Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "S400",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773030/hideki-matsuyama-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Hideki Matsuyama wedges Cleveland RTX 4 Forged Prototype 48° Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
+  },
+  {
+    "id": "hideki_matsuyama|2026-02|wedges|52",
+    "player": {
+      "id": "hideki_matsuyama",
+      "name": "Hideki Matsuyama"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "52",
+    "club": {
+      "brand": "Cleveland",
+      "model": "RTX 4 Forged Prototype"
+    },
+    "spec": {
+      "raw": "52-10"
+    },
+    "shaft": {
+      "raw": "DG TI S400",
+      "display": "Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "S400",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773030/hideki-matsuyama-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Hideki Matsuyama wedges Cleveland RTX 4 Forged Prototype 52-10 Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
+  },
+  {
+    "id": "hideki_matsuyama|2026-02|wedges|56",
+    "player": {
+      "id": "hideki_matsuyama",
+      "name": "Hideki Matsuyama"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "56",
+    "club": {
+      "brand": "Cleveland",
+      "model": "RTX 4 Forged Prototype"
+    },
+    "spec": {
+      "raw": "56-08"
+    },
+    "shaft": {
+      "raw": "DG TI S400",
+      "display": "Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "S400",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773030/hideki-matsuyama-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Hideki Matsuyama wedges Cleveland RTX 4 Forged Prototype 56-08 Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
+  },
+  {
+    "id": "hideki_matsuyama|2026-02|wedges|60",
+    "player": {
+      "id": "hideki_matsuyama",
+      "name": "Hideki Matsuyama"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "60",
+    "club": {
+      "brand": "Cleveland",
+      "model": "RTX 4 Forged Prototype"
+    },
+    "spec": {
+      "raw": "60-08"
+    },
+    "shaft": {
+      "raw": "DG TI S400",
+      "display": "Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "S400",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773030/hideki-matsuyama-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Hideki Matsuyama wedges Cleveland RTX 4 Forged Prototype 60-08 Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
+  },
+  {
+    "id": "justin_rose|2026-02|drivers|",
+    "player": {
+      "id": "justin_rose",
+      "name": "Justin Rose"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Callaway",
+      "model": "Paradym Ai Smoke Triple Diamond Max"
+    },
+    "spec": {
+      "raw": "9°"
+    },
+    "shaft": {
+      "raw": "Mitsubishi Diamana WB 63TX",
+      "display": "Mitsubishi Diamana WB 63TX",
+      "aliases": [
+        "Mitsubishi",
+        "Diamana",
+        "WB",
+        "63TX"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772741/justin-rose-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Justin Rose drivers Callaway Paradym Ai Smoke Triple Diamond Max 9° Mitsubishi Diamana WB 63TX Mitsubishi Diamana WB 63TX GolfWRX"
+  },
+  {
+    "id": "justin_rose|2026-02|wedges|52",
+    "player": {
+      "id": "justin_rose",
+      "name": "Justin Rose"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "52",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design SM10"
+    },
+    "spec": {
+      "raw": "52-08F"
+    },
+    "shaft": {
+      "raw": "DG TI S400",
+      "display": "Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "S400",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772741/justin-rose-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Justin Rose wedges Titleist Vokey Design SM10 52-08F Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
+  },
+  {
+    "id": "justin_rose|2026-02|wedges|56",
+    "player": {
+      "id": "justin_rose",
+      "name": "Justin Rose"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "56",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design SM10"
+    },
+    "spec": {
+      "raw": "56-10S"
+    },
+    "shaft": {
+      "raw": "DG TI S400",
+      "display": "Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "S400",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772741/justin-rose-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Justin Rose wedges Titleist Vokey Design SM10 56-10S Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
+  },
+  {
+    "id": "justin_rose|2026-02|wedges|60",
+    "player": {
+      "id": "justin_rose",
+      "name": "Justin Rose"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "60",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design WedgeWorks"
+    },
+    "spec": {
+      "raw": "60-K"
+    },
+    "shaft": {
+      "raw": "DG TI S400",
+      "display": "Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "DG",
+        "Dynamic Gold",
+        "DynamicGold",
+        "TI",
+        "Tour Issue",
+        "S400",
+        "DG TI"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772741/justin-rose-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Justin Rose wedges Titleist Vokey Design WedgeWorks 60-K Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
+  },
+  {
+    "id": "ludvig_aberg|2026-01|drivers|",
+    "player": {
+      "id": "ludvig_aberg",
+      "name": "Ludvig Åberg"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Titleist",
+      "model": "TSR2"
+    },
+    "spec": {
+      "raw": "9°, D4 SureFit Setting"
+    },
+    "shaft": {
+      "raw": "Fujikura Ventus Black 6X",
+      "display": "Fujikura Ventus Black 6X",
+      "aliases": [
+        "Fujikura",
+        "Ventus",
+        "Black",
+        "6X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772643/ludvig-aberg-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Ludvig Åberg drivers Titleist TSR2 9°, D4 SureFit Setting Fujikura Ventus Black 6X Fujikura Ventus Black 6X GolfWRX"
+  },
+  {
+    "id": "ludvig_aberg|2026-01|wedges|50",
+    "player": {
+      "id": "ludvig_aberg",
+      "name": "Ludvig Åberg"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "50",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design SM11"
+    },
+    "spec": {
+      "raw": "50-08F"
+    },
+    "shaft": {
+      "raw": "KBS Tour 130X",
+      "display": "KBS Tour 130X",
+      "aliases": [
+        "KBS",
+        "Tour",
+        "130X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772643/ludvig-aberg-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Ludvig Åberg wedges Titleist Vokey Design SM11 50-08F KBS Tour 130X KBS Tour 130X GolfWRX"
+  },
+  {
+    "id": "ludvig_aberg|2026-01|wedges|54",
+    "player": {
+      "id": "ludvig_aberg",
+      "name": "Ludvig Åberg"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "54",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design SM11"
+    },
+    "spec": {
+      "raw": "54-10S"
+    },
+    "shaft": {
+      "raw": "KBS Tour 130X",
+      "display": "KBS Tour 130X",
+      "aliases": [
+        "KBS",
+        "Tour",
+        "130X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772643/ludvig-aberg-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Ludvig Åberg wedges Titleist Vokey Design SM11 54-10S KBS Tour 130X KBS Tour 130X GolfWRX"
+  },
+  {
+    "id": "ludvig_aberg|2026-01|wedges|60",
+    "player": {
+      "id": "ludvig_aberg",
+      "name": "Ludvig Åberg"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "60",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design WedgeWorks"
+    },
+    "spec": {
+      "raw": "60-L"
+    },
+    "shaft": {
+      "raw": "KBS Tour 130X",
+      "display": "KBS Tour 130X",
+      "aliases": [
+        "KBS",
+        "Tour",
+        "130X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772643/ludvig-aberg-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Ludvig Åberg wedges Titleist Vokey Design WedgeWorks 60-L KBS Tour 130X KBS Tour 130X GolfWRX"
+  },
+  {
+    "id": "min_woo_lee|2026-02|drivers|",
+    "player": {
+      "id": "min_woo_lee",
+      "name": "Min Woo Lee"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Callaway",
+      "model": "Elyte Triple Diamond"
+    },
+    "spec": {
+      "raw": "10.5°"
+    },
+    "shaft": {
+      "raw": "Fujikura Ventus Blue 6X",
+      "display": "Fujikura Ventus Blue 6X",
+      "aliases": [
+        "Fujikura",
+        "Ventus",
+        "Blue",
+        "6X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772867/min-woo-lee-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Min Woo Lee drivers Callaway Elyte Triple Diamond 10.5° Fujikura Ventus Blue 6X Fujikura Ventus Blue 6X GolfWRX"
+  },
+  {
+    "id": "min_woo_lee|2026-02|wedges|50",
+    "player": {
+      "id": "min_woo_lee",
+      "name": "Min Woo Lee"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "50",
+    "club": {
+      "brand": "Callaway",
+      "model": "Opus SP"
+    },
+    "spec": {
+      "raw": "50-10S"
+    },
+    "shaft": {
+      "raw": "Nippon Shaft N.S. Pro Modus3 Tour 120S",
+      "display": "Nippon Shaft N.S. Pro Modus3 Tour 120S",
+      "aliases": [
+        "Nippon",
+        "Shaft",
+        "N.S.",
+        "Pro",
+        "Modus3",
+        "Tour",
+        "120S"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772867/min-woo-lee-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Min Woo Lee wedges Callaway Opus SP 50-10S Nippon Shaft N.S. Pro Modus3 Tour 120S Nippon Shaft N.S. Pro Modus3 Tour 120S GolfWRX"
+  },
+  {
+    "id": "min_woo_lee|2026-02|wedges|56",
+    "player": {
+      "id": "min_woo_lee",
+      "name": "Min Woo Lee"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "56",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design SM9"
+    },
+    "spec": {
+      "raw": "56-08M"
+    },
+    "shaft": {
+      "raw": "Nippon Shaft N.S. Pro Modus3 Tour 120S",
+      "display": "Nippon Shaft N.S. Pro Modus3 Tour 120S",
+      "aliases": [
+        "Nippon",
+        "Shaft",
+        "N.S.",
+        "Pro",
+        "Modus3",
+        "Tour",
+        "120S"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772867/min-woo-lee-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Min Woo Lee wedges Titleist Vokey Design SM9 56-08M Nippon Shaft N.S. Pro Modus3 Tour 120S Nippon Shaft N.S. Pro Modus3 Tour 120S GolfWRX"
+  },
+  {
+    "id": "min_woo_lee|2026-02|wedges|60",
+    "player": {
+      "id": "min_woo_lee",
+      "name": "Min Woo Lee"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "60",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design WedgeWorks"
+    },
+    "spec": {
+      "raw": "60-T"
+    },
+    "shaft": {
+      "raw": "Nippon Shaft N.S. Pro Modus3 Tour 120S",
+      "display": "Nippon Shaft N.S. Pro Modus3 Tour 120S",
+      "aliases": [
+        "Nippon",
+        "Shaft",
+        "N.S.",
+        "Pro",
+        "Modus3",
+        "Tour",
+        "120S"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772867/min-woo-lee-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Min Woo Lee wedges Titleist Vokey Design WedgeWorks 60-T Nippon Shaft N.S. Pro Modus3 Tour 120S Nippon Shaft N.S. Pro Modus3 Tour 120S GolfWRX"
+  },
+  {
+    "id": "brooks_koepka|2026-01|drivers|",
+    "player": {
+      "id": "brooks_koepka",
+      "name": "Brooks Koepka"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Titleist",
+      "model": "GT3"
+    },
+    "spec": {
+      "raw": "10° (SureFit B1)"
+    },
+    "shaft": {
+      "raw": "Mitsubishi Diamana D Limited 60 TX",
+      "display": "Mitsubishi Diamana D Limited 60 TX",
+      "aliases": [
+        "Mitsubishi",
+        "Diamana",
+        "D",
+        "Limited",
+        "60",
+        "TX"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772517/brooks-koepka-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Brooks Koepka drivers Titleist GT3 10° (SureFit B1) Mitsubishi Diamana D Limited 60 TX Mitsubishi Diamana D Limited 60 TX GolfWRX"
+  },
+  {
+    "id": "brooks_koepka|2026-01|wedges|46",
+    "player": {
+      "id": "brooks_koepka",
+      "name": "Brooks Koepka"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "46",
+    "club": {
+      "brand": "Cleveland",
+      "model": "RTZ"
+    },
+    "spec": {
+      "raw": "46-10 Mid"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue X100",
+      "display": "True Temper Dynamic Gold Tour Issue X100",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "X100"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772517/brooks-koepka-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Brooks Koepka wedges Cleveland RTZ 46-10 Mid True Temper Dynamic Gold Tour Issue X100 True Temper Dynamic Gold Tour Issue X100 GolfWRX"
+  },
+  {
+    "id": "brooks_koepka|2026-01|wedges|52",
+    "player": {
+      "id": "brooks_koepka",
+      "name": "Brooks Koepka"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "52",
+    "club": {
+      "brand": "Cleveland",
+      "model": "RTZ Tour Rack"
+    },
+    "spec": {
+      "raw": "52-10 Mid"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772517/brooks-koepka-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Brooks Koepka wedges Cleveland RTZ Tour Rack 52-10 Mid True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "brooks_koepka|2026-01|wedges|56",
+    "player": {
+      "id": "brooks_koepka",
+      "name": "Brooks Koepka"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "56",
+    "club": {
+      "brand": "Cleveland",
+      "model": "RTZ Tour Rack"
+    },
+    "spec": {
+      "raw": "56-10 Mid"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772517/brooks-koepka-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Brooks Koepka wedges Cleveland RTZ Tour Rack 56-10 Mid True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "brooks_koepka|2026-01|wedges|60",
+    "player": {
+      "id": "brooks_koepka",
+      "name": "Brooks Koepka"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "60",
+    "club": {
+      "brand": "Cleveland",
+      "model": "RTZ Tour Rack"
+    },
+    "spec": {
+      "raw": "60-6 Low"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772517/brooks-koepka-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Brooks Koepka wedges Cleveland RTZ Tour Rack 60-6 Low True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "akshay_bhatia|2026-01|drivers|",
+    "player": {
+      "id": "akshay_bhatia",
+      "name": "Akshay Bhatia"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Callaway",
+      "model": "Quantum Triple Diamond Max"
+    },
+    "spec": {
+      "raw": "8.5°"
+    },
+    "shaft": {
+      "raw": "Fujikura Ventus Black 7 X",
+      "display": "Fujikura Ventus Black 7 X",
+      "aliases": [
+        "Fujikura",
+        "Ventus",
+        "Black",
+        "7",
+        "X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772568/akshay-bhatia-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Akshay Bhatia drivers Callaway Quantum Triple Diamond Max 8.5° Fujikura Ventus Black 7 X Fujikura Ventus Black 7 X GolfWRX"
+  },
+  {
+    "id": "akshay_bhatia|2026-01|wedges|50",
+    "player": {
+      "id": "akshay_bhatia",
+      "name": "Akshay Bhatia"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "50",
+    "club": {
+      "brand": "Callaway",
+      "model": "Opus SP"
+    },
+    "spec": {
+      "raw": "50-10S"
+    },
+    "shaft": {
+      "raw": "KBS Hi-Rev 2.0 135 X",
+      "display": "KBS Hi-Rev 2.0 135 X",
+      "aliases": [
+        "KBS",
+        "Hi-Rev",
+        "2.0",
+        "135",
+        "X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772568/akshay-bhatia-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Akshay Bhatia wedges Callaway Opus SP 50-10S KBS Hi-Rev 2.0 135 X KBS Hi-Rev 2.0 135 X GolfWRX"
+  },
+  {
+    "id": "akshay_bhatia|2026-01|wedges|54",
+    "player": {
+      "id": "akshay_bhatia",
+      "name": "Akshay Bhatia"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "54",
+    "club": {
+      "brand": "Callaway",
+      "model": "Opus SP"
+    },
+    "spec": {
+      "raw": "54-10S"
+    },
+    "shaft": {
+      "raw": "KBS Hi-Rev 2.0 135 X",
+      "display": "KBS Hi-Rev 2.0 135 X",
+      "aliases": [
+        "KBS",
+        "Hi-Rev",
+        "2.0",
+        "135",
+        "X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772568/akshay-bhatia-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Akshay Bhatia wedges Callaway Opus SP 54-10S KBS Hi-Rev 2.0 135 X KBS Hi-Rev 2.0 135 X GolfWRX"
+  },
+  {
+    "id": "akshay_bhatia|2026-01|wedges|60",
+    "player": {
+      "id": "akshay_bhatia",
+      "name": "Akshay Bhatia"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "60",
+    "club": {
+      "brand": "Callaway",
+      "model": "Opus SP"
+    },
+    "spec": {
+      "raw": "60-08C"
+    },
+    "shaft": {
+      "raw": "KBS Hi-Rev 2.0 135 X",
+      "display": "KBS Hi-Rev 2.0 135 X",
+      "aliases": [
+        "KBS",
+        "Hi-Rev",
+        "2.0",
+        "135",
+        "X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772568/akshay-bhatia-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Akshay Bhatia wedges Callaway Opus SP 60-08C KBS Hi-Rev 2.0 135 X KBS Hi-Rev 2.0 135 X GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|drivers|",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "Qi10"
+    },
+    "spec": {
+      "raw": "8°"
+    },
+    "shaft": {
+      "raw": "Fujikura Ventus Black 7 X",
+      "display": "Fujikura Ventus Black 7 X",
+      "aliases": [
+        "Fujikura",
+        "Ventus",
+        "Black",
+        "7",
+        "X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler drivers TaylorMade Qi10 8° Fujikura Ventus Black 7 X Fujikura Ventus Black 7 X GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|fairway-woods|",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "fairway-woods",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "Qi10"
+    },
+    "spec": {
+      "raw": "15°"
+    },
+    "shaft": {
+      "raw": "Fujikura Ventus Black 8 X",
+      "display": "Fujikura Ventus Black 8 X",
+      "aliases": [
+        "Fujikura",
+        "Ventus",
+        "Black",
+        "8",
+        "X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler fairway-woods TaylorMade Qi10 15° Fujikura Ventus Black 8 X Fujikura Ventus Black 8 X GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|irons|4",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "irons",
+    "as_of_ym": "2026-01",
+    "slot": "4",
+    "club": {
+      "brand": "Srixon",
+      "model": "ZU85"
+    },
+    "spec": {
+      "raw": "4i"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue X100",
+      "display": "True Temper Dynamic Gold Tour Issue X100",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "X100"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler irons Srixon ZU85 4i True Temper Dynamic Gold Tour Issue X100 True Temper Dynamic Gold Tour Issue X100 GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|irons|",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "irons",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "P7TW"
+    },
+    "spec": {
+      "raw": "5-PW"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue X100",
+      "display": "True Temper Dynamic Gold Tour Issue X100",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "X100"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler irons TaylorMade P7TW 5-PW True Temper Dynamic Gold Tour Issue X100 True Temper Dynamic Gold Tour Issue X100 GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|wedges|50",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "50",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design SM8"
+    },
+    "spec": {
+      "raw": "50-12F"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler wedges Titleist Vokey Design SM8 50-12F True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|wedges|56",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "56",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design SM8"
+    },
+    "spec": {
+      "raw": "56-14F"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler wedges Titleist Vokey Design SM8 56-14F True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|wedges|60",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "60",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design WedgeWorks"
+    },
+    "spec": {
+      "raw": "60-06K"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler wedges Titleist Vokey Design WedgeWorks 60-06K True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|putters|",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "putters",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "Spider Tour X"
+    },
+    "spec": {
+      "raw": "L-Neck / 35.5\" / Loft 3° / Lie 72° / True Path Full Line"
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler putters TaylorMade Spider Tour X L-Neck / 35.5\" / Loft 3° / Lie 72° / True Path Full Line GolfWRX"
   }
 ]
