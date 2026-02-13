@@ -1,7 +1,7 @@
 /**
  * WITB index generator from Google Spreadsheet (public CSV).
- * Format: 1 row = 1 player, items_json column contains club array.
- * Env: WITB_SHEET_ID, WITB_SHEETS (comma-separated tab names).
+ * Format: 1 row = 1 club (witb_rows tab). items_json は使用しない。
+ * Env: WITB_SHEET_ID, WITB_SHEETS (default: witb_rows).
  */
 import dotenv from "dotenv";
 dotenv.config({ path: ".env.local" });
@@ -11,7 +11,7 @@ import * as path from "path";
 import { parse } from "csv-parse/sync";
 
 const SHEET_ID = process.env.WITB_SHEET_ID ?? "";
-const SHEETS_RAW = process.env.WITB_SHEETS ?? "";
+const SHEETS_RAW = process.env.WITB_SHEETS ?? "witb_rows";
 const TABS = SHEETS_RAW.split(",")
   .map((s) => s.trim())
   .filter(Boolean);
@@ -24,10 +24,11 @@ type SpecParsed = {
   loft_actual?: number;
 };
 
-function parseSpec(raw: string): SpecParsed {
+function parseSpec(raw: string, category: string): SpecParsed {
   const result: SpecParsed = { raw };
   const s = String(raw ?? "").trim();
   if (!s) return result;
+  if (category !== "wedges") return result;
 
   const match = s.match(/^(\d+)-(\d+)([A-Za-z]+)\s*@(\d+(?:\.\d+)?)$/);
   if (match) {
@@ -95,14 +96,6 @@ function getField(row: Record<string, unknown>, ...keys: string[]): string {
   return "";
 }
 
-function getClubField(club: Record<string, unknown>, ...keys: string[]): string {
-  for (const k of keys) {
-    const v = club[k];
-    if (v != null && v !== "") return String(v).trim();
-  }
-  return "";
-}
-
 type WitbIndexItem = {
   id: string;
   player: { id: string; name: string };
@@ -131,17 +124,6 @@ function buildSearchText(item: WitbIndexItem): string {
   if (item.shaft?.aliases?.length) parts.push(...item.shaft.aliases);
   if (item.source?.name) parts.push(item.source.name);
   return Array.from(new Set(parts)).filter(Boolean).join(" ");
-}
-
-function parseItemsJson(raw: string): Record<string, unknown>[] {
-  const s = String(raw ?? "").trim();
-  if (!s) return [];
-  try {
-    const arr = JSON.parse(s);
-    return Array.isArray(arr) ? arr : [];
-  } catch {
-    return [];
-  }
 }
 
 function categoryFromTab(tab: string): string {
@@ -178,9 +160,7 @@ async function main() {
     process.exit(1);
   }
   if (TABS.length === 0) {
-    console.error(
-      "Error: WITB_SHEETS env var is required (comma-separated tab names)."
-    );
+    console.error("Error: WITB_SHEETS is empty (default: witb_rows).");
     process.exit(1);
   }
 
@@ -238,47 +218,41 @@ async function main() {
         categoryFallback;
       const as_of_date = getField(row as Record<string, string>, "as_of_date", "as_of_ym", "as of date", "as of ym");
       const as_of_ym = as_of_date || getField(row as Record<string, string>, "as_of_ym");
+      const slot = getField(row as Record<string, string>, "slot", "Slot");
+      const brand = getField(row as Record<string, string>, "brand", "Brand");
+      const model = getField(row as Record<string, string>, "model", "Model");
+      const specRaw = getField(row as Record<string, string>, "spec", "Spec");
+      const shaftRaw = getField(row as Record<string, string>, "shaft", "Shaft");
       const source_name = getField(row as Record<string, string>, "source_name", "source name");
       const source_url = getField(row as Record<string, string>, "source_url", "source url");
 
-      const itemsJson = getField(row as Record<string, string>, "items_json", "items json");
-      const clubs = parseItemsJson(itemsJson);
+      const spec = parseSpec(specRaw, category);
+      const shaft = parseShaft(shaftRaw);
 
-      for (const club of clubs) {
-        const slot = getClubField(club, "slot", "Slot");
-        const brand = getClubField(club, "brand", "Brand");
-        const model = getClubField(club, "model", "Model");
-        const specRaw = getClubField(club, "spec", "Spec");
-        const shaftRaw = getClubField(club, "shaft", "Shaft");
+      const item: WitbIndexItem = {
+        id: `${player_id}|${as_of_ym}|${category}|${slot}`,
+        player: { id: player_id, name: player_name },
+        category,
+        as_of_ym,
+        slot,
+        club: { brand, model },
+        spec,
+        shaft,
+        source: {
+          name: source_name,
+          url: source_url,
+          verified: true,
+        },
+        search_text: "",
+      };
 
-        const spec = parseSpec(specRaw);
-        const shaft = parseShaft(shaftRaw);
-
-        const item: WitbIndexItem = {
-          id: `${player_id}|${as_of_ym}|${category}|${slot}`,
-          player: { id: player_id, name: player_name },
-          category,
-          as_of_ym,
-          slot,
-          club: { brand, model },
-          spec,
-          shaft,
-          source: {
-            name: source_name,
-            url: source_url,
-            verified: true,
-          },
-          search_text: "",
-        };
-
-        item.search_text = buildSearchText(item);
-        allItems.push(item);
-      }
+      item.search_text = buildSearchText(item);
+      allItems.push(item);
     }
   }
 
   console.log(
-    `Rows: ${totalBeforeVerified} (before verified) -> ${totalAfterVerified} (player rows after verified) -> ${allItems.length} (club items)`
+    `Rows: ${totalBeforeVerified} (before verified) -> ${totalAfterVerified} (after verified)`
   );
 
   const seen = new Set<string>();
