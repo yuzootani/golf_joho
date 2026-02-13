@@ -203,9 +203,9 @@ export default function WitbHubPage() {
             <span style={styles.navCardTitle}>Drivers</span>
             <span style={styles.navCardDesc}>ドライバー一覧</span>
           </Link>
-          <Link href="/witb/search?category=wedges" style={styles.navCard}>
+          <Link href="/witb/wedges" style={styles.navCard}>
             <span style={styles.navCardTitle}>Wedges</span>
-            <span style={styles.navCardDesc}>ウェッジで絞り込み</span>
+            <span style={styles.navCardDesc}>ウェッジ一覧</span>
           </Link>
           <Link href="/witb/search?category=irons" style={styles.navCard}>
             <span style={styles.navCardTitle}>Irons</span>
