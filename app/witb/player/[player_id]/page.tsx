@@ -76,7 +76,7 @@ export default function WitbPlayerPage() {
     catMap.get(cat)!.push(item);
   }
 
-  // wedges は spec.loft_label 昇順
+  // wedges: ロフト順、irons/fairway_woods/utility: slot順
   for (const catMap of Array.from(byAsOfYm.values())) {
     for (const [cat, items] of Array.from(catMap.entries())) {
       if (cat === "wedges") {
@@ -84,6 +84,15 @@ export default function WitbPlayerPage() {
           const la = a?.spec && typeof a.spec === "object" && a.spec.loft_label != null ? Number(a.spec.loft_label) : 0;
           const lb = b?.spec && typeof b.spec === "object" && b.spec.loft_label != null ? Number(b.spec.loft_label) : 0;
           return la - lb;
+        });
+      } else if (["irons", "fairway_woods", "utility"].includes(cat)) {
+        items.sort((a: WITBDoc, b: WITBDoc) => {
+          const sa = String(a?.slot ?? "").trim();
+          const sb = String(b?.slot ?? "").trim();
+          const na = parseFloat(sa);
+          const nb = parseFloat(sb);
+          if (!Number.isNaN(na) && !Number.isNaN(nb)) return na - nb;
+          return sa.localeCompare(sb);
         });
       }
     }
@@ -104,6 +113,35 @@ export default function WitbPlayerPage() {
 
   const categoryLabel = (cat: string) =>
     cat.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+  function getHead(d: WITBDoc): string {
+    const c = d?.club && typeof d.club === "object" ? d.club : null;
+    if (!c) return "-";
+    const b = String(c?.brand ?? "").trim();
+    const m = String(c?.model ?? "").trim();
+    return [b, m].filter(Boolean).join(" ") || "-";
+  }
+  function getSpec(d: WITBDoc): string {
+    const s = d?.spec && typeof d.spec === "object" ? d.spec : null;
+    if (!s) return "-";
+    const r = String(s?.raw ?? "").trim();
+    return r || "-";
+  }
+  function getShaft(d: WITBDoc): string {
+    const s = d?.shaft && typeof d.shaft === "object" ? d.shaft : null;
+    if (!s) return "-";
+    return String(s?.display ?? s?.raw ?? "").trim() || "-";
+  }
+  function getSourceUrl(d: WITBDoc): string {
+    const s = d?.source && typeof d.source === "object" ? d.source : null;
+    if (!s) return "";
+    return String(s?.url ?? "").trim();
+  }
+  function getSourceName(d: WITBDoc): string {
+    const s = d?.source && typeof d.source === "object" ? d.source : null;
+    if (!s) return "";
+    return String(s?.name ?? "").trim() || "出典";
+  }
 
   const playerName =
     playerItems.length > 0 ? getPlayerName(playerItems[0]) : player_id;
@@ -149,47 +187,46 @@ export default function WitbPlayerPage() {
               return (
                 <div key={`${ym}-${cat}`} style={styles.categoryBlock}>
                   <h3 style={styles.categoryTitle}>{categoryLabel(cat)}</h3>
-                  <div style={styles.grid}>
-                    {items.map((item: WITBDoc, i: number) => {
-                      const club = item?.club && typeof item.club === "object" ? item.club : null;
-                      const brand = club ? String(club?.brand ?? "").trim() : "";
-                      const model = club ? String(club?.model ?? "").trim() : "";
-                      const brandModel = [brand, model].filter(Boolean).join(" ") || "-";
+                  <div style={styles.tableWrap}>
+                    <table style={styles.table}>
+                      <thead>
+                        <tr>
+                          <th style={styles.th}>Slot</th>
+                          <th style={styles.th}>Head</th>
+                          <th style={styles.th}>Spec</th>
+                          <th style={styles.th}>Shaft</th>
+                          <th style={styles.th}>Source</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {items.map((item: WITBDoc, i: number) => {
+                          const slot = String(item?.slot ?? "").trim() || "-";
+                          const head = getHead(item);
+                          const spec = getSpec(item);
+                          const shaft = getShaft(item);
+                          const sourceUrl = getSourceUrl(item);
+                          const sourceName = getSourceName(item);
 
-                      const spec = item?.spec && typeof item.spec === "object" ? item.spec : null;
-                      const specRaw = spec != null ? String(spec?.raw ?? "").trim() : "";
-                      const specDisplay = specRaw || "-";
-
-                      const shaft = item?.shaft && typeof item.shaft === "object" ? item.shaft : null;
-                      const shaftText = shaft != null
-                        ? String(shaft?.display ?? shaft?.raw ?? "").trim()
-                        : "";
-                      const shaftDisplay = shaftText || "-";
-
-                      const source = item?.source && typeof item.source === "object" ? item.source : null;
-                      const sourceUrl = source != null ? String(source?.url ?? "").trim() : "";
-                      const sourceName = source != null ? String(source?.name ?? "").trim() : "出典";
-
-                      return (
-                        <div key={String(item?.id) || `club-${i}`} style={styles.card}>
-                          <div style={styles.cardBrand}>{brandModel}</div>
-                          <div style={styles.cardSpec}>{specDisplay}</div>
-                          <div style={styles.cardShaft}>{shaftDisplay}</div>
-                          {sourceUrl ? (
-                            <a
-                              href={sourceUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              style={styles.cardLink}
-                            >
-                              {sourceName} →
-                            </a>
-                          ) : (
-                            <span style={styles.cardSourceFallback}>-</span>
-                          )}
-                        </div>
-                      );
-                    })}
+                          return (
+                            <tr key={String(item?.id) || `club-${i}`}>
+                              <td style={styles.td}>{slot}</td>
+                              <td style={styles.td}>{head}</td>
+                              <td style={styles.td}>{spec}</td>
+                              <td style={styles.td}>{shaft}</td>
+                              <td style={styles.td}>
+                                {sourceUrl ? (
+                                  <a href={sourceUrl} target="_blank" rel="noreferrer" style={styles.cellLink}>
+                                    {sourceName} →
+                                  </a>
+                                ) : (
+                                  "-"
+                                )}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               );
@@ -243,49 +280,40 @@ const styles: Record<string, React.CSSProperties> = {
     marginBottom: 12,
   },
   categoryBlock: {
-    marginBottom: 16,
+    marginBottom: 20,
   },
   categoryTitle: {
     fontSize: 16,
     fontWeight: 700,
     marginBottom: 8,
   },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-    gap: 12,
+  tableWrap: {
+    overflowX: "auto",
+    border: "1px solid rgba(0,0,0,0.12)",
+    borderRadius: 8,
   },
-  card: {
-    border: "1px solid rgba(0,0,0,0.1)",
-    borderRadius: 12,
-    padding: 14,
-    background: "#fff",
+  table: {
+    width: "100%",
+    borderCollapse: "collapse",
+    minWidth: 400,
   },
-  cardBrand: {
-    fontSize: 15,
-    fontWeight: 800,
-    marginBottom: 6,
-    opacity: 0.95,
-  },
-  cardSpec: {
-    fontSize: 13,
-    opacity: 0.85,
-    marginBottom: 4,
-  },
-  cardShaft: {
-    fontSize: 12,
-    opacity: 0.75,
-    marginBottom: 6,
-  },
-  cardLink: {
+  th: {
+    padding: "8px 12px",
+    textAlign: "left",
+    borderBottom: "2px solid rgba(0,0,0,0.15)",
+    background: "#f8f8f8",
     fontSize: 13,
     fontWeight: 700,
+  },
+  td: {
+    padding: "8px 12px",
+    borderBottom: "1px solid rgba(0,0,0,0.06)",
+    fontSize: 14,
+  },
+  cellLink: {
     color: "#0369a1",
     textDecoration: "none",
-  },
-  cardSourceFallback: {
-    fontSize: 13,
-    opacity: 0.6,
+    fontWeight: 600,
   },
   empty: {
     fontSize: 14,
