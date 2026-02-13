@@ -65,32 +65,45 @@ export default function WitbPlayerPage() {
     (item) => getPlayerId(item) === player_id
   );
 
-  const byCategory = new Map<string, WitbItem[]>();
+  // as_of_ym ごとにグループ化
+  const byAsOfYm = new Map<string, Map<string, WitbItem[]>>();
   for (const item of playerItems) {
+    const ym = String(item?.as_of_ym ?? "").trim() || "_";
     const cat = String(item?.category ?? "").trim() || "other";
-    if (!byCategory.has(cat)) byCategory.set(cat, []);
-    byCategory.get(cat)!.push(item);
+    if (!byAsOfYm.has(ym)) byAsOfYm.set(ym, new Map());
+    const catMap = byAsOfYm.get(ym)!;
+    if (!catMap.has(cat)) catMap.set(cat, []);
+    catMap.get(cat)!.push(item);
   }
 
-  for (const [, items] of byCategory) {
-    const cat = items[0]?.category;
-    if (cat === "wedges") {
-      items.sort((a, b) => {
-        const la = a?.spec && typeof a.spec === "object" && a.spec.loft_label != null ? Number(a.spec.loft_label) : 0;
-        const lb = b?.spec && typeof b.spec === "object" && b.spec.loft_label != null ? Number(b.spec.loft_label) : 0;
-        return la - lb;
-      });
+  // wedges は spec.loft_label 昇順
+  for (const catMap of byAsOfYm.values()) {
+    for (const [cat, items] of catMap) {
+      if (cat === "wedges") {
+        items.sort((a, b) => {
+          const la = a?.spec && typeof a.spec === "object" && a.spec.loft_label != null ? Number(a.spec.loft_label) : 0;
+          const lb = b?.spec && typeof b.spec === "object" && b.spec.loft_label != null ? Number(b.spec.loft_label) : 0;
+          return la - lb;
+        });
+      }
     }
   }
 
-  const categories = Array.from(byCategory.keys()).sort((a, b) => {
+  const asOfYmList = Array.from(byAsOfYm.keys())
+    .filter((k) => k !== "_")
+    .sort((a, b) => (b < a ? -1 : b > a ? 1 : 0));
+
+  const categoryOrder = (a: string, b: string) => {
     const ia = CATEGORY_ORDER.indexOf(a);
     const ib = CATEGORY_ORDER.indexOf(b);
     if (ia >= 0 && ib >= 0) return ia - ib;
     if (ia >= 0) return -1;
     if (ib >= 0) return 1;
     return a.localeCompare(b);
-  });
+  };
+
+  const categoryLabel = (cat: string) =>
+    cat.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
   const playerName =
     playerItems.length > 0 ? getPlayerName(playerItems[0]) : player_id;
@@ -124,53 +137,63 @@ export default function WitbPlayerPage() {
       <h1 style={styles.title}>{playerName || player_id}</h1>
       <p style={styles.sub}>player_id: {player_id}</p>
 
-      {categories.map((cat) => {
-        const items = byCategory.get(cat) ?? [];
+      {asOfYmList.map((ym) => {
+        const catMap = byAsOfYm.get(ym) ?? new Map();
+        const categories = Array.from(catMap.keys()).sort(categoryOrder);
+        const clubCount = Array.from(catMap.values()).reduce((s, arr) => s + arr.length, 0);
         return (
-          <section key={cat} style={styles.section}>
-            <h2 style={styles.categoryTitle}>{cat}</h2>
-            <div style={styles.grid}>
-              {items.map((item, i) => {
-                const club = item?.club && typeof item.club === "object" ? item.club : null;
-                const brand = club ? String(club.brand ?? "").trim() : "";
-                const model = club ? String(club.model ?? "").trim() : "";
-                const spec = item?.spec && typeof item.spec === "object" ? item.spec : null;
-                const specRaw = spec ? String(spec.raw ?? "").trim() : "";
-                const shaft = item?.shaft && typeof item.shaft === "object" ? item.shaft : null;
-                const shaftDisplay = shaft ? String(shaft.display ?? shaft.raw ?? "").trim() : "";
-                const source = item?.source && typeof item.source === "object" ? item.source : null;
-                const sourceUrl = source ? String(source.url ?? "").trim() : "";
-                const sourceName = source ? String(source.name ?? "").trim() : "出典";
-                const asOfYm = String(item?.as_of_ym ?? "").trim();
+          <section key={ym} style={styles.section}>
+            <h2 style={styles.asOfYmTitle}>{ym}（{clubCount}）</h2>
+            {categories.map((cat) => {
+              const items = catMap.get(cat) ?? [];
+              return (
+                <div key={`${ym}-${cat}`} style={styles.categoryBlock}>
+                  <h3 style={styles.categoryTitle}>{categoryLabel(cat)}</h3>
+                  <div style={styles.grid}>
+                    {items.map((item, i) => {
+                      const club = item?.club && typeof item.club === "object" ? item.club : null;
+                      const brand = club ? String(club?.brand ?? "").trim() : "";
+                      const model = club ? String(club?.model ?? "").trim() : "";
+                      const brandModel = [brand, model].filter(Boolean).join(" ") || "-";
 
-                return (
-                  <div key={String(item?.id) || `club-${i}`} style={styles.card}>
-                    <div style={styles.cardBrand}>
-                      {[brand, model].filter(Boolean).join(" ")}
-                    </div>
-                    {specRaw && (
-                      <div style={styles.cardSpec}>{specRaw}</div>
-                    )}
-                    {shaftDisplay && (
-                      <div style={styles.cardShaft}>{shaftDisplay}</div>
-                    )}
-                    {asOfYm && (
-                      <div style={styles.cardMeta}>as_of: {asOfYm}</div>
-                    )}
-                    {sourceUrl && (
-                      <a
-                        href={sourceUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        style={styles.cardLink}
-                      >
-                        {sourceName} →
-                      </a>
-                    )}
+                      const spec = item?.spec && typeof item.spec === "object" ? item.spec : null;
+                      const specRaw = spec != null ? String(spec?.raw ?? "").trim() : "";
+                      const specDisplay = specRaw || "-";
+
+                      const shaft = item?.shaft && typeof item.shaft === "object" ? item.shaft : null;
+                      const shaftText = shaft != null
+                        ? String(shaft?.display ?? shaft?.raw ?? "").trim()
+                        : "";
+                      const shaftDisplay = shaftText || "-";
+
+                      const source = item?.source && typeof item.source === "object" ? item.source : null;
+                      const sourceUrl = source != null ? String(source?.url ?? "").trim() : "";
+                      const sourceName = source != null ? String(source?.name ?? "").trim() : "出典";
+
+                      return (
+                        <div key={String(item?.id) || `club-${i}`} style={styles.card}>
+                          <div style={styles.cardBrand}>{brandModel}</div>
+                          <div style={styles.cardSpec}>{specDisplay}</div>
+                          <div style={styles.cardShaft}>{shaftDisplay}</div>
+                          {sourceUrl ? (
+                            <a
+                              href={sourceUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              style={styles.cardLink}
+                            >
+                              {sourceName} →
+                            </a>
+                          ) : (
+                            <span style={styles.cardSourceFallback}>-</span>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </section>
         );
       })}
@@ -214,11 +237,18 @@ const styles: Record<string, React.CSSProperties> = {
   section: {
     marginBottom: 32,
   },
-  categoryTitle: {
-    fontSize: 18,
-    fontWeight: 800,
+  asOfYmTitle: {
+    fontSize: 20,
+    fontWeight: 900,
     marginBottom: 12,
-    textTransform: "capitalize",
+  },
+  categoryBlock: {
+    marginBottom: 16,
+  },
+  categoryTitle: {
+    fontSize: 16,
+    fontWeight: 700,
+    marginBottom: 8,
   },
   grid: {
     display: "grid",
@@ -247,16 +277,15 @@ const styles: Record<string, React.CSSProperties> = {
     opacity: 0.75,
     marginBottom: 6,
   },
-  cardMeta: {
-    fontSize: 12,
-    opacity: 0.7,
-    marginBottom: 6,
-  },
   cardLink: {
     fontSize: 13,
     fontWeight: 700,
     color: "#0369a1",
     textDecoration: "none",
+  },
+  cardSourceFallback: {
+    fontSize: 13,
+    opacity: 0.6,
   },
   empty: {
     fontSize: 14,
