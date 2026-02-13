@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 
-type WitbItem = {
+type WITBDoc = {
   id?: string;
   player?: { id?: string; name?: string };
   category?: string;
@@ -17,13 +17,13 @@ type WitbItem = {
   [key: string]: unknown;
 };
 
-function getPlayerId(item: WitbItem): string {
+function getPlayerId(item: WITBDoc): string {
   const p = item?.player;
   if (!p || typeof p !== "object") return "";
   return String(p?.id ?? "").trim();
 }
 
-function getPlayerName(item: WitbItem): string {
+function getPlayerName(item: WITBDoc): string {
   const p = item?.player;
   if (!p || typeof p !== "object") return "";
   return String(p?.name ?? "").trim();
@@ -42,7 +42,7 @@ export default function WitbPlayerPage() {
   const params = useParams();
   const player_id = typeof params?.player_id === "string" ? params.player_id : "";
 
-  const [data, setData] = useState<WitbItem[] | null>(null);
+  const [data, setData] = useState<WITBDoc[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -66,7 +66,7 @@ export default function WitbPlayerPage() {
   );
 
   // as_of_ym ごとにグループ化
-  const byAsOfYm = new Map<string, Map<string, WitbItem[]>>();
+  const byAsOfYm = new Map<string, Map<string, WITBDoc[]>>();
   for (const item of playerItems) {
     const ym = String(item?.as_of_ym ?? "").trim() || "_";
     const cat = String(item?.category ?? "").trim() || "other";
@@ -77,10 +77,10 @@ export default function WitbPlayerPage() {
   }
 
   // wedges は spec.loft_label 昇順
-  for (const catMap of byAsOfYm.values()) {
-    for (const [cat, items] of catMap) {
+  for (const catMap of Array.from(byAsOfYm.values())) {
+    for (const [cat, items] of Array.from(catMap.entries())) {
       if (cat === "wedges") {
-        items.sort((a, b) => {
+        items.sort((a: WITBDoc, b: WITBDoc) => {
           const la = a?.spec && typeof a.spec === "object" && a.spec.loft_label != null ? Number(a.spec.loft_label) : 0;
           const lb = b?.spec && typeof b.spec === "object" && b.spec.loft_label != null ? Number(b.spec.loft_label) : 0;
           return la - lb;
@@ -150,7 +150,7 @@ export default function WitbPlayerPage() {
                 <div key={`${ym}-${cat}`} style={styles.categoryBlock}>
                   <h3 style={styles.categoryTitle}>{categoryLabel(cat)}</h3>
                   <div style={styles.grid}>
-                    {items.map((item, i) => {
+                    {items.map((item: WITBDoc, i: number) => {
                       const club = item?.club && typeof item.club === "object" ? item.club : null;
                       const brand = club ? String(club?.brand ?? "").trim() : "";
                       const model = club ? String(club?.model ?? "").trim() : "";
