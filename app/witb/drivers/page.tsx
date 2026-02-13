@@ -59,6 +59,21 @@ function getShaftDisplay(d: WITBDoc): string {
   return safeStr(s?.display) || safeStr(s?.raw) || "-";
 }
 
+function getShaftForSort(d: WITBDoc): string {
+  const s = d?.shaft;
+  if (!s || typeof s !== "object") return "";
+  return safeStr(s?.display) || safeStr(s?.raw) || "";
+}
+
+function getLoftForSort(d: WITBDoc): number {
+  const raw = getSpecRaw(d);
+  if (!raw) return Infinity;
+  const m = raw.match(/^(\d+(?:\.\d+)?)/);
+  if (!m) return Infinity;
+  const n = parseFloat(m[1]);
+  return Number.isNaN(n) ? Infinity : n;
+}
+
 function getSourceName(d: WITBDoc): string {
   const s = d?.source;
   if (!s || typeof s !== "object") return "";
@@ -91,7 +106,8 @@ export default function WitbDriversPage() {
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
   const [filterAsOfYm, setFilterAsOfYm] = useState("");
-  const [sortKey, setSortKey] = useState<"as_of_ym" | "player" | "brand" | "model">("as_of_ym");
+  type SortKeyType = "date" | "player" | "head" | "loft" | "shaft";
+  const [sortKey, setSortKey] = useState<SortKeyType>("date");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
 
   useEffect(() => {
@@ -135,26 +151,29 @@ export default function WitbDriversPage() {
     if (filterAsOfYm) list = list.filter((d: WITBDoc) => safeStr(d?.as_of_ym) === filterAsOfYm);
 
     list.sort((a: WITBDoc, b: WITBDoc) => {
-      let va: string | number;
-      let vb: string | number;
+      let cmp: number;
       switch (sortKey) {
         case "player":
-          va = getPlayerName(a);
-          vb = getPlayerName(b);
+          cmp = getPlayerName(a).localeCompare(getPlayerName(b));
           break;
-        case "brand":
-          va = getBrand(a);
-          vb = getBrand(b);
+        case "head": {
+          const ha = [getBrand(a), getModel(a)].filter(Boolean).join(" ");
+          const hb = [getBrand(b), getModel(b)].filter(Boolean).join(" ");
+          cmp = ha.localeCompare(hb);
           break;
-        case "model":
-          va = getModel(a);
-          vb = getModel(b);
+        }
+        case "shaft":
+          cmp = getShaftForSort(a).localeCompare(getShaftForSort(b));
           break;
+        case "loft": {
+          const la = getLoftForSort(a);
+          const lb = getLoftForSort(b);
+          cmp = la < lb ? -1 : la > lb ? 1 : 0;
+          break;
+        }
         default:
-          va = safeStr(a?.as_of_ym);
-          vb = safeStr(b?.as_of_ym);
+          cmp = safeStr(a?.as_of_ym).localeCompare(safeStr(b?.as_of_ym));
       }
-      const cmp = va < vb ? -1 : va > vb ? 1 : 0;
       return sortDir === "desc" ? -cmp : cmp;
     });
     return list;
@@ -169,14 +188,22 @@ export default function WitbDriversPage() {
     sortDir,
   ]);
 
-  const handleSort = (key: "as_of_ym" | "player" | "brand" | "model") => {
+  const handleSort = (key: SortKeyType) => {
     if (sortKey === key) {
       setSortDir((prev) => (prev === "asc" ? "desc" : "asc"));
     } else {
       setSortKey(key);
-      setSortDir(key === "as_of_ym" ? "desc" : "asc");
+      setSortDir(key === "date" ? "desc" : "asc");
     }
   };
+
+  const ThSort = (key: SortKeyType, label: string) => (
+    <th style={styles.th}>
+      <button type="button" onClick={() => handleSort(key)} style={styles.thBtn}>
+        {label} {sortKey === key ? (sortDir === "desc" ? "↓" : "↑") : ""}
+      </button>
+    </th>
+  );
 
   const reset = () => {
     setQ("");
@@ -184,7 +211,7 @@ export default function WitbDriversPage() {
     setFilterBrand("");
     setFilterModel("");
     setFilterAsOfYm("");
-    setSortKey("as_of_ym");
+    setSortKey("date");
     setSortDir("desc");
   };
 
@@ -253,23 +280,11 @@ export default function WitbDriversPage() {
         <table style={styles.table}>
           <thead>
             <tr>
-              <th style={styles.th}>
-                <button type="button" onClick={() => handleSort("as_of_ym")} style={styles.thBtn}>
-                  Date {sortKey === "as_of_ym" ? (sortDir === "desc" ? "↓" : "↑") : ""}
-                </button>
-              </th>
-              <th style={styles.th}>
-                <button type="button" onClick={() => handleSort("player")} style={styles.thBtn}>
-                  Player {sortKey === "player" ? (sortDir === "desc" ? "↓" : "↑") : ""}
-                </button>
-              </th>
-              <th style={styles.th}>
-                <button type="button" onClick={() => handleSort("brand")} style={styles.thBtn}>
-                  Head {sortKey === "brand" ? (sortDir === "desc" ? "↓" : "↑") : ""}
-                </button>
-              </th>
-              <th style={styles.th}>Loft/Spec</th>
-              <th style={styles.th}>Shaft</th>
+              {ThSort("date", "Date")}
+              {ThSort("player", "Player")}
+              {ThSort("head", "Head")}
+              {ThSort("loft", "Loft/Spec")}
+              {ThSort("shaft", "Shaft")}
               <th style={styles.th}>Source</th>
             </tr>
           </thead>
