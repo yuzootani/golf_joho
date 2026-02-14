@@ -81,6 +81,7 @@ const layoutStyles: Record<string, React.CSSProperties> = {
 const sidebarStyles: Record<string, React.CSSProperties> = {
   aside: {
     width: 220,
+    flex: "0 0 220px",
     flexShrink: 0,
     borderRight: "1px solid rgba(0,0,0,0.1)",
     background: "#fafafa",
@@ -99,15 +100,19 @@ const sidebarStyles: Record<string, React.CSSProperties> = {
   },
   link: {
     display: "block",
+    width: "100%",
+    boxSizing: "border-box",
     padding: "10px 20px",
     fontSize: 14,
     color: "#333",
     textDecoration: "none",
+    borderLeft: "3px solid transparent",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
   linkActive: {
-    fontWeight: 700,
-    borderLeft: "3px solid #0369a1",
-    marginLeft: -3,
-    paddingLeft: 23,
+    borderLeftColor: "#0369a1",
+    backgroundColor: "rgba(3,105,161,0.08)",
   },
 };
