@@ -146,6 +146,9 @@ export default function WitbPlayerPage() {
   const playerName =
     playerItems.length > 0 ? getPlayerName(playerItems[0]) : player_id;
 
+  // Stats: 将来拡張用。現時点では空配列で準備中表示
+  const stats: { label: string; value: string }[] = [];
+
   if (loading) {
     return (
       <main style={styles.wrap}>
@@ -174,6 +177,30 @@ export default function WitbPlayerPage() {
       </p>
       <h1 style={styles.title}>{playerName || player_id}</h1>
       <p style={styles.sub}>player_id: {player_id}</p>
+
+      {/* Stats セクション（将来拡張用） */}
+      <section style={styles.statsSection}>
+        <h2 style={styles.statsTitle}>Stats（準備中）</h2>
+        <p style={styles.statsDesc}>
+          今後、信頼できる公式ソース（PGA等）から平均飛距離/Accuracy/Sand Save等を追加予定
+        </p>
+        {stats.length > 0 ? (
+          <div style={styles.tableWrap}>
+            <table style={styles.table}>
+              <tbody>
+                {stats.map((s, i) => (
+                  <tr key={i}>
+                    <td style={styles.statsLabelCell}>{s.label}</td>
+                    <td style={styles.td}>{s.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p style={styles.statsPlaceholder}>データ準備中</p>
+        )}
+      </section>
 
       {asOfYmList.map((ym) => {
         const catMap = byAsOfYm.get(ym) ?? new Map();
@@ -270,6 +297,34 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 14,
     opacity: 0.8,
     marginBottom: 24,
+  },
+  statsSection: {
+    marginBottom: 32,
+    padding: 16,
+    border: "1px solid rgba(0,0,0,0.12)",
+    borderRadius: 8,
+    background: "#fafafa",
+  },
+  statsTitle: {
+    fontSize: 18,
+    fontWeight: 800,
+    marginBottom: 8,
+  },
+  statsDesc: {
+    fontSize: 13,
+    opacity: 0.85,
+    marginBottom: 12,
+  },
+  statsPlaceholder: {
+    fontSize: 14,
+    opacity: 0.7,
+    margin: 0,
+  },
+  statsLabelCell: {
+    padding: "8px 12px",
+    borderBottom: "1px solid rgba(0,0,0,0.06)",
+    fontSize: 14,
+    fontWeight: 600,
   },
   section: {
     marginBottom: 32,
