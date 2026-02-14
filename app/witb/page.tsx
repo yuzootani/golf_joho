@@ -223,9 +223,9 @@ export default function WitbHubPage() {
             <span style={styles.navCardTitle}>Putters</span>
             <span style={styles.navCardDesc}>パターで絞り込み</span>
           </Link>
-          <Link href="/witb/search?category=grips" style={styles.navCard}>
+          <Link href="/witb/grips" style={styles.navCard}>
             <span style={styles.navCardTitle}>Grips</span>
-            <span style={styles.navCardDesc}>グリップで絞り込み</span>
+            <span style={styles.navCardDesc}>グリップ一覧</span>
           </Link>
         </div>
       </section>
