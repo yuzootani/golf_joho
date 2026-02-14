@@ -160,14 +160,14 @@
     "search_text": "Justin Thomas wedges Titleist Vokey SM10 60-04T @60.5 60 60.5 4 T Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
   },
   {
-    "id": "justin_thomas|2025-09|drivers|",
+    "id": "justin_thomas|2025-09|drivers|DR",
     "player": {
       "id": "justin_thomas",
       "name": "Justin Thomas"
     },
     "category": "drivers",
     "as_of_ym": "2025-09",
-    "slot": "",
+    "slot": "DR",
     "club": {
       "brand": "Titleist",
       "model": "GT2"
@@ -192,14 +192,14 @@
     "search_text": "Justin Thomas drivers Titleist GT2 9° (A1 SureFit) Mitsubishi Diamana Prototype Mitsubishi Diamana Prototype GolfWRX"
   },
   {
-    "id": "chris_gotterup|2026-02|drivers|",
+    "id": "chris_gotterup|2026-02|drivers|DR",
     "player": {
       "id": "chris_gotterup",
       "name": "Chris Gotterup"
     },
     "category": "drivers",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "DR",
     "club": {
       "brand": "Ping",
       "model": "G440 LST"
@@ -371,14 +371,14 @@
     "search_text": "Chris Gotterup wedges TaylorMade MG5 60° Dynamic Gold Tour Issue X100 DG Dynamic Gold DynamicGold TI Tour Issue X100 DG TI GolfWRX"
   },
   {
-    "id": "hideki_matsuyama|2026-02|drivers|",
+    "id": "hideki_matsuyama|2026-02|drivers|DR",
     "player": {
       "id": "hideki_matsuyama",
       "name": "Hideki Matsuyama"
     },
     "category": "drivers",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "DR",
     "club": {
       "brand": "Srixon",
       "model": "ZXi LS"
@@ -550,14 +550,14 @@
     "search_text": "Hideki Matsuyama wedges Cleveland RTX 4 Forged Prototype 60-08 Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
   },
   {
-    "id": "justin_rose|2026-02|drivers|",
+    "id": "justin_rose|2026-02|drivers|DR",
     "player": {
       "id": "justin_rose",
       "name": "Justin Rose"
     },
     "category": "drivers",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "DR",
     "club": {
       "brand": "Callaway",
       "model": "Paradym Ai Smoke Triple Diamond Max"
@@ -691,14 +691,14 @@
     "search_text": "Justin Rose wedges Titleist Vokey Design WedgeWorks 60-K Dynamic Gold Tour Issue S400 DG Dynamic Gold DynamicGold TI Tour Issue S400 DG TI GolfWRX"
   },
   {
-    "id": "ludvig_aberg|2026-01|drivers|",
+    "id": "ludvig_aberg|2026-01|drivers|DR",
     "player": {
       "id": "ludvig_aberg",
       "name": "Ludvig Åberg"
     },
     "category": "drivers",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "DR",
     "club": {
       "brand": "Titleist",
       "model": "TSR2"
@@ -820,14 +820,14 @@
     "search_text": "Ludvig Åberg wedges Titleist Vokey Design WedgeWorks 60-L KBS Tour 130X KBS Tour 130X GolfWRX"
   },
   {
-    "id": "min_woo_lee|2026-02|drivers|",
+    "id": "min_woo_lee|2026-02|drivers|DR",
     "player": {
       "id": "min_woo_lee",
       "name": "Min Woo Lee"
     },
     "category": "drivers",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "DR",
     "club": {
       "brand": "Callaway",
       "model": "Elyte Triple Diamond"
@@ -961,14 +961,14 @@
     "search_text": "Min Woo Lee wedges Titleist Vokey Design WedgeWorks 60-T Nippon Shaft N.S. Pro Modus3 Tour 120S Nippon Shaft N.S. Pro Modus3 Tour 120S GolfWRX"
   },
   {
-    "id": "brooks_koepka|2026-01|drivers|",
+    "id": "brooks_koepka|2026-01|drivers|DR",
     "player": {
       "id": "brooks_koepka",
       "name": "Brooks Koepka"
     },
     "category": "drivers",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "DR",
     "club": {
       "brand": "Titleist",
       "model": "GT3"
@@ -1140,14 +1140,14 @@
     "search_text": "Brooks Koepka wedges Cleveland RTZ Tour Rack 60-6 Low True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
   },
   {
-    "id": "akshay_bhatia|2026-01|drivers|",
+    "id": "akshay_bhatia|2026-01|drivers|DR",
     "player": {
       "id": "akshay_bhatia",
       "name": "Akshay Bhatia"
     },
     "category": "drivers",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "DR",
     "club": {
       "brand": "Callaway",
       "model": "Quantum Triple Diamond Max"
@@ -1276,14 +1276,14 @@
     "search_text": "Akshay Bhatia wedges Callaway Opus SP 60-08C KBS Hi-Rev 2.0 135 X KBS Hi-Rev 2.0 135 X GolfWRX"
   },
   {
-    "id": "scottie_scheffler|2026-01|drivers|",
+    "id": "scottie_scheffler|2026-01|drivers|DR",
     "player": {
       "id": "scottie_scheffler",
       "name": "Scottie Scheffler"
     },
     "category": "drivers",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "DR",
     "club": {
       "brand": "TaylorMade",
       "model": "Qi10"
@@ -1310,14 +1310,14 @@
     "search_text": "Scottie Scheffler drivers TaylorMade Qi10 8° Fujikura Ventus Black 7 X Fujikura Ventus Black 7 X GolfWRX"
   },
   {
-    "id": "scottie_scheffler|2026-01|fairway-woods|",
+    "id": "scottie_scheffler|2026-01|fairway-woods|3W",
     "player": {
       "id": "scottie_scheffler",
       "name": "Scottie Scheffler"
     },
     "category": "fairway-woods",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "3W",
     "club": {
       "brand": "TaylorMade",
       "model": "Qi10"
@@ -1342,6 +1342,40 @@
       "verified": true
     },
     "search_text": "Scottie Scheffler fairway-woods TaylorMade Qi10 15° Fujikura Ventus Black 8 X Fujikura Ventus Black 8 X GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|fairway-woods|7W",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "fairway-woods",
+    "as_of_ym": "2026-01",
+    "slot": "7W",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "Qi4D"
+    },
+    "spec": {
+      "raw": "21°"
+    },
+    "shaft": {
+      "raw": "Fujikura Ventus Black 9 X",
+      "display": "Fujikura Ventus Black 9 X",
+      "aliases": [
+        "Fujikura",
+        "Ventus",
+        "Black",
+        "9",
+        "X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler fairway-woods TaylorMade Qi4D 21° Fujikura Ventus Black 9 X Fujikura Ventus Black 9 X GolfWRX"
   },
   {
     "id": "scottie_scheffler|2026-01|irons|4",
@@ -1380,14 +1414,14 @@
     "search_text": "Scottie Scheffler irons Srixon ZU85 4i True Temper Dynamic Gold Tour Issue X100 True Temper Dynamic Gold Tour Issue X100 GolfWRX"
   },
   {
-    "id": "scottie_scheffler|2026-01|irons|",
+    "id": "scottie_scheffler|2026-01|irons|5-PW",
     "player": {
       "id": "scottie_scheffler",
       "name": "Scottie Scheffler"
     },
     "category": "irons",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "5-PW",
     "club": {
       "brand": "TaylorMade",
       "model": "P7TW"
@@ -1524,14 +1558,14 @@
     "search_text": "Scottie Scheffler wedges Titleist Vokey Design WedgeWorks 60-06K True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
   },
   {
-    "id": "scottie_scheffler|2026-01|putters|",
+    "id": "scottie_scheffler|2026-01|putters|PT",
     "player": {
       "id": "scottie_scheffler",
       "name": "Scottie Scheffler"
     },
     "category": "putters",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "PT",
     "club": {
       "brand": "TaylorMade",
       "model": "Spider Tour X"
@@ -1550,14 +1584,14 @@
     "search_text": "Scottie Scheffler putters TaylorMade Spider Tour X L-Neck / 35.5\" / Loft 3° / Lie 72° / True Path Full Line GolfWRX"
   },
   {
-    "id": "justin_rose|2026-02|grips|",
+    "id": "justin_rose|2026-02|grips|-",
     "player": {
       "id": "justin_rose",
       "name": "Justin Rose"
     },
     "category": "grips",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Lamkin",
       "model": "JR Rel"
@@ -1576,14 +1610,14 @@
     "search_text": "Justin Rose grips Lamkin JR Rel GolfWRX"
   },
   {
-    "id": "justin_rose|2026-02|balls|",
+    "id": "justin_rose|2026-02|balls|-",
     "player": {
       "id": "justin_rose",
       "name": "Justin Rose"
     },
     "category": "balls",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Titleist",
       "model": "Pro V1x"
@@ -1602,14 +1636,14 @@
     "search_text": "Justin Rose balls Titleist Pro V1x 2025 GolfWRX"
   },
   {
-    "id": "chris_gotterup|2026-02|grips|",
+    "id": "chris_gotterup|2026-02|grips|-",
     "player": {
       "id": "chris_gotterup",
       "name": "Chris Gotterup"
     },
     "category": "grips",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Golf Pride",
       "model": "Z Grip Cord"
@@ -1628,14 +1662,14 @@
     "search_text": "Chris Gotterup grips Golf Pride Z Grip Cord GolfWRX"
   },
   {
-    "id": "chris_gotterup|2026-02|balls|",
+    "id": "chris_gotterup|2026-02|balls|-",
     "player": {
       "id": "chris_gotterup",
       "name": "Chris Gotterup"
     },
     "category": "balls",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Bridgestone",
       "model": "Tour B X Mindset"
@@ -1654,14 +1688,14 @@
     "search_text": "Chris Gotterup balls Bridgestone Tour B X Mindset GolfWRX"
   },
   {
-    "id": "hideki_matsuyama|2026-02|grips|",
+    "id": "hideki_matsuyama|2026-02|grips|-",
     "player": {
       "id": "hideki_matsuyama",
       "name": "Hideki Matsuyama"
     },
     "category": "grips",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Iomic",
       "model": "X-Evolution 2.3"
@@ -1680,14 +1714,14 @@
     "search_text": "Hideki Matsuyama grips Iomic X-Evolution 2.3 GolfWRX"
   },
   {
-    "id": "hideki_matsuyama|2026-02|balls|",
+    "id": "hideki_matsuyama|2026-02|balls|-",
     "player": {
       "id": "hideki_matsuyama",
       "name": "Hideki Matsuyama"
     },
     "category": "balls",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Srixon",
       "model": "Z-Star XV (2025)"
@@ -1706,14 +1740,14 @@
     "search_text": "Hideki Matsuyama balls Srixon Z-Star XV (2025) GolfWRX"
   },
   {
-    "id": "ludvig_aberg|2026-01|grips|",
+    "id": "ludvig_aberg|2026-01|grips|-",
     "player": {
       "id": "ludvig_aberg",
       "name": "Ludvig Åberg"
     },
     "category": "grips",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Golf Pride",
       "model": "MCC"
@@ -1732,14 +1766,14 @@
     "search_text": "Ludvig Åberg grips Golf Pride MCC GolfWRX"
   },
   {
-    "id": "ludvig_aberg|2026-01|balls|",
+    "id": "ludvig_aberg|2026-01|balls|-",
     "player": {
       "id": "ludvig_aberg",
       "name": "Ludvig Åberg"
     },
     "category": "balls",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Titleist",
       "model": "Pro V1x"
@@ -1758,14 +1792,14 @@
     "search_text": "Ludvig Åberg balls Titleist Pro V1x GolfWRX"
   },
   {
-    "id": "akshay_bhatia|2026-01|grips|",
+    "id": "akshay_bhatia|2026-01|grips|-",
     "player": {
       "id": "akshay_bhatia",
       "name": "Akshay Bhatia"
     },
     "category": "grips",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Iomic",
       "model": ""
@@ -1784,14 +1818,14 @@
     "search_text": "Akshay Bhatia grips Iomic GolfWRX"
   },
   {
-    "id": "akshay_bhatia|2026-01|balls|",
+    "id": "akshay_bhatia|2026-01|balls|-",
     "player": {
       "id": "akshay_bhatia",
       "name": "Akshay Bhatia"
     },
     "category": "balls",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Callaway",
       "model": "Chrome Tour"
@@ -1810,14 +1844,14 @@
     "search_text": "Akshay Bhatia balls Callaway Chrome Tour GolfWRX"
   },
   {
-    "id": "brooks_koepka|2026-01|grips|",
+    "id": "brooks_koepka|2026-01|grips|-",
     "player": {
       "id": "brooks_koepka",
       "name": "Brooks Koepka"
     },
     "category": "grips",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Golf Pride",
       "model": "Tour Velvet Cord (Midsize)"
@@ -1836,14 +1870,14 @@
     "search_text": "Brooks Koepka grips Golf Pride Tour Velvet Cord (Midsize) GolfWRX"
   },
   {
-    "id": "brooks_koepka|2026-01|balls|",
+    "id": "brooks_koepka|2026-01|balls|-",
     "player": {
       "id": "brooks_koepka",
       "name": "Brooks Koepka"
     },
     "category": "balls",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Srixon",
       "model": "Z-Star Diamond"
@@ -1862,14 +1896,14 @@
     "search_text": "Brooks Koepka balls Srixon Z-Star Diamond GolfWRX"
   },
   {
-    "id": "min_woo_lee|2026-02|grips|",
+    "id": "min_woo_lee|2026-02|grips|-",
     "player": {
       "id": "min_woo_lee",
       "name": "Min Woo Lee"
     },
     "category": "grips",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Grip Master",
       "model": "/ Golf Pride ZGrip Cord"
@@ -1888,14 +1922,14 @@
     "search_text": "Min Woo Lee grips Grip Master / Golf Pride ZGrip Cord GolfWRX"
   },
   {
-    "id": "min_woo_lee|2026-02|balls|",
+    "id": "min_woo_lee|2026-02|balls|-",
     "player": {
       "id": "min_woo_lee",
       "name": "Min Woo Lee"
     },
     "category": "balls",
     "as_of_ym": "2026-02",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Callaway",
       "model": "Chrome Tour X"
@@ -1914,14 +1948,14 @@
     "search_text": "Min Woo Lee balls Callaway Chrome Tour X GolfWRX"
   },
   {
-    "id": "scottie_scheffler|2026-01|grips|",
+    "id": "scottie_scheffler|2026-01|grips|-",
     "player": {
       "id": "scottie_scheffler",
       "name": "Scottie Scheffler"
     },
     "category": "grips",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Golf Pride",
       "model": "Tour Velvet"
@@ -1940,14 +1974,14 @@
     "search_text": "Scottie Scheffler grips Golf Pride Tour Velvet GolfWRX"
   },
   {
-    "id": "scottie_scheffler|2026-01|balls|",
+    "id": "scottie_scheffler|2026-01|balls|-",
     "player": {
       "id": "scottie_scheffler",
       "name": "Scottie Scheffler"
     },
     "category": "balls",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Titleist",
       "model": "Pro V1"
@@ -1966,14 +2000,14 @@
     "search_text": "Scottie Scheffler balls Titleist Pro V1 GolfWRX"
   },
   {
-    "id": "jordan_spieth|2026-01|grips|",
+    "id": "jordan_spieth|2026-01|grips|-",
     "player": {
       "id": "jordan_spieth",
       "name": "Jordan Spieth"
     },
     "category": "grips",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "SuperStroke",
       "model": ""
@@ -1992,14 +2026,14 @@
     "search_text": "Jordan Spieth grips SuperStroke GolfWRX"
   },
   {
-    "id": "jordan_spieth|2026-01|balls|",
+    "id": "jordan_spieth|2026-01|balls|-",
     "player": {
       "id": "jordan_spieth",
       "name": "Jordan Spieth"
     },
     "category": "balls",
     "as_of_ym": "2026-01",
-    "slot": "",
+    "slot": "-",
     "club": {
       "brand": "Titleist",
       "model": "Pro V1x"
@@ -2016,5 +2050,956 @@
       "verified": true
     },
     "search_text": "Jordan Spieth balls Titleist Pro V1x GolfWRX"
+  },
+  {
+    "id": "tommy_fleetwood|2026-02|drivers|DR",
+    "player": {
+      "id": "tommy_fleetwood",
+      "name": "Tommy Fleetwood"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-02",
+    "slot": "DR",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "Qi4D LS"
+    },
+    "spec": {
+      "raw": "10.5°"
+    },
+    "shaft": {
+      "raw": "Fujikura Ventus TR Blue 6 X",
+      "display": "Fujikura Ventus TR Blue 6 X",
+      "aliases": [
+        "Fujikura",
+        "Ventus",
+        "TR",
+        "Blue",
+        "6",
+        "X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773262/tommy-fleetwood-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Tommy Fleetwood drivers TaylorMade Qi4D LS 10.5° Fujikura Ventus TR Blue 6 X Fujikura Ventus TR Blue 6 X GolfWRX"
+  },
+  {
+    "id": "tommy_fleetwood|2026-02|wedges|52",
+    "player": {
+      "id": "tommy_fleetwood",
+      "name": "Tommy Fleetwood"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "52",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "Hi-Toe 4"
+    },
+    "spec": {
+      "raw": "52-09"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773262/tommy-fleetwood-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Tommy Fleetwood wedges TaylorMade Hi-Toe 4 52-09 True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "tommy_fleetwood|2026-02|wedges|60",
+    "player": {
+      "id": "tommy_fleetwood",
+      "name": "Tommy Fleetwood"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-02",
+    "slot": "60",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "60-09"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773262/tommy-fleetwood-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Tommy Fleetwood wedges TaylorMade MG5 60-09 True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "tommy_fleetwood|2026-02|grips|-",
+    "player": {
+      "id": "tommy_fleetwood",
+      "name": "Tommy Fleetwood"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-02",
+    "slot": "-",
+    "club": {
+      "brand": "Iomic",
+      "model": "/ Golf Pride Tour Velvet Cord"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773262/tommy-fleetwood-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Tommy Fleetwood grips Iomic / Golf Pride Tour Velvet Cord GolfWRX"
+  },
+  {
+    "id": "tommy_fleetwood|2026-02|balls|-",
+    "player": {
+      "id": "tommy_fleetwood",
+      "name": "Tommy Fleetwood"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-02",
+    "slot": "-",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "TP5x Pix"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773262/tommy-fleetwood-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Tommy Fleetwood balls TaylorMade TP5x Pix GolfWRX"
+  },
+  {
+    "id": "will_zalatoris|2026-01|drivers|DR",
+    "player": {
+      "id": "will_zalatoris",
+      "name": "Will Zalatoris"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-01",
+    "slot": "DR",
+    "club": {
+      "brand": "Titleist",
+      "model": "GT3"
+    },
+    "spec": {
+      "raw": "9° (SureFit A1)"
+    },
+    "shaft": {
+      "raw": "Fujikura Ventus TR Black 7 X",
+      "display": "Fujikura Ventus TR Black 7 X",
+      "aliases": [
+        "Fujikura",
+        "Ventus",
+        "TR",
+        "Black",
+        "7",
+        "X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772175/will-zalatoris-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Will Zalatoris drivers Titleist GT3 9° (SureFit A1) Fujikura Ventus TR Black 7 X Fujikura Ventus TR Black 7 X GolfWRX"
+  },
+  {
+    "id": "will_zalatoris|2026-01|wedges|W1",
+    "player": {
+      "id": "will_zalatoris",
+      "name": "Will Zalatoris"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "W1",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design SM11"
+    },
+    "spec": {
+      "raw": "G"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue X100",
+      "display": "True Temper Dynamic Gold Tour Issue X100",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "X100"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772175/will-zalatoris-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Will Zalatoris wedges Titleist Vokey Design SM11 G True Temper Dynamic Gold Tour Issue X100 True Temper Dynamic Gold Tour Issue X100 GolfWRX"
+  },
+  {
+    "id": "will_zalatoris|2026-01|wedges|W2",
+    "player": {
+      "id": "will_zalatoris",
+      "name": "Will Zalatoris"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "W2",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design SM11"
+    },
+    "spec": {
+      "raw": "S"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue X100",
+      "display": "True Temper Dynamic Gold Tour Issue X100",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "X100"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772175/will-zalatoris-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Will Zalatoris wedges Titleist Vokey Design SM11 S True Temper Dynamic Gold Tour Issue X100 True Temper Dynamic Gold Tour Issue X100 GolfWRX"
+  },
+  {
+    "id": "will_zalatoris|2026-01|wedges|W3",
+    "player": {
+      "id": "will_zalatoris",
+      "name": "Will Zalatoris"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "W3",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design SM11"
+    },
+    "spec": {
+      "raw": "L"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue X100",
+      "display": "True Temper Dynamic Gold Tour Issue X100",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "X100"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772175/will-zalatoris-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Will Zalatoris wedges Titleist Vokey Design SM11 L True Temper Dynamic Gold Tour Issue X100 True Temper Dynamic Gold Tour Issue X100 GolfWRX"
+  },
+  {
+    "id": "will_zalatoris|2026-01|grips|-",
+    "player": {
+      "id": "will_zalatoris",
+      "name": "Will Zalatoris"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-01",
+    "slot": "-",
+    "club": {
+      "brand": "Golf Pride",
+      "model": "Z-Grip Cord"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772175/will-zalatoris-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Will Zalatoris grips Golf Pride Z-Grip Cord GolfWRX"
+  },
+  {
+    "id": "will_zalatoris|2026-01|balls|-",
+    "player": {
+      "id": "will_zalatoris",
+      "name": "Will Zalatoris"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-01",
+    "slot": "-",
+    "club": {
+      "brand": "Titleist",
+      "model": "Pro V1x"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772175/will-zalatoris-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Will Zalatoris balls Titleist Pro V1x GolfWRX"
+  },
+  {
+    "id": "collin_morikawa|2026-01|drivers|DR",
+    "player": {
+      "id": "collin_morikawa",
+      "name": "Collin Morikawa"
+    },
+    "category": "drivers",
+    "as_of_ym": "2026-01",
+    "slot": "DR",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "Qi4D LS"
+    },
+    "spec": {
+      "raw": "8°"
+    },
+    "shaft": {
+      "raw": "Mitsubishi Diamana D+ Limited 60 TX",
+      "display": "Mitsubishi Diamana D+ Limited 60 TX",
+      "aliases": [
+        "Mitsubishi",
+        "Diamana",
+        "D+",
+        "Limited",
+        "60",
+        "TX"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/771708/collin-morikawa-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Collin Morikawa drivers TaylorMade Qi4D LS 8° Mitsubishi Diamana D+ Limited 60 TX Mitsubishi Diamana D+ Limited 60 TX GolfWRX"
+  },
+  {
+    "id": "collin_morikawa|2026-01|wedges|50",
+    "player": {
+      "id": "collin_morikawa",
+      "name": "Collin Morikawa"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "50",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "50-SB09"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/771708/collin-morikawa-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Collin Morikawa wedges TaylorMade MG5 50-SB09 True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "collin_morikawa|2026-01|wedges|56",
+    "player": {
+      "id": "collin_morikawa",
+      "name": "Collin Morikawa"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "56",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "56-LB08"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/771708/collin-morikawa-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Collin Morikawa wedges TaylorMade MG5 56-LB08 True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "collin_morikawa|2026-01|wedges|60",
+    "player": {
+      "id": "collin_morikawa",
+      "name": "Collin Morikawa"
+    },
+    "category": "wedges",
+    "as_of_ym": "2026-01",
+    "slot": "60",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "60-LB08"
+    },
+    "shaft": {
+      "raw": "True Temper Dynamic Gold Tour Issue S400",
+      "display": "True Temper Dynamic Gold Tour Issue S400",
+      "aliases": [
+        "True",
+        "Temper",
+        "Dynamic",
+        "Gold",
+        "Tour",
+        "Issue",
+        "S400"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/771708/collin-morikawa-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Collin Morikawa wedges TaylorMade MG5 60-LB08 True Temper Dynamic Gold Tour Issue S400 True Temper Dynamic Gold Tour Issue S400 GolfWRX"
+  },
+  {
+    "id": "collin_morikawa|2026-01|grips|-",
+    "player": {
+      "id": "collin_morikawa",
+      "name": "Collin Morikawa"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-01",
+    "slot": "-",
+    "club": {
+      "brand": "Golf Pride",
+      "model": "Z-Grip Cord"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/771708/collin-morikawa-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Collin Morikawa grips Golf Pride Z-Grip Cord GolfWRX"
+  },
+  {
+    "id": "collin_morikawa|2026-01|balls|-",
+    "player": {
+      "id": "collin_morikawa",
+      "name": "Collin Morikawa"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-01",
+    "slot": "-",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "TP5x"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/771708/collin-morikawa-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Collin Morikawa balls TaylorMade TP5x GolfWRX"
+  },
+  {
+    "id": "nelly_korda|2025-12|drivers|DR",
+    "player": {
+      "id": "nelly_korda",
+      "name": "Nelly Korda"
+    },
+    "category": "drivers",
+    "as_of_ym": "2025-12",
+    "slot": "DR",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "Qi4D"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": "Graphite Design Tour AD FI 6 S",
+      "display": "Graphite Design Tour AD FI 6 S",
+      "aliases": [
+        "Graphite",
+        "Design",
+        "Tour",
+        "AD",
+        "FI",
+        "6",
+        "S"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/770935/nelly-korda-witb-2025-december/",
+      "verified": true
+    },
+    "search_text": "Nelly Korda drivers TaylorMade Qi4D Graphite Design Tour AD FI 6 S Graphite Design Tour AD FI 6 S GolfWRX"
+  },
+  {
+    "id": "nelly_korda|2025-12|wedges|50",
+    "player": {
+      "id": "nelly_korda",
+      "name": "Nelly Korda"
+    },
+    "category": "wedges",
+    "as_of_ym": "2025-12",
+    "slot": "50",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG4"
+    },
+    "spec": {
+      "raw": "50-SB09"
+    },
+    "shaft": {
+      "raw": "AeroTech SteelFiber i95 cw",
+      "display": "AeroTech SteelFiber i95 cw",
+      "aliases": [
+        "AeroTech",
+        "SteelFiber",
+        "i95",
+        "cw"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/770935/nelly-korda-witb-2025-december/",
+      "verified": true
+    },
+    "search_text": "Nelly Korda wedges TaylorMade MG4 50-SB09 AeroTech SteelFiber i95 cw AeroTech SteelFiber i95 cw GolfWRX"
+  },
+  {
+    "id": "nelly_korda|2025-12|wedges|54",
+    "player": {
+      "id": "nelly_korda",
+      "name": "Nelly Korda"
+    },
+    "category": "wedges",
+    "as_of_ym": "2025-12",
+    "slot": "54",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "Proto"
+    },
+    "spec": {
+      "raw": "54-HB13"
+    },
+    "shaft": {
+      "raw": "AeroTech SteelFiber i95 cw",
+      "display": "AeroTech SteelFiber i95 cw",
+      "aliases": [
+        "AeroTech",
+        "SteelFiber",
+        "i95",
+        "cw"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/770935/nelly-korda-witb-2025-december/",
+      "verified": true
+    },
+    "search_text": "Nelly Korda wedges TaylorMade Proto 54-HB13 AeroTech SteelFiber i95 cw AeroTech SteelFiber i95 cw GolfWRX"
+  },
+  {
+    "id": "nelly_korda|2025-12|wedges|58",
+    "player": {
+      "id": "nelly_korda",
+      "name": "Nelly Korda"
+    },
+    "category": "wedges",
+    "as_of_ym": "2025-12",
+    "slot": "58",
+    "club": {
+      "brand": "Titleist",
+      "model": "Vokey Design Prototype"
+    },
+    "spec": {
+      "raw": "58-T"
+    },
+    "shaft": {
+      "raw": "AeroTech SteelFiber i95 cw",
+      "display": "AeroTech SteelFiber i95 cw",
+      "aliases": [
+        "AeroTech",
+        "SteelFiber",
+        "i95",
+        "cw"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/770935/nelly-korda-witb-2025-december/",
+      "verified": true
+    },
+    "search_text": "Nelly Korda wedges Titleist Vokey Design Prototype 58-T AeroTech SteelFiber i95 cw AeroTech SteelFiber i95 cw GolfWRX"
+  },
+  {
+    "id": "nelly_korda|2025-12|grips|-",
+    "player": {
+      "id": "nelly_korda",
+      "name": "Nelly Korda"
+    },
+    "category": "grips",
+    "as_of_ym": "2025-12",
+    "slot": "-",
+    "club": {
+      "brand": "Golf Pride",
+      "model": "Tour Velvet"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/770935/nelly-korda-witb-2025-december/",
+      "verified": true
+    },
+    "search_text": "Nelly Korda grips Golf Pride Tour Velvet GolfWRX"
+  },
+  {
+    "id": "nelly_korda|2025-12|balls|-",
+    "player": {
+      "id": "nelly_korda",
+      "name": "Nelly Korda"
+    },
+    "category": "balls",
+    "as_of_ym": "2025-12",
+    "slot": "-",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "TP5x"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/770935/nelly-korda-witb-2025-december/",
+      "verified": true
+    },
+    "search_text": "Nelly Korda balls TaylorMade TP5x GolfWRX"
+  },
+  {
+    "id": "rory_mcilroy||drivers|DR",
+    "player": {
+      "id": "rory_mcilroy",
+      "name": "Rory McIlroy"
+    },
+    "category": "drivers",
+    "as_of_ym": "",
+    "slot": "DR",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "Qi10"
+    },
+    "spec": {
+      "raw": "9° @8.25"
+    },
+    "shaft": {
+      "raw": "Fujikura Ventus Black 6 X",
+      "display": "Fujikura Ventus Black 6 X",
+      "aliases": [
+        "Fujikura",
+        "Ventus",
+        "Black",
+        "6",
+        "X"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/766024/rory-mcilroys-winning-witb-2025-amgen-irish-open/",
+      "verified": true
+    },
+    "search_text": "Rory McIlroy drivers TaylorMade Qi10 9° @8.25 Fujikura Ventus Black 6 X Fujikura Ventus Black 6 X GolfWRX"
+  },
+  {
+    "id": "rory_mcilroy||wedges|46",
+    "player": {
+      "id": "rory_mcilroy",
+      "name": "Rory McIlroy"
+    },
+    "category": "wedges",
+    "as_of_ym": "",
+    "slot": "46",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "46"
+    },
+    "shaft": {
+      "raw": "Project X 6.5",
+      "display": "Project X 6.5",
+      "aliases": [
+        "Project",
+        "X",
+        "6.5"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/766024/rory-mcilroys-winning-witb-2025-amgen-irish-open/",
+      "verified": true
+    },
+    "search_text": "Rory McIlroy wedges TaylorMade MG5 46 Project X 6.5 Project X 6.5 GolfWRX"
+  },
+  {
+    "id": "rory_mcilroy||wedges|50",
+    "player": {
+      "id": "rory_mcilroy",
+      "name": "Rory McIlroy"
+    },
+    "category": "wedges",
+    "as_of_ym": "",
+    "slot": "50",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "50"
+    },
+    "shaft": {
+      "raw": "Project X 6.5",
+      "display": "Project X 6.5",
+      "aliases": [
+        "Project",
+        "X",
+        "6.5"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/766024/rory-mcilroys-winning-witb-2025-amgen-irish-open/",
+      "verified": true
+    },
+    "search_text": "Rory McIlroy wedges TaylorMade MG5 50 Project X 6.5 Project X 6.5 GolfWRX"
+  },
+  {
+    "id": "rory_mcilroy||wedges|54",
+    "player": {
+      "id": "rory_mcilroy",
+      "name": "Rory McIlroy"
+    },
+    "category": "wedges",
+    "as_of_ym": "",
+    "slot": "54",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "54"
+    },
+    "shaft": {
+      "raw": "Project X 6.5",
+      "display": "Project X 6.5",
+      "aliases": [
+        "Project",
+        "X",
+        "6.5"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/766024/rory-mcilroys-winning-witb-2025-amgen-irish-open/",
+      "verified": true
+    },
+    "search_text": "Rory McIlroy wedges TaylorMade MG5 54 Project X 6.5 Project X 6.5 GolfWRX"
+  },
+  {
+    "id": "rory_mcilroy||wedges|60",
+    "player": {
+      "id": "rory_mcilroy",
+      "name": "Rory McIlroy"
+    },
+    "category": "wedges",
+    "as_of_ym": "",
+    "slot": "60",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "MG5"
+    },
+    "spec": {
+      "raw": "60 @61"
+    },
+    "shaft": {
+      "raw": "Project X 6.5 Wedge",
+      "display": "Project X 6.5 Wedge",
+      "aliases": [
+        "Project",
+        "X",
+        "6.5",
+        "Wedge"
+      ]
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/766024/rory-mcilroys-winning-witb-2025-amgen-irish-open/",
+      "verified": true
+    },
+    "search_text": "Rory McIlroy wedges TaylorMade MG5 60 @61 Project X 6.5 Wedge Project X 6.5 Wedge GolfWRX"
+  },
+  {
+    "id": "rory_mcilroy||grips|-",
+    "player": {
+      "id": "rory_mcilroy",
+      "name": "Rory McIlroy"
+    },
+    "category": "grips",
+    "as_of_ym": "",
+    "slot": "-",
+    "club": {
+      "brand": "Golf Pride",
+      "model": "MCC"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/766024/rory-mcilroys-winning-witb-2025-amgen-irish-open/",
+      "verified": true
+    },
+    "search_text": "Rory McIlroy grips Golf Pride MCC GolfWRX"
+  },
+  {
+    "id": "rory_mcilroy||balls|-",
+    "player": {
+      "id": "rory_mcilroy",
+      "name": "Rory McIlroy"
+    },
+    "category": "balls",
+    "as_of_ym": "",
+    "slot": "-",
+    "club": {
+      "brand": "TaylorMade",
+      "model": "TP5"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/766024/rory-mcilroys-winning-witb-2025-amgen-irish-open/",
+      "verified": true
+    },
+    "search_text": "Rory McIlroy balls TaylorMade TP5 GolfWRX"
   }
 ]
