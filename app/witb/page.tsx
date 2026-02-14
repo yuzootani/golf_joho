@@ -143,51 +143,7 @@ export default function WitbHubPage() {
         <Link href="/witb/search" style={styles.searchLink}>横断検索へ →</Link>
       </section>
 
-      {/* B. 最近追加/更新 */}
-      <section style={styles.section}>
-        <h2 style={styles.sectionTitle}>最近追加・更新</h2>
-        <div style={styles.tableWrap}>
-          <table style={styles.table}>
-            <thead>
-              <tr>
-                <th style={styles.th}>Date</th>
-                <th style={styles.th}>Player</th>
-                <th style={styles.th}>Category</th>
-                <th style={styles.th}>Head</th>
-                <th style={styles.th}>Shaft</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recent.map((d: WITBDoc, i: number) => {
-                const pid = getPlayerId(d);
-                const head = [getBrand(d), getModel(d)].filter(Boolean).join(" ") || "-";
-                return (
-                  <tr key={String(d?.id) || `recent-${i}`}>
-                    <td style={styles.td}>{safeStr(d?.as_of_ym) || "-"}</td>
-                    <td style={styles.td}>
-                      {pid ? (
-                        <Link href={`/witb/player/${encodeURIComponent(pid)}`} style={styles.cellLink}>
-                          {getPlayerName(d) || "-"}
-                        </Link>
-                      ) : (
-                        getPlayerName(d) || "-"
-                      )}
-                    </td>
-                    <td style={styles.td}>{getCategory(d)}</td>
-                    <td style={styles.td}>{head}</td>
-                    <td style={styles.td}>{getShaftShort(d)}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-        <p style={styles.more}>
-          <Link href="/witb/search" style={styles.moreLink}>もっと見る →</Link>
-        </p>
-      </section>
-
-      {/* C. 探す（ナビカード） */}
+      {/* B. 探す（ナビカード） */}
       <section style={styles.section}>
         <h2 style={styles.sectionTitle}>探す</h2>
         <div style={styles.navGrid}>
@@ -230,7 +186,7 @@ export default function WitbHubPage() {
         </div>
       </section>
 
-      {/* D. 人気ランキング */}
+      {/* C. 人気ランキング */}
       <section style={styles.section}>
         <h2 style={styles.sectionTitle}>人気ランキング（Drivers）</h2>
         <div style={styles.rankGrid}>
@@ -267,6 +223,50 @@ export default function WitbHubPage() {
             {shaftCounts.length === 0 && <p style={styles.rankEmpty}>データなし</p>}
           </div>
         </div>
+      </section>
+
+      {/* D. 最近追加・更新 */}
+      <section style={styles.section}>
+        <h2 style={styles.sectionTitle}>最近追加・更新</h2>
+        <div style={styles.tableWrap}>
+          <table style={styles.table}>
+            <thead>
+              <tr>
+                <th style={styles.th}>Date</th>
+                <th style={styles.th}>Player</th>
+                <th style={styles.th}>Category</th>
+                <th style={styles.th}>Head</th>
+                <th style={styles.th}>Shaft</th>
+              </tr>
+            </thead>
+            <tbody>
+              {recent.map((d: WITBDoc, i: number) => {
+                const pid = getPlayerId(d);
+                const head = [getBrand(d), getModel(d)].filter(Boolean).join(" ") || "-";
+                return (
+                  <tr key={String(d?.id) || `recent-${i}`}>
+                    <td style={styles.td}>{safeStr(d?.as_of_ym) || "-"}</td>
+                    <td style={styles.td}>
+                      {pid ? (
+                        <Link href={`/witb/player/${encodeURIComponent(pid)}`} style={styles.cellLink}>
+                          {getPlayerName(d) || "-"}
+                        </Link>
+                      ) : (
+                        getPlayerName(d) || "-"
+                      )}
+                    </td>
+                    <td style={styles.td}>{getCategory(d)}</td>
+                    <td style={styles.td}>{head}</td>
+                    <td style={styles.td}>{getShaftShort(d)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <p style={styles.more}>
+          <Link href="/witb/search" style={styles.moreLink}>もっと見る →</Link>
+        </p>
       </section>
     </main>
   );
