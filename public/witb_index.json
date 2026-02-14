@@ -1548,5 +1548,473 @@
       "verified": true
     },
     "search_text": "Scottie Scheffler putters TaylorMade Spider Tour X L-Neck / 35.5\" / Loft 3° / Lie 72° / True Path Full Line GolfWRX"
+  },
+  {
+    "id": "justin_rose|2026-02|grips|",
+    "player": {
+      "id": "justin_rose",
+      "name": "Justin Rose"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Lamkin",
+      "model": "JR Rel"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772741/justin-rose-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Justin Rose grips Lamkin JR Rel GolfWRX"
+  },
+  {
+    "id": "justin_rose|2026-02|balls|",
+    "player": {
+      "id": "justin_rose",
+      "name": "Justin Rose"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Titleist",
+      "model": "Pro V1x"
+    },
+    "spec": {
+      "raw": "2025"
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772741/justin-rose-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Justin Rose balls Titleist Pro V1x 2025 GolfWRX"
+  },
+  {
+    "id": "chris_gotterup|2026-02|grips|",
+    "player": {
+      "id": "chris_gotterup",
+      "name": "Chris Gotterup"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Golf Pride",
+      "model": "Z Grip Cord"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773054/chris-gotterups-winning-witb-2026-wm-phoenix-open/",
+      "verified": true
+    },
+    "search_text": "Chris Gotterup grips Golf Pride Z Grip Cord GolfWRX"
+  },
+  {
+    "id": "chris_gotterup|2026-02|balls|",
+    "player": {
+      "id": "chris_gotterup",
+      "name": "Chris Gotterup"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Bridgestone",
+      "model": "Tour B X Mindset"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773054/chris-gotterups-winning-witb-2026-wm-phoenix-open/",
+      "verified": true
+    },
+    "search_text": "Chris Gotterup balls Bridgestone Tour B X Mindset GolfWRX"
+  },
+  {
+    "id": "hideki_matsuyama|2026-02|grips|",
+    "player": {
+      "id": "hideki_matsuyama",
+      "name": "Hideki Matsuyama"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Iomic",
+      "model": "X-Evolution 2.3"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773030/hideki-matsuyama-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Hideki Matsuyama grips Iomic X-Evolution 2.3 GolfWRX"
+  },
+  {
+    "id": "hideki_matsuyama|2026-02|balls|",
+    "player": {
+      "id": "hideki_matsuyama",
+      "name": "Hideki Matsuyama"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Srixon",
+      "model": "Z-Star XV (2025)"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/773030/hideki-matsuyama-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Hideki Matsuyama balls Srixon Z-Star XV (2025) GolfWRX"
+  },
+  {
+    "id": "ludvig_aberg|2026-01|grips|",
+    "player": {
+      "id": "ludvig_aberg",
+      "name": "Ludvig Åberg"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Golf Pride",
+      "model": "MCC"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772643/ludvig-aberg-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Ludvig Åberg grips Golf Pride MCC GolfWRX"
+  },
+  {
+    "id": "ludvig_aberg|2026-01|balls|",
+    "player": {
+      "id": "ludvig_aberg",
+      "name": "Ludvig Åberg"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Titleist",
+      "model": "Pro V1x"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772643/ludvig-aberg-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Ludvig Åberg balls Titleist Pro V1x GolfWRX"
+  },
+  {
+    "id": "akshay_bhatia|2026-01|grips|",
+    "player": {
+      "id": "akshay_bhatia",
+      "name": "Akshay Bhatia"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Iomic",
+      "model": ""
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772568/akshay-bhatia-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Akshay Bhatia grips Iomic GolfWRX"
+  },
+  {
+    "id": "akshay_bhatia|2026-01|balls|",
+    "player": {
+      "id": "akshay_bhatia",
+      "name": "Akshay Bhatia"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Callaway",
+      "model": "Chrome Tour"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772568/akshay-bhatia-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Akshay Bhatia balls Callaway Chrome Tour GolfWRX"
+  },
+  {
+    "id": "brooks_koepka|2026-01|grips|",
+    "player": {
+      "id": "brooks_koepka",
+      "name": "Brooks Koepka"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Golf Pride",
+      "model": "Tour Velvet Cord (Midsize)"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772517/brooks-koepka-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Brooks Koepka grips Golf Pride Tour Velvet Cord (Midsize) GolfWRX"
+  },
+  {
+    "id": "brooks_koepka|2026-01|balls|",
+    "player": {
+      "id": "brooks_koepka",
+      "name": "Brooks Koepka"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Srixon",
+      "model": "Z-Star Diamond"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772517/brooks-koepka-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Brooks Koepka balls Srixon Z-Star Diamond GolfWRX"
+  },
+  {
+    "id": "min_woo_lee|2026-02|grips|",
+    "player": {
+      "id": "min_woo_lee",
+      "name": "Min Woo Lee"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Grip Master",
+      "model": "/ Golf Pride ZGrip Cord"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772867/min-woo-lee-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Min Woo Lee grips Grip Master / Golf Pride ZGrip Cord GolfWRX"
+  },
+  {
+    "id": "min_woo_lee|2026-02|balls|",
+    "player": {
+      "id": "min_woo_lee",
+      "name": "Min Woo Lee"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-02",
+    "slot": "",
+    "club": {
+      "brand": "Callaway",
+      "model": "Chrome Tour X"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772867/min-woo-lee-witb-2026-february/",
+      "verified": true
+    },
+    "search_text": "Min Woo Lee balls Callaway Chrome Tour X GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|grips|",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Golf Pride",
+      "model": "Tour Velvet"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler grips Golf Pride Tour Velvet GolfWRX"
+  },
+  {
+    "id": "scottie_scheffler|2026-01|balls|",
+    "player": {
+      "id": "scottie_scheffler",
+      "name": "Scottie Scheffler"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Titleist",
+      "model": "Pro V1"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/772379/scotties-scheffler-winning-witb-the-2026-american-express/",
+      "verified": true
+    },
+    "search_text": "Scottie Scheffler balls Titleist Pro V1 GolfWRX"
+  },
+  {
+    "id": "jordan_spieth|2026-01|grips|",
+    "player": {
+      "id": "jordan_spieth",
+      "name": "Jordan Spieth"
+    },
+    "category": "grips",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "SuperStroke",
+      "model": ""
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/771851/jordan-spieth-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Jordan Spieth grips SuperStroke GolfWRX"
+  },
+  {
+    "id": "jordan_spieth|2026-01|balls|",
+    "player": {
+      "id": "jordan_spieth",
+      "name": "Jordan Spieth"
+    },
+    "category": "balls",
+    "as_of_ym": "2026-01",
+    "slot": "",
+    "club": {
+      "brand": "Titleist",
+      "model": "Pro V1x"
+    },
+    "spec": {
+      "raw": ""
+    },
+    "shaft": {
+      "raw": ""
+    },
+    "source": {
+      "name": "GolfWRX",
+      "url": "https://www.golfwrx.com/771851/jordan-spieth-witb-2026-january/",
+      "verified": true
+    },
+    "search_text": "Jordan Spieth balls Titleist Pro V1x GolfWRX"
   }
 ]
