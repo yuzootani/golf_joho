@@ -1,0 +1,2344 @@
+{
+  "2025": {
+    "aldrich_potgieter": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "325",
+        "unit": "yard",
+        "rank": "1",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "rory_mcilroy": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "323",
+        "unit": "yard",
+        "rank": "2",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "nicolai_hjgaard": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "318.8",
+        "unit": "yard",
+        "rank": "3",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "jesper_svensson": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "318.6",
+        "unit": "yard",
+        "rank": "4",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "kurt_kitayama": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "318",
+        "unit": "yard",
+        "rank": "5",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "michael_thorbjornsen": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "317.8",
+        "unit": "yard",
+        "rank": "6",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "chris_gotterup": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "316.7",
+        "unit": "yard",
+        "rank": "7",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "joseph_bramlett": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "316.4",
+        "unit": "yard",
+        "rank": "8",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "trevor_cone": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "315.4",
+        "unit": "yard",
+        "rank": "9",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "niklas_norgaard": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "315.3",
+        "unit": "yard",
+        "rank": "10",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "rasmus_hjgaard": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "314.9",
+        "unit": "yard",
+        "rank": "11",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "keith_mitchell": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "314.2",
+        "unit": "yard",
+        "rank": "12",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "alejandro_tosti": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "314.2",
+        "unit": "yard",
+        "rank": "13",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "ludvig_erg": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "313.9",
+        "unit": "yard",
+        "rank": "14",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "min_woo_lee": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "313.8",
+        "unit": "yard",
+        "rank": "15",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "jake_knapp": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "313.4",
+        "unit": "yard",
+        "rank": "16",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "cameron_young": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "313.2",
+        "unit": "yard",
+        "rank": "17",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "gary_woodland": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "313",
+        "unit": "yard",
+        "rank": "18",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "garrick_higgo": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "312.9",
+        "unit": "yard",
+        "rank": "19",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "tim_widing": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "312.9",
+        "unit": "yard",
+        "rank": "20",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "luke_clanton": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "312.6",
+        "unit": "yard",
+        "rank": "21",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "will_gordon": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "312.6",
+        "unit": "yard",
+        "rank": "22",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "trey_mullinax": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "312.3",
+        "unit": "yard",
+        "rank": "23",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "xander_schauffele": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "311.9",
+        "unit": "yard",
+        "rank": "24",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "wyndham_clark": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "311.7",
+        "unit": "yard",
+        "rank": "25",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "pierceson_coody": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "311.5",
+        "unit": "yard",
+        "rank": "26",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "isaiah_salinda": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "311.3",
+        "unit": "yard",
+        "rank": "27",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "taylor_pendrith": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "311.2",
+        "unit": "yard",
+        "rank": "28",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "ricky_castillo": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "311",
+        "unit": "yard",
+        "rank": "29",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "steven_fisk": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "311",
+        "unit": "yard",
+        "rank": "30",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "matti_schmid": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "310.9",
+        "unit": "yard",
+        "rank": "31",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "nick_hardy": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "310.8",
+        "unit": "yard",
+        "rank": "32",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "kris_ventura": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "310.8",
+        "unit": "yard",
+        "rank": "33",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "luke_list": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "309.8",
+        "unit": "yard",
+        "rank": "34",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "william_mouw": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "309.5",
+        "unit": "yard",
+        "rank": "35",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "kevin_yu": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "309.4",
+        "unit": "yard",
+        "rank": "36",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "hayden_springer": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "309.2",
+        "unit": "yard",
+        "rank": "37",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "patrick_rodgers": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "309.1",
+        "unit": "yard",
+        "rank": "38",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "thomas_rosenmueller": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "309",
+        "unit": "yard",
+        "rank": "39",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "jhonattan_vegas": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "309",
+        "unit": "yard",
+        "rank": "40",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "ryan_fox": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "308.7",
+        "unit": "yard",
+        "rank": "41",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "max_greyserman": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "308.6",
+        "unit": "yard",
+        "rank": "42",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "karl_vilips": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "308.5",
+        "unit": "yard",
+        "rank": "43",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "taylor_moore": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "308.3",
+        "unit": "yard",
+        "rank": "44",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "scottie_scheffler": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "308.3",
+        "unit": "yard",
+        "rank": "45",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "david_skinns": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "308.3",
+        "unit": "yard",
+        "rank": "46",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "antoine_rozner": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "308.1",
+        "unit": "yard",
+        "rank": "47",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "jackson_suber": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "308.1",
+        "unit": "yard",
+        "rank": "48",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "erik_van_rooyen": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "307.9",
+        "unit": "yard",
+        "rank": "49",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "rico_hoey": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "307.7",
+        "unit": "yard",
+        "rank": "50",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "vince_whaley": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "307.7",
+        "unit": "yard",
+        "rank": "51",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "sam_burns": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "307.5",
+        "unit": "yard",
+        "rank": "52",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "danny_walker": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "307.4",
+        "unit": "yard",
+        "rank": "53",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "harry_higgs": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "307.2",
+        "unit": "yard",
+        "rank": "54",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "maverick_mcnealy": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "306.8",
+        "unit": "yard",
+        "rank": "55",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "byeong_hun_an": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "306.6",
+        "unit": "yard",
+        "rank": "56",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "jordan_spieth": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "306.6",
+        "unit": "yard",
+        "rank": "57",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "thomas_detry": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "306.5",
+        "unit": "yard",
+        "rank": "58",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "keegan_bradley": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "306.4",
+        "unit": "yard",
+        "rank": "59",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "stephan_jaeger": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "306.3",
+        "unit": "yard",
+        "rank": "60",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "alex_smalley": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "306.2",
+        "unit": "yard",
+        "rank": "61",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "jj_spaun": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "306.1",
+        "unit": "yard",
+        "rank": "62",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "patrick_cantlay": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "305.9",
+        "unit": "yard",
+        "rank": "63",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "quade_cummins": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "305.7",
+        "unit": "yard",
+        "rank": "64",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "patrick_fishburn": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "305.6",
+        "unit": "yard",
+        "rank": "65",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "kevin_roy": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "305.6",
+        "unit": "yard",
+        "rank": "66",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "sam_stevens": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "305.5",
+        "unit": "yard",
+        "rank": "67",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "rickie_fowler": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "305.3",
+        "unit": "yard",
+        "rank": "68",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "justin_thomas": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "305.3",
+        "unit": "yard",
+        "rank": "69",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "rafael_campos": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "305.2",
+        "unit": "yard",
+        "rank": "70",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "ben_griffin": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "305.1",
+        "unit": "yard",
+        "rank": "71",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "davis_riley": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "305",
+        "unit": "yard",
+        "rank": "72",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "tony_finau": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.9",
+        "unit": "yard",
+        "rank": "73",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "jeremy_paul": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.9",
+        "unit": "yard",
+        "rank": "74",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "adam_scott": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.9",
+        "unit": "yard",
+        "rank": "75",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "thorbjrn_olesen": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.7",
+        "unit": "yard",
+        "rank": "76",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "davis_thompson": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.7",
+        "unit": "yard",
+        "rank": "77",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "adam_schenk": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.6",
+        "unit": "yard",
+        "rank": "78",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "hayden_buckley": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.5",
+        "unit": "yard",
+        "rank": "79",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "cristobal_del_solar": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.5",
+        "unit": "yard",
+        "rank": "80",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "mac_meissner": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.5",
+        "unit": "yard",
+        "rank": "81",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "victor_perez": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.4",
+        "unit": "yard",
+        "rank": "82",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "harris_english": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "304.3",
+        "unit": "yard",
+        "rank": "83",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "beau_hossler": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "303.9",
+        "unit": "yard",
+        "rank": "84",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "harry_hall": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "303.6",
+        "unit": "yard",
+        "rank": "85",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "matthew_riedel": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "303.6",
+        "unit": "yard",
+        "rank": "86",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "viktor_hovland": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "303.3",
+        "unit": "yard",
+        "rank": "87",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "ryan_gerard": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "303.2",
+        "unit": "yard",
+        "rank": "88",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "daniel_berger": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "302.9",
+        "unit": "yard",
+        "rank": "89",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "doug_ghim": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "302.9",
+        "unit": "yard",
+        "rank": "90",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "matt_wallace": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "302.9",
+        "unit": "yard",
+        "rank": "91",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "matt_fitzpatrick": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "302.7",
+        "unit": "yard",
+        "rank": "92",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "robert_macintyre": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "302.7",
+        "unit": "yard",
+        "rank": "93",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "chan_kim": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "302.5",
+        "unit": "yard",
+        "rank": "94",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "jacob_bridgeman": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "302.2",
+        "unit": "yard",
+        "rank": "95",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "cam_davis": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "302.2",
+        "unit": "yard",
+        "rank": "96",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "braden_thornberry": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "302.2",
+        "unit": "yard",
+        "rank": "97",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "taylor_montgomery": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "302",
+        "unit": "yard",
+        "rank": "98",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "justin_rose": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "301.9",
+        "unit": "yard",
+        "rank": "99",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "frankie_capan_iii": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "301.5",
+        "unit": "yard",
+        "rank": "100",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "bud_cauley": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "301.4",
+        "unit": "yard",
+        "rank": "101",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "mackenzie_hughes": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "301.3",
+        "unit": "yard",
+        "rank": "102",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "peter_malnati": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "301.3",
+        "unit": "yard",
+        "rank": "103",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "andrew_novak": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "301.3",
+        "unit": "yard",
+        "rank": "104",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "sahith_theegala": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "301.3",
+        "unit": "yard",
+        "rank": "105",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "max_homa": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.8",
+        "unit": "yard",
+        "rank": "106",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "mark_hubbard": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.7",
+        "unit": "yard",
+        "rank": "107",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "taylor_dickson": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.4",
+        "unit": "yard",
+        "rank": "108",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "sam_ryder": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.4",
+        "unit": "yard",
+        "rank": "109",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "will_chandler": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.3",
+        "unit": "yard",
+        "rank": "110",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "jason_day": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.3",
+        "unit": "yard",
+        "rank": "111",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "austin_eckroat": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.3",
+        "unit": "yard",
+        "rank": "112",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "emiliano_grillo": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.3",
+        "unit": "yard",
+        "rank": "113",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "hideki_matsuyama": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.2",
+        "unit": "yard",
+        "rank": "114",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "noah_goodwin": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.1",
+        "unit": "yard",
+        "rank": "115",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "lanto_griffin": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "300.1",
+        "unit": "yard",
+        "rank": "116",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "joe_highsmith": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.9",
+        "unit": "yard",
+        "rank": "117",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "adam_hadwin": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.8",
+        "unit": "yard",
+        "rank": "118",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "lee_hodges": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.7",
+        "unit": "yard",
+        "rank": "119",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "michael_kim": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.7",
+        "unit": "yard",
+        "rank": "120",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "ben_silverman": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.7",
+        "unit": "yard",
+        "rank": "121",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "thriston_lawrence": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.5",
+        "unit": "yard",
+        "rank": "122",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "tommy_fleetwood": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.4",
+        "unit": "yard",
+        "rank": "123",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "nate_lashley": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.4",
+        "unit": "yard",
+        "rank": "124",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "nick_dunlap": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.3",
+        "unit": "yard",
+        "rank": "125",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "tom_kim": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.3",
+        "unit": "yard",
+        "rank": "126",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "justin_lower": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.3",
+        "unit": "yard",
+        "rank": "127",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "chad_ramey": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.2",
+        "unit": "yard",
+        "rank": "128",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "kevin_velo": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.2",
+        "unit": "yard",
+        "rank": "129",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "matthieu_pavon": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "299.1",
+        "unit": "yard",
+        "rank": "130",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "matt_mccarty": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "298.9",
+        "unit": "yard",
+        "rank": "131",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "akshay_bhatia": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "298.7",
+        "unit": "yard",
+        "rank": "132",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "seamus_power": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "298.7",
+        "unit": "yard",
+        "rank": "133",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "patton_kizzire": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "298.5",
+        "unit": "yard",
+        "rank": "134",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "joel_dahmen": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "298.4",
+        "unit": "yard",
+        "rank": "135",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "collin_morikawa": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "298.3",
+        "unit": "yard",
+        "rank": "136",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "corey_conners": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "298.2",
+        "unit": "yard",
+        "rank": "137",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "max_mcgreevy": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "298.2",
+        "unit": "yard",
+        "rank": "138",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "kaito_onishi": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "298.2",
+        "unit": "yard",
+        "rank": "139",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "shane_lowry": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "298.1",
+        "unit": "yard",
+        "rank": "140",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "sepp_straka": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "297.9",
+        "unit": "yard",
+        "rank": "141",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "eric_cole": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "297.7",
+        "unit": "yard",
+        "rank": "142",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "chris_kirk": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "297.7",
+        "unit": "yard",
+        "rank": "143",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "ryo_hisatsune": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "297.5",
+        "unit": "yard",
+        "rank": "144",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "si_woo_kim": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "297.4",
+        "unit": "yard",
+        "rank": "145",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "chandler_phillips": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "297.2",
+        "unit": "yard",
+        "rank": "146",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "sungjae_im": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "296.9",
+        "unit": "yard",
+        "rank": "147",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "ben_martin": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "296.7",
+        "unit": "yard",
+        "rank": "148",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "tom_hoge": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "296.3",
+        "unit": "yard",
+        "rank": "149",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "rikuya_hoshino": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "296",
+        "unit": "yard",
+        "rank": "150",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "ryan_palmer": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "296",
+        "unit": "yard",
+        "rank": "151",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "sami_valimaki": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "295.9",
+        "unit": "yard",
+        "rank": "152",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "mason_andersen": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "295.8",
+        "unit": "yard",
+        "rank": "153",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "adam_svensson": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "295.7",
+        "unit": "yard",
+        "rank": "154",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "jt_poston": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "295.6",
+        "unit": "yard",
+        "rank": "155",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "denny_mccarthy": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "295.3",
+        "unit": "yard",
+        "rank": "156",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "ben_kohles": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "295.2",
+        "unit": "yard",
+        "rank": "157",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "henrik_norlander": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "295.2",
+        "unit": "yard",
+        "rank": "158",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "greyson_sigg": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "295.2",
+        "unit": "yard",
+        "rank": "159",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "nick_taylor": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "295.2",
+        "unit": "yard",
+        "rank": "160",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "carson_young": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "294.8",
+        "unit": "yard",
+        "rank": "161",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "nico_echavarria": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "294.7",
+        "unit": "yard",
+        "rank": "162",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "brian_harman": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "294.6",
+        "unit": "yard",
+        "rank": "163",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "david_lipsky": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "293.6",
+        "unit": "yard",
+        "rank": "164",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "lucas_glover": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "292.3",
+        "unit": "yard",
+        "rank": "165",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "takumi_kanaya": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "292.1",
+        "unit": "yard",
+        "rank": "166",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "brice_garnett": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "291.2",
+        "unit": "yard",
+        "rank": "167",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "john_pak": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "290.4",
+        "unit": "yard",
+        "rank": "168",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "christiaan_bezuidenhout": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "290",
+        "unit": "yard",
+        "rank": "169",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "camilo_villegas": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "290",
+        "unit": "yard",
+        "rank": "170",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "aaron_rai": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "289.6",
+        "unit": "yard",
+        "rank": "171",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "russell_henley": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "289.1",
+        "unit": "yard",
+        "rank": "172",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "zac_blair": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "287.1",
+        "unit": "yard",
+        "rank": "173",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "matteo_manassero": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "286",
+        "unit": "yard",
+        "rank": "174",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "zach_johnson": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "285.6",
+        "unit": "yard",
+        "rank": "175",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "brandt_snedeker": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "284.2",
+        "unit": "yard",
+        "rank": "176",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "matt_kuchar": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "282.2",
+        "unit": "yard",
+        "rank": "177",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "paul_peterson": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "281.7",
+        "unit": "yard",
+        "rank": "178",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "andrew_putnam": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "280.5",
+        "unit": "yard",
+        "rank": "179",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ],
+    "brian_campbell": [
+      {
+        "stat_key": "driving_distance",
+        "stat_label_en": "Driving Distance",
+        "stat_label_ja": "ドライバー平均飛距離",
+        "value": "278.4",
+        "unit": "yard",
+        "rank": "180",
+        "source_name": "PGA Tour Stats",
+        "source_url": "Golf Stat and Records | PGA TOUR",
+        "notes": ""
+      }
+    ]
+  }
+}

@@ -4,6 +4,21 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 
+type PlayerStatRow = {
+  stat_key?: string;
+  stat_label_en?: string;
+  stat_label_ja?: string;
+  value?: string;
+  unit?: string;
+  rank?: string;
+  source_name?: string;
+  source_url?: string;
+  notes?: string;
+};
+
+type PlayerStatsByYear = Record<string, PlayerStatRow[]>;
+type PlayerStatsData = Record<string, PlayerStatsByYear>;
+
 type WITBDoc = {
   id?: string;
   player?: { id?: string; name?: string };
@@ -43,19 +58,27 @@ export default function WitbPlayerPage() {
   const player_id = typeof params?.player_id === "string" ? params.player_id : "";
 
   const [data, setData] = useState<WITBDoc[] | null>(null);
+  const [playerStatsData, setPlayerStatsData] = useState<PlayerStatsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/witb_index.json")
-      .then((res) => res.json())
-      .then((json) => {
-        setData(Array.isArray(json) ? json : []);
+    Promise.all([
+      fetch("/witb_index.json").then((res) => res.json()),
+      fetch("/player_stats.json")
+        .then((res) => (res.ok ? res.json() : {}))
+        .catch(() => ({}))
+        .then((json) => (typeof json === "object" && json !== null ? json : {})),
+    ])
+      .then(([witbJson, statsJson]) => {
+        setData(Array.isArray(witbJson) ? witbJson : []);
+        setPlayerStatsData(statsJson as PlayerStatsData);
         setError(null);
       })
       .catch((err) => {
         setError(err?.message ?? "Failed to load");
         setData([]);
+        setPlayerStatsData({});
       })
       .finally(() => setLoading(false));
   }, []);
@@ -146,8 +169,14 @@ export default function WitbPlayerPage() {
   const playerName =
     playerItems.length > 0 ? getPlayerName(playerItems[0]) : player_id;
 
-  // Stats: 将来拡張用。現時点では空配列で準備中表示
-  const stats: { label: string; value: string }[] = [];
+  // 2025 stats があれば取得（無ければ準備中表示）
+  const stats: PlayerStatRow[] = (() => {
+    const byYear = playerStatsData ?? {};
+    const year2025 = byYear["2025"];
+    if (!year2025 || typeof year2025 !== "object") return [];
+    const rows = year2025[player_id];
+    return Array.isArray(rows) ? rows : [];
+  })();
 
   if (loading) {
     return (
@@ -178,22 +207,51 @@ export default function WitbPlayerPage() {
       <h1 style={styles.title}>{playerName || player_id}</h1>
       <p style={styles.sub}>player_id: {player_id}</p>
 
-      {/* Stats セクション（将来拡張用） */}
+      {/* Stats セクション */}
       <section style={styles.statsSection}>
-        <h2 style={styles.statsTitle}>Stats（準備中）</h2>
+        <h2 style={styles.statsTitle}>
+          {stats.length > 0 ? "Stats (2025)" : "Stats（準備中）"}
+        </h2>
         <p style={styles.statsDesc}>
           今後、信頼できる公式ソース（PGA等）から平均飛距離/Accuracy/Sand Save等を追加予定
         </p>
         {stats.length > 0 ? (
           <div style={styles.tableWrap}>
             <table style={styles.table}>
+              <thead>
+                <tr>
+                  <th style={styles.th}>項目</th>
+                  <th style={styles.th}>値</th>
+                  <th style={styles.th}>順位</th>
+                  <th style={styles.th}>出典</th>
+                </tr>
+              </thead>
               <tbody>
-                {stats.map((s, i) => (
-                  <tr key={i}>
-                    <td style={styles.statsLabelCell}>{s.label}</td>
-                    <td style={styles.td}>{s.value}</td>
-                  </tr>
-                ))}
+                {stats.map((s, i) => {
+                  const label = String(s?.stat_label_ja ?? s?.stat_label_en ?? "").trim() || "-";
+                  const val = String(s?.value ?? "").trim();
+                  const u = String(s?.unit ?? "").trim();
+                  const valueWithUnit = u ? `${val} ${u}` : val || "-";
+                  const rank = String(s?.rank ?? "").trim() || "-";
+                  const sourceUrl = String(s?.source_url ?? "").trim();
+                  const sourceName = String(s?.source_name ?? "").trim() || "出典";
+                  return (
+                    <tr key={s?.stat_key ?? i}>
+                      <td style={styles.td}>{label}</td>
+                      <td style={styles.td}>{valueWithUnit}</td>
+                      <td style={styles.td}>{rank}</td>
+                      <td style={styles.td}>
+                        {sourceUrl ? (
+                          <a href={sourceUrl} target="_blank" rel="noreferrer" style={styles.cellLink}>
+                            {sourceName || "出典"} →
+                          </a>
+                        ) : (
+                          sourceName || "-"
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

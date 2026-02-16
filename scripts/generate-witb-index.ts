@@ -264,6 +264,80 @@ async function main() {
 
   fs.writeFileSync(outPath, JSON.stringify(unique, null, 2), "utf-8");
   console.log(`Generated ${unique.length} items -> ${outPath}`);
+
+  // player_stats タブを取得して public/player_stats.json を生成
+  const statsTab = "player_stats";
+  const statsCsv = await fetchTabCsv(SHEET_ID, statsTab);
+  if (statsCsv) {
+    const statsText = statsCsv.replace(/^\uFEFF/, "");
+    let statsRows: Record<string, unknown>[] = [];
+    try {
+      statsRows = parse(statsText, {
+        columns: true,
+        skip_empty_lines: true,
+        relax_column_count: true,
+        bom: true,
+      });
+    } catch (statsErr) {
+      console.error("Failed to parse player_stats CSV:", statsErr);
+    }
+    if (statsRows.length > 0) {
+      type PlayerStatRow = {
+        stat_key: string;
+        stat_label_en: string;
+        stat_label_ja: string;
+        value: string;
+        unit: string;
+        rank: string;
+        source_name: string;
+        source_url: string;
+        notes: string;
+      };
+      type PlayerStatsByYear = Record<string, PlayerStatRow[]>;
+      const byYearAndPlayer: Record<string, PlayerStatsByYear> = {};
+      for (const row of statsRows) {
+        const r = row as Record<string, string>;
+        const player_id = getField(r, "player_id", "player id");
+        if (!player_id) continue;
+        const as_of_year = getField(r, "as_of_year", "as of year") || "_";
+        const stat_key = getField(r, "stat_key", "stat key");
+        const stat_label_en = getField(r, "stat_label_en", "stat label en");
+        const stat_label_ja = getField(r, "stat_label_ja", "stat label ja");
+        const value = getField(r, "value", "Value");
+        const unit = getField(r, "unit", "Unit");
+        const rank = getField(r, "rank", "Rank");
+        const source_name = getField(r, "source_name", "source name");
+        const source_url = getField(r, "source_url", "source url");
+        const notes = getField(r, "notes", "Notes");
+        if (!byYearAndPlayer[as_of_year]) {
+          byYearAndPlayer[as_of_year] = {};
+        }
+        if (!byYearAndPlayer[as_of_year][player_id]) {
+          byYearAndPlayer[as_of_year][player_id] = [];
+        }
+        byYearAndPlayer[as_of_year][player_id].push({
+          stat_key,
+          stat_label_en,
+          stat_label_ja,
+          value,
+          unit,
+          rank,
+          source_name,
+          source_url,
+          notes,
+        });
+      }
+      const statsOutPath = path.join(path.resolve(__dirname, ".."), "public", "player_stats.json");
+      fs.writeFileSync(statsOutPath, JSON.stringify(byYearAndPlayer, null, 2), "utf-8");
+      const totalStats = Object.values(byYearAndPlayer).reduce(
+        (sum, byPlayer) => sum + Object.values(byPlayer).reduce((s, arr) => s + arr.length, 0),
+        0
+      );
+      console.log(`Generated player_stats.json: ${totalStats} rows -> ${statsOutPath}`);
+    }
+  } else {
+    console.warn(`player_stats tab not found or fetch failed. Skipping player_stats.json.`);
+  }
 }
 
 main();
