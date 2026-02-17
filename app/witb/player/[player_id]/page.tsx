@@ -44,6 +44,28 @@ function getPlayerName(item: WITBDoc): string {
   return String(p?.name ?? "").trim();
 }
 
+function formatStatValue(s: PlayerStatRow): string {
+  const valRaw = String(s?.value ?? "").trim();
+  const u = String(s?.unit ?? "").trim().toLowerCase();
+  if (!valRaw) return "-";
+
+  if (u === "%") {
+    const cleaned = valRaw.replace(/%/g, "").trim();
+    const n = parseFloat(cleaned);
+    if (Number.isNaN(n)) return valRaw;
+    return `${n.toFixed(2)} %`;
+  }
+  if (u === "yd" || u === "yards") {
+    const n = parseFloat(valRaw);
+    if (Number.isNaN(n)) return valRaw;
+    const safeN = n > 1000 ? n / 100 : n;
+    return `${safeN.toFixed(1)} yd`;
+  }
+  return u ? `${valRaw} ${u}` : valRaw;
+}
+
+const SOURCE_DISPLAY_NAME = "PGA Tour Stats";
+
 const CATEGORY_ORDER = [
   "drivers",
   "fairway_woods",
@@ -212,9 +234,6 @@ export default function WitbPlayerPage() {
         <h2 style={styles.statsTitle}>
           {stats.length > 0 ? "Stats (2025)" : "Stats（準備中）"}
         </h2>
-        <p style={styles.statsDesc}>
-          今後、信頼できる公式ソース（PGA等）から平均飛距離/Accuracy/Sand Save等を追加予定
-        </p>
         {stats.length > 0 ? (
           <div style={styles.tableWrap}>
             <table style={styles.table}>
@@ -229,24 +248,21 @@ export default function WitbPlayerPage() {
               <tbody>
                 {stats.map((s, i) => {
                   const label = String(s?.stat_label_ja ?? s?.stat_label_en ?? "").trim() || "-";
-                  const val = String(s?.value ?? "").trim();
-                  const u = String(s?.unit ?? "").trim();
-                  const valueWithUnit = u ? `${val} ${u}` : val || "-";
+                  const valueDisplay = formatStatValue(s);
                   const rank = String(s?.rank ?? "").trim() || "-";
                   const sourceUrl = String(s?.source_url ?? "").trim();
-                  const sourceName = String(s?.source_name ?? "").trim() || "出典";
                   return (
                     <tr key={s?.stat_key ?? i}>
                       <td style={styles.td}>{label}</td>
-                      <td style={styles.td}>{valueWithUnit}</td>
+                      <td style={styles.td}>{valueDisplay}</td>
                       <td style={styles.td}>{rank}</td>
                       <td style={styles.td}>
                         {sourceUrl ? (
                           <a href={sourceUrl} target="_blank" rel="noreferrer" style={styles.cellLink}>
-                            {sourceName || "出典"} →
+                            {SOURCE_DISPLAY_NAME} →
                           </a>
                         ) : (
-                          sourceName || "-"
+                          SOURCE_DISPLAY_NAME
                         )}
                       </td>
                     </tr>
@@ -366,11 +382,6 @@ const styles: Record<string, React.CSSProperties> = {
   statsTitle: {
     fontSize: 18,
     fontWeight: 800,
-    marginBottom: 8,
-  },
-  statsDesc: {
-    fontSize: 13,
-    opacity: 0.85,
     marginBottom: 12,
   },
   statsPlaceholder: {
