@@ -30,12 +30,41 @@ type GearMasterEntry = {
 
 type GearLinks = { official_url: string; spec_url: string };
 
+/** brand/model 突合用の正規化: 小文字化・trim・連続空白を1つに・記号(-/)除去 */
+function normalizeForMatch(s: string): string {
+  const t = String(s ?? "").trim().toLowerCase();
+  const noSymbols = t.replace(/[-/　]/g, " ").replace(/[\s]+/g, " ").trim();
+  return noSymbols;
+}
+
+/** WITB category を gear_master の gear_type に合わせる（複数形→単数形など） */
+function categoryToGearType(category: string): string {
+  const c = String(category ?? "").trim().toLowerCase();
+  const map: Record<string, string> = {
+    drivers: "driver",
+    driver: "driver",
+    fairway_woods: "fairway_wood",
+    fairway_wood: "fairway_wood",
+    utility: "utility",
+    irons: "iron",
+    iron: "iron",
+    wedges: "wedge",
+    wedge: "wedge",
+    putters: "putter",
+    putter: "putter",
+    grips: "grip",
+    grip: "grip",
+    shaft: "shaft",
+  };
+  return map[c] ?? c;
+}
+
 function buildGearLookup(entries: GearMasterEntry[]): Map<string, GearLinks> {
   const map = new Map<string, GearLinks>();
   for (const e of entries) {
-    const b = String(e?.brand ?? "").trim().toLowerCase();
-    const m = String(e?.model ?? "").trim().toLowerCase();
-    const g = String(e?.gear_type ?? "").trim().toLowerCase();
+    const b = normalizeForMatch(String(e?.brand ?? ""));
+    const m = normalizeForMatch(String(e?.model ?? ""));
+    const g = normalizeForMatch(String(e?.gear_type ?? ""));
     const official_url = String(e?.official_url ?? "").trim();
     const spec_url = String(e?.spec_url ?? "").trim();
     if (!official_url && !spec_url) continue;
@@ -51,9 +80,9 @@ function getGearLinks(
   model: string,
   category: string
 ): GearLinks {
-  const b = brand.trim().toLowerCase();
-  const m = model.trim().toLowerCase();
-  const g = String(category ?? "").trim().toLowerCase();
+  const b = normalizeForMatch(brand);
+  const m = normalizeForMatch(model);
+  const g = categoryToGearType(category);
   return gearLookup.get(`${b}|${m}|${g}`) ?? { official_url: "", spec_url: "" };
 }
 
