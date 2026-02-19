@@ -338,6 +338,68 @@ async function main() {
   } else {
     console.warn(`player_stats tab not found or fetch failed. Skipping player_stats.json.`);
   }
+
+  // gear_master タブを取得して public/gear_master.json を生成
+  const gearTab = "gear_master";
+  const gearCsv = await fetchTabCsv(SHEET_ID, gearTab);
+  if (gearCsv) {
+    const gearText = gearCsv.replace(/^\uFEFF/, "");
+    let gearRows: Record<string, unknown>[] = [];
+    try {
+      gearRows = parse(gearText, {
+        columns: true,
+        skip_empty_lines: true,
+        relax_column_count: true,
+        bom: true,
+      });
+    } catch (gearErr) {
+      console.error("Failed to parse gear_master CSV:", gearErr);
+    }
+    if (gearRows.length > 0) {
+      type GearMasterRow = {
+        gear_type: string;
+        brand: string;
+        model: string;
+        display_name: string;
+        official_url: string;
+        spec_url: string;
+        release_year: string;
+        notes: string;
+        applicable_to: string;
+      };
+      const gearList: GearMasterRow[] = [];
+      for (const row of gearRows) {
+        const r = row as Record<string, string>;
+        const gear_type = getField(r, "gear_type", "gear type");
+        const brand = getField(r, "brand", "Brand");
+        const model = getField(r, "model", "Model");
+        const display_name = getField(r, "display_name", "display name");
+        const official_url = getField(r, "official_url", "official url");
+        const spec_url = getField(r, "spec_url", "spec url");
+        const release_year = getField(r, "release_year", "release year");
+        const notes = getField(r, "notes", "Notes");
+        const applicable_to = getField(r, "applicable_to", "applicable to");
+        const isEmpty = !gear_type && !brand && !model && !display_name && !official_url && !spec_url && !release_year && !notes && !applicable_to;
+        if (isEmpty) continue;
+        gearList.push({
+          gear_type,
+          brand,
+          model,
+          display_name,
+          official_url,
+          spec_url,
+          release_year,
+          notes,
+          applicable_to,
+        });
+      }
+      const gearOutPath = path.join(path.resolve(__dirname, ".."), "public", "gear_master.json");
+      fs.writeFileSync(gearOutPath, JSON.stringify(gearList, null, 2), "utf-8");
+      console.log(`Generated gear_master.json: ${gearList.length} rows -> ${gearOutPath}`);
+    }
+  } else {
+    console.warn(`gear_master tab not found or fetch failed. Skipping gear_master.json.`);
+  }
 }
 
 main();

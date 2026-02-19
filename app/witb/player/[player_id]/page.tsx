@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 
@@ -18,6 +18,44 @@ type PlayerStatRow = {
 
 type PlayerStatsByYear = Record<string, PlayerStatRow[]>;
 type PlayerStatsData = Record<string, PlayerStatsByYear>;
+
+type GearMasterEntry = {
+  gear_type?: string;
+  brand?: string;
+  model?: string;
+  official_url?: string;
+  spec_url?: string;
+  [key: string]: unknown;
+};
+
+type GearLinks = { official_url: string; spec_url: string };
+
+function buildGearLookup(entries: GearMasterEntry[]): Map<string, GearLinks> {
+  const map = new Map<string, GearLinks>();
+  for (const e of entries) {
+    const b = String(e?.brand ?? "").trim().toLowerCase();
+    const m = String(e?.model ?? "").trim().toLowerCase();
+    const g = String(e?.gear_type ?? "").trim().toLowerCase();
+    const official_url = String(e?.official_url ?? "").trim();
+    const spec_url = String(e?.spec_url ?? "").trim();
+    if (!official_url && !spec_url) continue;
+    const key = `${b}|${m}|${g}`;
+    map.set(key, { official_url, spec_url });
+  }
+  return map;
+}
+
+function getGearLinks(
+  gearLookup: Map<string, GearLinks>,
+  brand: string,
+  model: string,
+  category: string
+): GearLinks {
+  const b = brand.trim().toLowerCase();
+  const m = model.trim().toLowerCase();
+  const g = String(category ?? "").trim().toLowerCase();
+  return gearLookup.get(`${b}|${m}|${g}`) ?? { official_url: "", spec_url: "" };
+}
 
 type WITBDoc = {
   id?: string;
@@ -81,6 +119,7 @@ export default function WitbPlayerPage() {
 
   const [data, setData] = useState<WITBDoc[] | null>(null);
   const [playerStatsData, setPlayerStatsData] = useState<PlayerStatsData | null>(null);
+  const [gearMaster, setGearMaster] = useState<GearMasterEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -91,16 +130,22 @@ export default function WitbPlayerPage() {
         .then((res) => (res.ok ? res.json() : {}))
         .catch(() => ({}))
         .then((json) => (typeof json === "object" && json !== null ? json : {})),
+      fetch("/gear_master.json")
+        .then((res) => (res.ok ? res.json() : []))
+        .catch(() => [])
+        .then((json) => (Array.isArray(json) ? json : [])),
     ])
-      .then(([witbJson, statsJson]) => {
+      .then(([witbJson, statsJson, gearJson]) => {
         setData(Array.isArray(witbJson) ? witbJson : []);
         setPlayerStatsData(statsJson as PlayerStatsData);
+        setGearMaster(gearJson as GearMasterEntry[]);
         setError(null);
       })
       .catch((err) => {
         setError(err?.message ?? "Failed to load");
         setData([]);
         setPlayerStatsData({});
+        setGearMaster([]);
       })
       .finally(() => setLoading(false));
   }, []);
@@ -190,6 +235,11 @@ export default function WitbPlayerPage() {
 
   const playerName =
     playerItems.length > 0 ? getPlayerName(playerItems[0]) : player_id;
+
+  const gearLookup = useMemo(
+    () => buildGearLookup(gearMaster),
+    [gearMaster]
+  );
 
   // 2025 stats があれば取得（無ければ準備中表示）
   const stats: PlayerStatRow[] = (() => {
@@ -303,6 +353,10 @@ export default function WitbPlayerPage() {
                         {items.map((item: WITBDoc, i: number) => {
                           const slot = String(item?.slot ?? "").trim() || "-";
                           const head = getHead(item);
+                          const brand = String(item?.club?.brand ?? "").trim();
+                          const model = String(item?.club?.model ?? "").trim();
+                          const category = String(item?.category ?? "").trim();
+                          const gearLinks = getGearLinks(gearLookup, brand, model, category);
                           const spec = getSpec(item);
                           const shaft = getShaft(item);
                           const sourceUrl = getSourceUrl(item);
@@ -311,7 +365,29 @@ export default function WitbPlayerPage() {
                           return (
                             <tr key={String(item?.id) || `club-${i}`}>
                               <td style={styles.td}>{slot}</td>
-                              <td style={styles.td}>{head}</td>
+                              <td style={styles.td}>
+                                {head}
+                                {(gearLinks.official_url || gearLinks.spec_url) && (
+                                  <span style={styles.gearLinksWrap}>
+                                    {gearLinks.official_url && (
+                                      <>
+                                        {" "}
+                                        <a href={gearLinks.official_url} target="_blank" rel="noreferrer" style={styles.officialLink} title="公式サイト">
+                                          公式
+                                        </a>
+                                      </>
+                                    )}
+                                    {gearLinks.spec_url && (
+                                      <>
+                                        {gearLinks.official_url && " "}
+                                        <a href={gearLinks.spec_url} target="_blank" rel="noreferrer" style={styles.officialLink} title="Specs">
+                                          Specs
+                                        </a>
+                                      </>
+                                    )}
+                                  </span>
+                                )}
+                              </td>
                               <td style={styles.td}>{spec}</td>
                               <td style={styles.td}>{shaft}</td>
                               <td style={styles.td}>
@@ -438,6 +514,15 @@ const styles: Record<string, React.CSSProperties> = {
     color: "#0369a1",
     textDecoration: "none",
     fontWeight: 600,
+  },
+  gearLinksWrap: {
+    marginLeft: 4,
+  },
+  officialLink: {
+    fontSize: 11,
+    color: "#64748b",
+    textDecoration: "none",
+    opacity: 0.9,
   },
   empty: {
     fontSize: 14,
