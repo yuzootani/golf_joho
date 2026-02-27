@@ -755,9 +755,15 @@ export default function Page() {
           flex-direction: column;
         }
         .title {
-          font-size: 40px;
-          letter-spacing: -0.02em;
+          font-size: 1.5rem;
+          font-weight: 600;
+          letter-spacing: -0.025em;
           margin: 0 0 10px;
+        }
+        @media (min-width: 768px) {
+          .title {
+            font-size: 1.875rem;
+          }
         }
         .tagline {
           font-size: 16px;
@@ -879,8 +885,18 @@ export default function Page() {
           margin-top: 34px;
         }
         .h2 {
-          font-size: 22px;
-          margin: 0 0 10px;
+          margin-top: 2.5rem;
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        .h2:first-of-type {
+          margin-top: 0;
+        }
+        @media (min-width: 768px) {
+          .h2 {
+            font-size: 1.5rem;
+          }
         }
         .h3 {
           font-size: 16px;
@@ -1293,7 +1309,7 @@ async function WitbSection() {
 
   return (
     <section style={{ border: "1px solid #ddd", padding: 12, marginTop: 12 }}>
-      <h2>WITB Wedges（Verified Latest）</h2>
+      <h2 className="h2" style={{ marginTop: 0 }}>WITB Wedges（Verified Latest）</h2>
       {rows.length === 0 ? (
         <p>データがまだありません（verified=true の行がない可能性）</p>
       ) : (

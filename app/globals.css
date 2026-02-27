@@ -39,3 +39,12 @@ a:hover {
 details summary::-webkit-details-marker {
   display: none;
 }
+
+/* 全ページ共通：中央寄せコンテナ */
+.page-container {
+  width: 100%;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem;
+}
