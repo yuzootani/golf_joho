@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -48,7 +48,7 @@ function formatUpdatedAt(iso?: string): string {
   }
 }
 
-export default function ClubsPage() {
+function ClubsContent() {
   const searchParams = useSearchParams();
   const [data, setData] = useState<GearEntry[]>([]);
   const [stockMap, setStockMap] = useState<Record<string, StockSummaryItem>>({});
@@ -142,5 +142,13 @@ export default function ClubsPage() {
         </div>
       )}
     </main>
+  );
+}
+
+export default function ClubsPage() {
+  return (
+    <Suspense fallback={<main><p>読み込み中...</p></main>}>
+      <ClubsContent />
+    </Suspense>
   );
 }
