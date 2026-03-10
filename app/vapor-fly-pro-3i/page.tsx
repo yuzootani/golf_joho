@@ -25,8 +25,6 @@ type CommunityLink = { label: string; href: string; note?: string };
 
 type DomesticShop = { name: string; href: string; note: string };
 
-type WitbEntry = { player: string; when: string; label: string; href: string; note?: string };
-
 type Video = {
   title: string;
   href: string;
@@ -228,27 +226,6 @@ const club = {
     "新品流通がほぼなく、中古・オークション中心で「探すクラブ」になっている。",
     "コミュニティ（GolfWRX 等）でも『代替が見つからない』文脈の言及が見られる。",
   ],
-  witb: [
-    {
-      player: "Brooks Koepka",
-      when: "2016",
-      label: "クラブセッティング（WITB）（2016）",
-      href: "https://www.golfwrx.com/351072/brooks-koepka-witb-2016/",
-    },
-    {
-      player: "Brooks Koepka",
-      when: "2026 Jan",
-      label: "クラブセッティング（WITB）（2026年1月）",
-      href: "https://www.golfwrx.com/772517/brooks-koepka-witb-2026-january/",
-      note: "同一3I継続使用の記録",
-    },
-    {
-      player: "Tony Finau",
-      when: "2025年5月",
-      label: "クラブセッティング（WITB）（2025年5月）",
-      href: "https://www.golfwrx.com/760806/tony-finau-witb-2025-may/",
-    },
-  ] as WitbEntry[],
   notes: [
     "「Vapor Fly」と「Vapor Fly Pro」が混同されやすい。商品名・刻印・形状を要確認。",
     "中古は状態差が大きい（溝・フェース・ソール）。写真が少ない出品は避けるのが無難。",
@@ -393,8 +370,6 @@ export default function Page() {
         </div>
       </header>
 
-      <WitbSection />
-
       {/* このクラブについて - 横長カード */}
       <div className="aboutCard">
         <div className="aboutCardCol">
@@ -423,14 +398,6 @@ export default function Page() {
             <dt>位置づけ</dt>
             <dd>{club.basicInfo.position}</dd>
           </dl>
-        </div>
-        <div className="aboutCardCol">
-          <h3 className="h3">使用が確認されているプロ</h3>
-          <ul className="bullets">
-            {club.proUsage.map((p) => (
-              <li key={p.name}>{p.name}（{p.period}）</li>
-            ))}
-          </ul>
         </div>
       </div>
 
@@ -641,26 +608,6 @@ export default function Page() {
           </div>
         </section>
       )}
-
-      {/* WITB - Always visible */}
-      <section className="section">
-        <h2 className="h2">
-          使用プロのクラブセッティング<span className="witbSub">（WITB）</span>
-        </h2>
-        <div className="panel" style={{ marginTop: 12 }}>
-          <div className="witbGrid">
-            {club.witb.map((w) => (
-              <a key={w.href} className="witbCard" href={w.href} target="_blank" rel="noreferrer">
-                <div className="witbPlayer">{w.player}</div>
-                <div className="witbWhen">{w.when}</div>
-                <div className="witbLabel">{w.label}</div>
-                {w.note && <div className="witbNote">{w.note}</div>}
-                <div className="witbGo">記事へ →</div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* NOTES */}
       <section className="section">
@@ -916,17 +863,6 @@ export default function Page() {
         .specTable dd {
           margin: 0;
         }
-        .witbHeading {
-          font-size: 18px;
-          font-weight: 900;
-          margin: 0 0 12px;
-        }
-        .witbSub {
-          font-size: 14px;
-          font-weight: 700;
-          opacity: 0.8;
-          margin-left: 2px;
-        }
         .muted2 {
           font-size: 13px;
           opacity: 0.75;
@@ -1161,49 +1097,12 @@ export default function Page() {
           color: inherit;
           border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
         }
-        .witbGrid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-          gap: 12px;
-        }
-        .witbCard {
-          display: block;
-          padding: 14px;
-          border-radius: 14px;
-          border: 1px solid rgba(0, 0, 0, 0.1);
-          background: #fff;
+        .tlLink {
+          font-weight: 900;
           text-decoration: none;
           color: inherit;
+          border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
         }
-        .witbCard:hover {
-          border-color: rgba(0, 0, 0, 0.22);
-        }
-        .witbPlayer {
-          font-weight: 900;
-          font-size: 15px;
-        }
-        .witbWhen {
-          font-size: 13px;
-          opacity: 0.85;
-          margin-top: 2px;
-        }
-        .witbLabel {
-          font-size: 13px;
-          font-weight: 800;
-          margin-top: 6px;
-        }
-        .witbNote {
-          font-size: 12px;
-          opacity: 0.75;
-          margin-top: 4px;
-        }
-        .witbGo {
-          margin-top: 8px;
-          font-weight: 800;
-          font-size: 13px;
-          opacity: 0.9;
-        }
-
         .details {
           border: 1px solid rgba(0, 0, 0, 0.1);
           border-radius: 16px;
@@ -1283,71 +1182,4 @@ export default function Page() {
       `}</style>
     </main>
   );
-}
-
-
-type WitbRow = {
-  player_id: string;
-  as_of_date: string;
-  source_name: string;
-  source_url: string;
-  published_date?: string;
-
-  wedge_1?: string;
-  wedge_2?: string;
-  wedge_3?: string;
-  wedge_4?: string;
-
-  wedge_shafts?: string;
-  iron_shaft?: string;
-  wedge_iron_relation?: string;
-  note?: string;
-};
-
-async function WitbSection() {
-  const rows = await fetchWitb();
-
-  return (
-    <section style={{ border: "1px solid #ddd", padding: 12, marginTop: 12 }}>
-      <h2 className="h2" style={{ marginTop: 0 }}>WITB Wedges（Verified Latest）</h2>
-      {rows.length === 0 ? (
-        <p>データがまだありません（verified=true の行がない可能性）</p>
-      ) : (
-        rows.map((r) => (
-          <div key={`${r.player_id}-${r.as_of_date}`} style={{ marginTop: 12 }}>
-            <h3>{r.player_id} / {r.as_of_date}</h3>
-            <div>
-              Source:{" "}
-              <a href={r.source_url} target="_blank" rel="noreferrer">
-                {r.source_name}
-              </a>
-              {r.published_date ? `（公開日: ${r.published_date}）` : null}
-            </div>
-            <ul>
-              {[r.wedge_1, r.wedge_2, r.wedge_3, r.wedge_4].filter(Boolean).map((w, i) => (
-                <li key={i}>{w}</li>
-              ))}
-            </ul>
-            {r.wedge_shafts ? <div>Wedge shafts: {r.wedge_shafts}</div> : null}
-            {r.iron_shaft ? <div>Iron shaft: {r.iron_shaft}</div> : null}
-            {r.wedge_iron_relation ? <div>Relation: {r.wedge_iron_relation}</div> : null}
-            {r.note ? <div>Note: {r.note}</div> : null}
-          </div>
-        ))
-      )}
-    </section>
-  );
-}
-
-async function fetchWitb(): Promise<WitbRow[]> {
-  const base = process.env.WITB_API_BASE_URL;
-  const token = process.env.WITB_API_TOKEN;
-
-  if (!base || !token) return [];
-
-  const url = `${base}?mode=latest&token=${encodeURIComponent(token)}`;
-  const res = await fetch(url, { cache: "no-store" });
-  const data = await res.json();
-
-  return Array.isArray(data) ? data : [];
 }

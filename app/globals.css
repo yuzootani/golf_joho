@@ -48,3 +48,114 @@ details summary::-webkit-details-marker {
   margin-right: auto;
   padding: 2rem 1rem;
 }
+
+/* 名器ポータル・一覧用見出し */
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.5rem;
+}
+@media (min-width: 768px) {
+  .page-title {
+    font-size: 1.875rem;
+  }
+}
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+}
+@media (min-width: 768px) {
+.section-title {
+  font-size: 1.5rem;
+  }
+}
+
+/* グローバルナビ */
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.site-nav {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 12px 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.site-nav-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.site-nav-link:hover {
+  color: var(--color-accent);
+}
+
+/* マイバッグ一覧 */
+.bags-page {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+.bags-sub {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  margin: 0 0 1.5rem;
+}
+.bags-error { color: #b91c1c; }
+.bags-empty { color: var(--color-text-muted); }
+.bags-list { margin-bottom: 2.5rem; }
+.bags-ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.bags-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+.bags-card-link {
+  display: block;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: inherit;
+}
+.bags-card-link:hover { background: var(--color-bg); }
+.bags-card-name { font-weight: 700; font-size: 1.125rem; display: block; margin-bottom: 4px; }
+.bags-card-meta { font-size: 0.875rem; color: var(--color-text-muted); display: block; margin-bottom: 2px; }
+.bags-active {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: #e0f2fe;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.bags-pro-section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+.bags-pro-desc { font-size: 0.875rem; color: var(--color-text-muted); margin: 0 0 0.75rem; }
+.bags-pro-links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.bags-pro-link { font-weight: 600; }
+
+/* バッグ詳細 */
+.bag-detail-page { max-width: 56rem; margin: 0 auto; padding: 0 1rem 3rem; }
+.bag-detail-back { font-size: 0.875rem; margin-bottom: 1rem; }
+.bag-detail-table { width: 100%; border-collapse: collapse; border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; }
+.bag-detail-table th, .bag-detail-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--color-border); }
+.bag-detail-table th { background: #f1f5f9; font-weight: 600; font-size: 0.8125rem; }
+.bag-detail-table tr:last-child td { border-bottom: none; }
+
+/* プロ比較ページ */
+.compare-page { max-width: 64rem; margin: 0 auto; padding: 0 1rem 3rem; }
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+@media (max-width: 768px) { .compare-grid { grid-template-columns: 1fr; } }
+.compare-panel { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1rem 1.25rem; background: var(--color-surface); }
+.compare-panel h3 { font-size: 1rem; margin: 0 0 0.75rem; font-weight: 700; }
+.compare-highlights { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+.compare-highlights h2 { font-size: 1.25rem; margin: 0 0 1rem; }
+.compare-diff-list { list-style: none; padding: 0; margin: 0; }
+.compare-diff-list li { padding: 6px 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; }
+.compare-diff-list li:last-child { border-bottom: none; }
+.compare-diff-same { color: var(--color-text-muted); }

@@ -64,5 +64,16 @@
     "release_year": "",
     "notes": "",
     "applicable_to": ""
+  },
+  {
+    "gear_type": "iron",
+    "brand": "Nike",
+    "model": "Vapor Fly Pro 3 Iron",
+    "display_name": "vapor-fly-pro-3i",
+    "official_url": "",
+    "spec_url": "",
+    "release_year": "2016",
+    "notes": "",
+    "applicable_to": "irons"
   }
 ]

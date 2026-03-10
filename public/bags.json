@@ -1,0 +1,33 @@
+[
+  {
+    "id": "bag-1",
+    "name": "メインバッグ",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "active": true,
+    "clubs": [
+      { "label": "DR", "clubType": "D", "loft": 10.5, "shaftWeightBand": "60g帯", "modelName": "TaylorMade Qi10" },
+      { "label": "3W", "clubType": "FW", "loft": 15, "shaftWeightBand": "70g帯", "modelName": "Titleist TSR2" },
+      { "label": "5W", "clubType": "FW", "loft": 18, "shaftWeightBand": "70g帯", "modelName": "Titleist TSR2" },
+      { "label": "4", "clubType": "IRON", "loft": 22, "shaftWeightBand": "100g帯", "modelName": "Titleist T150" },
+      { "label": "5-PW", "clubType": "IRON", "loft": 26, "shaftWeightBand": "100g帯", "modelName": "Titleist T150" },
+      { "label": "50", "clubType": "WEDGE", "loft": 50, "shaftWeightBand": "100g帯", "modelName": "Vokey SM10" },
+      { "label": "54", "clubType": "WEDGE", "loft": 54, "shaftWeightBand": "100g帯", "modelName": "Vokey SM10" },
+      { "label": "60", "clubType": "WEDGE", "loft": 60, "shaftWeightBand": "100g帯", "modelName": "Vokey SM10" },
+      { "label": "PT", "clubType": "PUTTER", "loft": 3, "shaftWeightBand": "", "modelName": "Scotty Cameron" }
+    ]
+  },
+  {
+    "id": "bag-2",
+    "name": "サブバッグ",
+    "updatedAt": "2025-02-01T00:00:00.000Z",
+    "active": false,
+    "clubs": [
+      { "label": "DR", "clubType": "D", "loft": 9, "shaftWeightBand": "65g帯", "modelName": "Callaway Paradym" },
+      { "label": "3W", "clubType": "FW", "loft": 15, "modelName": "Callaway Paradym" },
+      { "label": "4-PW", "clubType": "IRON", "loft": 24, "modelName": "Mizuno JPX923" },
+      { "label": "52", "clubType": "WEDGE", "loft": 52, "modelName": "Cleveland RTX" },
+      { "label": "56", "clubType": "WEDGE", "loft": 56, "modelName": "Cleveland RTX" },
+      { "label": "PT", "clubType": "PUTTER", "modelName": "Odyssey" }
+    ]
+  }
+]

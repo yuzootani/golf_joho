@@ -115,7 +115,7 @@ export default function WitbSearchPage() {
   const docs = data ?? [];
 
   const uniq = (arr: string[]): string[] =>
-    [...new Set(arr.filter((x): x is string => typeof x === "string" && x.length > 0))].sort();
+    Array.from(new Set(arr.filter((x): x is string => typeof x === "string" && x.length > 0))).sort();
 
   const categories = uniq(
     docs.map((d) => safeString(d?.category)).filter(Boolean)
