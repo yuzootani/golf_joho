@@ -48,3 +48,52 @@ export const LOFT_BANDS: { key: string; label: string; min: number; max: number 
 export function enabledClubs(clubs: Club[]): Club[] {
   return (clubs ?? []).filter((c) => c.isEnabled !== false);
 }
+
+/** プロの clubs が空のときの仮参考テンプレ（構成のみ。典型的な14本セット） */
+export const DEFAULT_PRO_TEMPLATE_CLUBS: Club[] = [
+  { id: "t-d", label: "D", clubType: "D", loftDeg: 10.5, shaftWeightBand: "60-69" },
+  { id: "t-3w", label: "3W", clubType: "FW", loftDeg: 15, shaftWeightBand: "70-79" },
+  { id: "t-5w", label: "5W", clubType: "FW", loftDeg: 18, shaftWeightBand: "70-79" },
+  { id: "t-4i", label: "4i", clubType: "IRON", loftDeg: 22, shaftWeightBand: "100-109" },
+  { id: "t-5i", label: "5i", clubType: "IRON", loftDeg: 26, shaftWeightBand: "100-109" },
+  { id: "t-6i", label: "6i", clubType: "IRON", loftDeg: 30, shaftWeightBand: "100-109" },
+  { id: "t-7i", label: "7i", clubType: "IRON", loftDeg: 34, shaftWeightBand: "100-109" },
+  { id: "t-8i", label: "8i", clubType: "IRON", loftDeg: 38, shaftWeightBand: "100-109" },
+  { id: "t-9i", label: "9i", clubType: "IRON", loftDeg: 42, shaftWeightBand: "100-109" },
+  { id: "t-pw", label: "PW", clubType: "IRON", loftDeg: 46, shaftWeightBand: "100-109" },
+  { id: "t-50", label: "50°", clubType: "WEDGE", loftDeg: 50, shaftWeightBand: "100-109" },
+  { id: "t-54", label: "54°", clubType: "WEDGE", loftDeg: 54, shaftWeightBand: "100-109" },
+  { id: "t-58", label: "58°", clubType: "WEDGE", loftDeg: 58, shaftWeightBand: "100-109" },
+  { id: "t-pt", label: "PT", clubType: "PUTTER", loftDeg: 3 },
+];
+
+/** 表示用カテゴリ（Woods / UT / Irons / Wedges / Putter） */
+export type DisplayCategory = "Woods" | "UT" | "Irons" | "Wedges" | "Putter";
+
+const DISPLAY_CATEGORY_ORDER: DisplayCategory[] = ["Woods", "UT", "Irons", "Wedges", "Putter"];
+
+export function clubTypeToDisplayCategory(ct: ClubType): DisplayCategory {
+  if (ct === "D" || ct === "FW") return "Woods";
+  if (ct === "UT") return "UT";
+  if (ct === "IRON") return "Irons";
+  if (ct === "WEDGE") return "Wedges";
+  return "Putter";
+}
+
+export function groupClubsByDisplayCategory(clubs: Club[]): Record<DisplayCategory, Club[]> {
+  const r: Record<DisplayCategory, Club[]> = {
+    Woods: [],
+    UT: [],
+    Irons: [],
+    Wedges: [],
+    Putter: [],
+  };
+  for (const c of clubs) {
+    const cat = clubTypeToDisplayCategory(c.clubType);
+    r[cat].push(c);
+  }
+  for (const cat of DISPLAY_CATEGORY_ORDER) {
+    r[cat].sort((a, b) => CLUB_TYPE_ORDER.indexOf(a.clubType) - CLUB_TYPE_ORDER.indexOf(b.clubType) || (a.loftDeg ?? 0) - (b.loftDeg ?? 0));
+  }
+  return r;
+}

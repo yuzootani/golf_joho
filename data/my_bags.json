@@ -1,0 +1,35 @@
+{
+  "bags": [
+    {
+      "bagId": "bag-1",
+      "name": "メインバッグ",
+      "updatedAt": "2025-03-10T00:00:00.000Z",
+      "isActive": true,
+      "clubs": [
+        { "id": "c1", "label": "1W", "clubType": "D", "loftDeg": 10.5, "shaftWeightBand": "60-69", "modelName": "TaylorMade Qi10" },
+        { "id": "c2", "label": "3W", "clubType": "FW", "loftDeg": 15, "shaftWeightBand": "70-79", "modelName": "Titleist TSR2" },
+        { "id": "c3", "label": "5W", "clubType": "FW", "loftDeg": 18, "shaftWeightBand": "70-79", "modelName": "Titleist TSR2" },
+        { "id": "c4", "label": "4i", "clubType": "IRON", "loftDeg": 22, "shaftWeightBand": "100-109", "modelName": "Titleist T150" },
+        { "id": "c5", "label": "5-PW", "clubType": "IRON", "loftDeg": 26, "shaftWeightBand": "100-109", "modelName": "Titleist T150" },
+        { "id": "c6", "label": "50°", "clubType": "WEDGE", "loftDeg": 50, "shaftWeightBand": "100-109", "modelName": "Vokey SM10" },
+        { "id": "c7", "label": "54°", "clubType": "WEDGE", "loftDeg": 54, "shaftWeightBand": "100-109", "modelName": "Vokey SM10" },
+        { "id": "c8", "label": "60°", "clubType": "WEDGE", "loftDeg": 60, "shaftWeightBand": "100-109", "modelName": "Vokey SM10" },
+        { "id": "c9", "label": "PT", "clubType": "PUTTER", "loftDeg": 3, "modelName": "Scotty Cameron" }
+      ]
+    },
+    {
+      "bagId": "bag-2",
+      "name": "サブバッグ",
+      "updatedAt": "2025-02-01T00:00:00.000Z",
+      "isActive": false,
+      "clubs": [
+        { "id": "s1", "label": "1W", "clubType": "D", "loftDeg": 9, "modelName": "Callaway Paradym" },
+        { "id": "s2", "label": "3W", "clubType": "FW", "loftDeg": 15, "modelName": "Callaway Paradym" },
+        { "id": "s3", "label": "4-PW", "clubType": "IRON", "loftDeg": 24, "modelName": "Mizuno JPX923" },
+        { "id": "s4", "label": "52°", "clubType": "WEDGE", "loftDeg": 52, "modelName": "Cleveland RTX" },
+        { "id": "s5", "label": "56°", "clubType": "WEDGE", "loftDeg": 56, "modelName": "Cleveland RTX" },
+        { "id": "s6", "label": "PT", "clubType": "PUTTER", "modelName": "Odyssey" }
+      ]
+    }
+  ]
+}

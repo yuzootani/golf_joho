@@ -149,13 +149,23 @@ details summary::-webkit-details-marker {
 
 /* プロ比較ページ */
 .compare-page { max-width: 64rem; margin: 0 auto; padding: 0 1rem 3rem; }
+.compare-summary-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+.compare-summary-card { border: 1px solid var(--color-border); border-radius: var(--radius); padding: 12px 14px; background: var(--color-surface); }
+.compare-summary-card h4 { font-size: 0.8125rem; font-weight: 700; margin: 0 0 8px; color: var(--color-text-muted); }
+.compare-summary-card p { font-size: 0.875rem; margin: 0; line-height: 1.5; }
 .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
 @media (max-width: 768px) { .compare-grid { grid-template-columns: 1fr; } }
 .compare-panel { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1rem 1.25rem; background: var(--color-surface); }
 .compare-panel h3 { font-size: 1rem; margin: 0 0 0.75rem; font-weight: 700; }
+.compare-category-block { margin-bottom: 1rem; }
+.compare-category-block:last-child { margin-bottom: 0; }
+.compare-category-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: 4px; }
+.compare-category-list { list-style: none; padding: 0; margin: 0; font-size: 13px; }
+.compare-category-list li { padding: 2px 0; }
 .compare-highlights { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
 .compare-highlights h2 { font-size: 1.25rem; margin: 0 0 1rem; }
 .compare-diff-list { list-style: none; padding: 0; margin: 0; }
 .compare-diff-list li { padding: 6px 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; }
 .compare-diff-list li:last-child { border-bottom: none; }
 .compare-diff-same { color: var(--color-text-muted); }
+.compare-template-note { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px; }

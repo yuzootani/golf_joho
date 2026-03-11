@@ -1,0 +1,37 @@
+{
+  "rory": {
+    "bagId": "pro-rory",
+    "name": "Rory McIlroy",
+    "updatedAt": "2025-01-01T00:00:00.000Z",
+    "isActive": true,
+    "clubs": []
+  },
+  "hideki": {
+    "bagId": "pro-hideki",
+    "name": "松山英樹",
+    "updatedAt": "2025-01-01T00:00:00.000Z",
+    "isActive": true,
+    "clubs": []
+  },
+  "brooks": {
+    "bagId": "pro-brooks",
+    "name": "Brooks Koepka",
+    "updatedAt": "2025-01-01T00:00:00.000Z",
+    "isActive": true,
+    "clubs": []
+  },
+  "rose": {
+    "bagId": "pro-rose",
+    "name": "Justin Rose",
+    "updatedAt": "2025-01-01T00:00:00.000Z",
+    "isActive": true,
+    "clubs": []
+  },
+  "xander": {
+    "bagId": "pro-xander",
+    "name": "Xander Schauffele",
+    "updatedAt": "2025-01-01T00:00:00.000Z",
+    "isActive": true,
+    "clubs": []
+  }
+}

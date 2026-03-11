@@ -18,14 +18,24 @@ export default function BagsListPage() {
 
   useEffect(() => {
     fetch("/api/bags")
-      .then((res) => res.json())
-      .then((json: { bags?: Bag[] }) => {
+      .then(async (res) => {
+        const json = (await res.json()) as { bags?: Bag[]; error?: string };
+        if (!res.ok) {
+          setError(json?.error ?? "データの読み込みに失敗しました");
+          setBags([]);
+          return;
+        }
         const list = Array.isArray(json?.bags) ? json.bags : [];
+        if (list.length === 0) {
+          setError("バッグデータがありません。data/my_bags.json に最低1件のバッグを登録してください。");
+          setBags([]);
+          return;
+        }
         setBags(list);
         setError(null);
       })
       .catch((err) => {
-        setError(err?.message ?? "Failed to load");
+        setError(err?.message ?? "データの読み込みに失敗しました");
         setBags([]);
       })
       .finally(() => setLoading(false));
@@ -50,7 +60,8 @@ export default function BagsListPage() {
   if (error) {
     return (
       <main className="bags-page">
-        <p className="bags-error">エラー: {error}</p>
+        <h1 className="page-title">マイバッグ</h1>
+        <p className="bags-error">{error}</p>
       </main>
     );
   }

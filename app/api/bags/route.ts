@@ -10,6 +10,9 @@ export async function GET() {
     return Response.json({ bags });
   } catch (e) {
     console.error(e);
-    return Response.json({ error: "Failed to load my_bags.json", bags: [] }, { status: 500 });
+    const message = e instanceof Error && e.message.includes("ENOENT")
+      ? "data/my_bags.json が見つかりません。ファイルを配置してください。"
+      : "data/my_bags.json の読み込みに失敗しました。";
+    return Response.json({ error: message, bags: [] }, { status: 500 });
   }
 }
