@@ -33,6 +33,19 @@ export const CLUB_TYPE_ORDER: ClubType[] = [
   "D", "FW", "UT", "IRON", "WEDGE", "PUTTER",
 ];
 
+/** シャフト重量帯の選択肢（編集用） */
+export const SHAFT_WEIGHT_BAND_OPTIONS: { value: string; label: string }[] = [
+  { value: "unknown", label: "unknown" },
+  { value: "<=59", label: "<=59" },
+  { value: "60-69", label: "60-69" },
+  { value: "70-79", label: "70-79" },
+  { value: "80-89", label: "80-89" },
+  { value: "90-99", label: "90-99" },
+  { value: "100-109", label: "100-109" },
+  { value: "110-124", label: "110-124" },
+  { value: "125+", label: "125+" },
+];
+
 /** ロフト帯（度） */
 export const LOFT_BANDS: { key: string; label: string; min: number; max: number }[] = [
   { key: "10-15", label: "10–15°", min: 10, max: 15 },

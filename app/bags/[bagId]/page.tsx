@@ -1,37 +1,184 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import type { Bag, Club } from "@/lib/witbTypes";
-import { CLUB_TYPE_ORDER, enabledClubs } from "@/lib/witbTypes";
+import type { Bag, Club, ClubType } from "@/lib/witbTypes";
+import { CLUB_TYPE_ORDER, SHAFT_WEIGHT_BAND_OPTIONS } from "@/lib/witbTypes";
+import { getBagsFromStorage, saveBagsToStorage, fetchInitialBags } from "@/lib/bagsStorage";
 
-const CLUB_TYPE_LABEL: Record<string, string> = {
-  D: "ドライバー",
-  FW: "フェアウェイ",
-  UT: "ユーティリティ",
-  IRON: "アイアン",
-  WEDGE: "ウェッジ",
-  PUTTER: "パター",
+const CLUB_TYPE_LABEL: Record<ClubType, string> = {
+  D: "D", FW: "FW", UT: "UT", IRON: "IRON", WEDGE: "WEDGE", PUTTER: "PUTTER",
 };
+
+function emptyClub(id: string): Club {
+  return {
+    id,
+    label: "",
+    clubType: "D",
+    loftDeg: undefined,
+    shaftWeightBand: "unknown",
+    modelName: "",
+    isEnabled: true,
+  };
+}
+
+function ClubEditModal({
+  club,
+  onSave,
+  onCancel,
+}: {
+  club: Club;
+  onSave: (c: Club) => void;
+  onCancel: () => void;
+}) {
+  const [label, setLabel] = useState(club.label);
+  const [clubType, setClubType] = useState<ClubType>(club.clubType);
+  const [loftDeg, setLoftDeg] = useState(club.loftDeg === undefined ? "" : String(club.loftDeg));
+  const [shaftWeightBand, setShaftWeightBand] = useState(club.shaftWeightBand ?? "unknown");
+  const [modelName, setModelName] = useState(club.modelName ?? "");
+  const [isEnabled, setIsEnabled] = useState(club.isEnabled !== false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const deg = loftDeg.trim() === "" ? undefined : parseFloat(loftDeg);
+    onSave({
+      ...club,
+      label: label.trim() || club.label,
+      clubType,
+      loftDeg: deg !== undefined && !Number.isNaN(deg) ? deg : undefined,
+      shaftWeightBand: shaftWeightBand === "unknown" ? undefined : shaftWeightBand,
+      modelName: modelName.trim() || undefined,
+      isEnabled,
+    });
+  };
+
+  return (
+    <div className="modal-overlay" role="dialog" aria-modal="true">
+      <div className="modal-box">
+        <h4>クラブを編集</h4>
+        <form onSubmit={handleSubmit}>
+          <div className="modal-field">
+            <label>label</label>
+            <input value={label} onChange={(e) => setLabel(e.target.value)} placeholder="1W, 3W, 4U, 7i, PW, 56°" />
+          </div>
+          <div className="modal-field">
+            <label>clubType</label>
+            <select value={clubType} onChange={(e) => setClubType(e.target.value as ClubType)}>
+              {(CLUB_TYPE_ORDER as ClubType[]).map((t) => (
+                <option key={t} value={t}>{CLUB_TYPE_LABEL[t]}</option>
+              ))}
+            </select>
+          </div>
+          <div className="modal-field">
+            <label>loftDeg（空欄OK）</label>
+            <input type="number" step="0.5" value={loftDeg} onChange={(e) => setLoftDeg(e.target.value)} placeholder="10.5" />
+          </div>
+          <div className="modal-field">
+            <label>shaftWeightBand</label>
+            <select value={shaftWeightBand} onChange={(e) => setShaftWeightBand(e.target.value)}>
+              {SHAFT_WEIGHT_BAND_OPTIONS.map((o) => (
+                <option key={o.value} value={o.value}>{o.label}</option>
+              ))}
+            </select>
+          </div>
+          <div className="modal-field">
+            <label>modelName（空欄OK）</label>
+            <input value={modelName} onChange={(e) => setModelName(e.target.value)} placeholder="モデル名" />
+          </div>
+          <div className="modal-field bag-edit-active-wrap">
+            <label>
+              <input type="checkbox" checked={isEnabled} onChange={(e) => setIsEnabled(e.target.checked)} />
+              isEnabled（ON）
+            </label>
+          </div>
+          <div className="modal-actions">
+            <button type="button" onClick={onCancel}>キャンセル</button>
+            <button type="submit">OK</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
 
 export default function BagDetailPage() {
   const params = useParams();
   const bagId = typeof params?.bagId === "string" ? params.bagId : "";
-  const [bags, setBags] = useState<Bag[]>([]);
+  const [bag, setBag] = useState<Bag | null>(null);
   const [loading, setLoading] = useState(true);
+  const [editMode, setEditMode] = useState(false);
+  const [editingClubIndex, setEditingClubIndex] = useState<number | null>(null);
+
+  const loadBag = useCallback(() => {
+    const stored = getBagsFromStorage();
+    if (stored != null) {
+      const b = stored.find((x) => x.bagId === bagId);
+      if (b) {
+        setBag(JSON.parse(JSON.stringify(b)));
+        setLoading(false);
+        return;
+      }
+    }
+    fetchInitialBags().then((list) => {
+      const b = list.find((x) => x.bagId === bagId);
+      setBag(b ? JSON.parse(JSON.stringify(b)) : null);
+    }).catch(() => setBag(null)).finally(() => setLoading(false));
+  }, [bagId]);
 
   useEffect(() => {
-    fetch("/api/bags")
-      .then((res) => res.json())
-      .then((json: { bags?: Bag[] }) => setBags(Array.isArray(json?.bags) ? json.bags : []))
-      .catch(() => setBags([]))
-      .finally(() => setLoading(false));
-  }, []);
+    loadBag();
+  }, [loadBag]);
 
-  const bag = bags.find((b) => b.bagId === bagId);
-  const clubs = enabledClubs(bag?.clubs ?? []);
-  const sorted = [...clubs].sort((a, b) => CLUB_TYPE_ORDER.indexOf(a.clubType) - CLUB_TYPE_ORDER.indexOf(b.clubType));
+  function saveBag(updated: Bag) {
+    const stored = getBagsFromStorage() ?? [];
+    const nextList = stored.map((b) => {
+      if (b.bagId !== updated.bagId) {
+        if (updated.isActive) return { ...b, isActive: false };
+        return b;
+      }
+      return { ...updated, updatedAt: new Date().toISOString() };
+    });
+    const idx = nextList.findIndex((b) => b.bagId === updated.bagId);
+    if (idx === -1) nextList.push({ ...updated, updatedAt: new Date().toISOString() });
+    else nextList[idx] = { ...updated, updatedAt: new Date().toISOString() };
+    saveBagsToStorage(nextList);
+    setBag(JSON.parse(JSON.stringify(updated)));
+    setEditMode(false);
+  }
+
+  function handleSave() {
+    if (!bag) return;
+    saveBag(bag);
+  }
+
+  function handleCancel() {
+    loadBag();
+    setEditMode(false);
+    setEditingClubIndex(null);
+  }
+
+  function updateClub(index: number, c: Club) {
+    if (!bag) return;
+    const next = [...bag.clubs];
+    next[index] = c;
+    setBag({ ...bag, clubs: next });
+    setEditingClubIndex(null);
+  }
+
+  function addClub() {
+    if (!bag) return;
+    const newId = `c-${Date.now()}`;
+    const next = [...bag.clubs, emptyClub(newId)];
+    setBag({ ...bag, clubs: next });
+    setEditingClubIndex(next.length - 1);
+  }
+
+  function deleteClub(index: number) {
+    if (!bag) return;
+    const next = bag.clubs.filter((_, i) => i !== index);
+    setBag({ ...bag, clubs: next });
+  }
 
   if (loading) {
     return (
@@ -49,14 +196,56 @@ export default function BagDetailPage() {
     );
   }
 
+  const sorted = [...bag.clubs].sort((a, b) => CLUB_TYPE_ORDER.indexOf(a.clubType) - CLUB_TYPE_ORDER.indexOf(b.clubType));
+
   return (
     <main className="bag-detail-page">
       <p className="bag-detail-back">
         <Link href="/bags">← マイバッグ一覧</Link>
       </p>
-      <h1 className="page-title">{bag.name}</h1>
+
+      <div className="bag-detail-toolbar">
+        {!editMode ? (
+          <button type="button" className="bag-detail-edit-btn" onClick={() => setEditMode(true)}>
+            編集
+          </button>
+        ) : (
+          <>
+            <button type="button" className="bag-detail-save-btn" onClick={handleSave}>保存</button>
+            <button type="button" className="bag-detail-cancel-btn" onClick={handleCancel}>キャンセル</button>
+            <button type="button" className="bag-detail-add-btn" onClick={addClub}>追加</button>
+          </>
+        )}
+      </div>
+
+      {editMode && (
+        <>
+          <div className="bag-edit-name-wrap">
+            <label>バッグ名</label>
+            <input
+              className="bag-edit-name-input"
+              value={bag.name}
+              onChange={(e) => setBag({ ...bag, name: e.target.value })}
+            />
+          </div>
+          <div className="bag-edit-active-wrap">
+            <label>
+              <input
+                type="checkbox"
+                checked={bag.isActive}
+                onChange={(e) => setBag({ ...bag, isActive: e.target.checked })}
+              />
+              今日のセット（isActive）
+            </label>
+          </div>
+        </>
+      )}
+
+      {!editMode && (
+        <h1 className="page-title">{bag.name}</h1>
+      )}
       <p style={{ fontSize: 14, color: "var(--color-text-muted)", marginBottom: 16 }}>
-        更新: {new Date(bag.updatedAt).toLocaleDateString("ja-JP")} / クラブ {clubs.length} 本
+        更新: {new Date(bag.updatedAt).toLocaleDateString("ja-JP")} / クラブ {bag.clubs.length} 本
       </p>
 
       <table className="bag-detail-table">
@@ -67,20 +256,42 @@ export default function BagDetailPage() {
             <th>loftDeg</th>
             <th>shaftWeightBand</th>
             <th>modelName</th>
+            <th>isEnabled</th>
+            {editMode && <th>操作</th>}
           </tr>
         </thead>
         <tbody>
-          {sorted.map((c: Club) => (
-            <tr key={c.id}>
-              <td>{c.label}</td>
-              <td>{CLUB_TYPE_LABEL[c.clubType] ?? c.clubType}</td>
-              <td>{c.loftDeg != null ? `${c.loftDeg}°` : "—"}</td>
-              <td>{c.shaftWeightBand ?? "—"}</td>
-              <td>{c.modelName ?? "—"}</td>
-            </tr>
-          ))}
+          {sorted.map((c, i) => {
+            const rowIndex = bag.clubs.findIndex((x) => x.id === c.id);
+            return (
+              <tr key={c.id}>
+                <td>{c.label || "—"}</td>
+                <td>{CLUB_TYPE_LABEL[c.clubType] ?? c.clubType}</td>
+                <td>{c.loftDeg != null ? `${c.loftDeg}°` : "—"}</td>
+                <td>{c.shaftWeightBand ?? "—"}</td>
+                <td>{c.modelName ?? "—"}</td>
+                <td>{c.isEnabled !== false ? "ON" : "OFF"}</td>
+                {editMode && (
+                  <td>
+                    <div className="bag-detail-row-actions">
+                      <button type="button" className="bag-detail-edit-row-btn" onClick={() => setEditingClubIndex(rowIndex)}>編集</button>
+                      <button type="button" className="bag-detail-delete-btn" onClick={() => deleteClub(rowIndex)}>削除</button>
+                    </div>
+                  </td>
+                )}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
+
+      {editingClubIndex !== null && bag.clubs[editingClubIndex] && (
+        <ClubEditModal
+          club={bag.clubs[editingClubIndex]}
+          onSave={(c) => updateClub(editingClubIndex, c)}
+          onCancel={() => setEditingClubIndex(null)}
+        />
+      )}
     </main>
   );
 }

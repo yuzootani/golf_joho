@@ -11,6 +11,7 @@ import {
   type DisplayCategory,
 } from "@/lib/witbTypes";
 import { getProInfo } from "@/lib/pro-map";
+import { getBagsFromStorage } from "@/lib/bagsStorage";
 import { categoryCountDiffs, loftBandDiffs, shaftWeightBandDiffs } from "@/lib/compare";
 
 const CLUB_TYPE_LABEL: Record<ClubType, string> = {
@@ -112,13 +113,16 @@ export default function CompareProClient({ playerKey }: Props) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const stored = getBagsFromStorage();
+    const bagsPromise = stored != null && stored.length > 0
+      ? Promise.resolve(stored)
+      : fetch("/api/bags").then((r) => r.json()).then((j: { bags?: Bag[] }) => Array.isArray(j?.bags) ? j.bags : []);
     Promise.all([
-      fetch("/api/bags").then((r) => r.json()),
+      bagsPromise,
       fetch("/api/pro-reference").then((r) => r.json()),
     ])
-      .then(([bagsRes, proRes]) => {
-        const bagsData = bagsRes as { bags?: Bag[] };
-        setBags(Array.isArray(bagsData?.bags) ? bagsData.bags : []);
+      .then(([bagsList, proRes]) => {
+        setBags(bagsList);
         setProBags(typeof proRes === "object" && proRes !== null ? (proRes as Record<string, Bag>) : {});
       })
       .catch(() => {

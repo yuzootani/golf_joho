@@ -7,6 +7,12 @@ export async function GET() {
     const raw = await readFile(filePath, "utf-8");
     const data = JSON.parse(raw) as { bags?: unknown[] };
     const bags = Array.isArray(data?.bags) ? data.bags : [];
+    if (bags.length === 0) {
+      return Response.json(
+        { error: "バッグデータがありません。data/my_bags.json に最低1件のバッグを登録してください。", bags: [] },
+        { status: 503 }
+      );
+    }
     return Response.json({ bags });
   } catch (e) {
     console.error(e);
