@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import type { Bag, Club, ClubType } from "@/lib/witbTypes";
 import { CLUB_TYPE_ORDER, SHAFT_WEIGHT_BAND_OPTIONS, CLUB_TYPE_DISPLAY_LABEL } from "@/lib/witbTypes";
-import { getBagsFromStorage, saveBagsToStorage, fetchInitialBags } from "@/lib/bagsStorage";
+import { getBags, saveBags, fetchInitialBags } from "@/lib/bagsStorage";
 
 function emptyClub(id: string): Club {
   return {
@@ -108,10 +108,10 @@ export default function BagDetailClient({ bagId }: Props) {
   const [activeBagId, setActiveBagId] = useState<string | null>(null);
 
   const loadBag = useCallback(() => {
-    const stored = getBagsFromStorage();
+    const stored = getBags();
     if (stored != null && stored.length > 0) {
-      const b = stored.find((x) => x.bagId === bagId);
-      const active = stored.find((x) => x.isActive);
+      const b = stored.find((bag) => bag.bagId === bagId);
+      const active = stored.find((bag) => bag.isActive);
       if (b) {
         setBag(JSON.parse(JSON.stringify(b)));
         setDataSource("localStorage");
@@ -121,8 +121,8 @@ export default function BagDetailClient({ bagId }: Props) {
       }
     }
     fetchInitialBags().then((list) => {
-      const b = list.find((x) => x.bagId === bagId);
-      const active = list.find((x) => x.isActive);
+      const b = list.find((bag) => bag.bagId === bagId);
+      const active = list.find((bag) => bag.isActive);
       setBag(b ? JSON.parse(JSON.stringify(b)) : null);
       setDataSource("json");
       setActiveBagId(active?.bagId ?? null);
@@ -134,7 +134,7 @@ export default function BagDetailClient({ bagId }: Props) {
   }, [loadBag]);
 
   function saveBag(updated: Bag) {
-    const stored = getBagsFromStorage() ?? [];
+    const stored = getBags() ?? [];
     const updatedWithTime = { ...updated, updatedAt: new Date().toISOString() };
     const nextList = stored.map((b) => {
       if (b.bagId !== updated.bagId) {
@@ -146,7 +146,7 @@ export default function BagDetailClient({ bagId }: Props) {
     const idx = nextList.findIndex((b) => b.bagId === updated.bagId);
     if (idx === -1) nextList.push(updatedWithTime);
     else nextList[idx] = updatedWithTime;
-    saveBagsToStorage(nextList);
+    saveBags(nextList);
     setBag(JSON.parse(JSON.stringify(updatedWithTime)));
     setActiveBagId(updated.isActive ? updated.bagId : (stored.find((b) => b.isActive)?.bagId ?? null));
     setEditMode(false);
@@ -214,11 +214,15 @@ export default function BagDetailClient({ bagId }: Props) {
       </p>
 
       <div className="bag-detail-toolbar">
-        {!editMode ? (
-          <button type="button" className="bag-detail-edit-btn" onClick={() => setEditMode(true)}>
-            編集モード
-          </button>
-        ) : (
+        <button
+          type="button"
+          className={editMode ? "bag-detail-edit-btn-on" : "bag-detail-edit-btn"}
+          onClick={() => (editMode ? handleCancel() : setEditMode(true))}
+          aria-pressed={editMode}
+        >
+          編集モード
+        </button>
+        {editMode && (
           <>
             <button type="button" className="bag-detail-save-btn" onClick={handleSave}>保存</button>
             <button type="button" className="bag-detail-cancel-btn" onClick={handleCancel}>キャンセル</button>

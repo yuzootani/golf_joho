@@ -20,6 +20,11 @@ export function getBagsFromStorage(): Bag[] | null {
   }
 }
 
+/** localStorage（myBags.v1）優先でバッグ一覧を取得。クライアント専用。 */
+export function getBags(): Bag[] | null {
+  return getBagsFromStorage();
+}
+
 export function saveBagsToStorage(bags: Bag[]): void {
   if (typeof window === "undefined") return;
   try {
@@ -27,6 +32,11 @@ export function saveBagsToStorage(bags: Bag[]): void {
   } catch (e) {
     console.error("saveBagsToStorage", e);
   }
+}
+
+/** バッグ一覧を localStorage に保存。クライアント専用。 */
+export function saveBags(bags: Bag[]): void {
+  saveBagsToStorage(bags);
 }
 
 /** API から初期データ取得（サーバー/クライアント両方で fetch 可能） */

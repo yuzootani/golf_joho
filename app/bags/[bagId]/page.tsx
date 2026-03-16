@@ -1,10 +1,8 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import BagDetailClient from "./BagDetailClient";
 
-export default function BagDetailPage() {
-  const params = useParams();
-  const bagId = typeof params?.bagId === "string" ? params.bagId : "";
+type Props = { params: Promise<{ bagId: string }> };
+
+export default async function BagDetailPage({ params }: Props) {
+  const { bagId } = await params;
   return <BagDetailClient bagId={bagId} />;
 }
