@@ -255,6 +255,67 @@ export default function BagDetailClient({ bagId }: Props) {
         更新: {new Date(bag.updatedAt).toLocaleDateString("ja-JP")} / クラブ {bag.clubs.length} 本
       </p>
 
+      <section className="bag-memo-card">
+        <h3 className="bag-memo-title">メモ欄</h3>
+        {editMode ? (
+          <div className="bag-memo-form">
+            <div className="bag-memo-field">
+              <label>用途（purpose）</label>
+              <input
+                type="text"
+                value={bag.purpose ?? ""}
+                onChange={(e) => setBag({ ...bag, purpose: e.target.value.trim() || undefined })}
+                placeholder="競技/狭いコース/風/テスト"
+              />
+            </div>
+            <div className="bag-memo-field">
+              <label>コース（course）</label>
+              <input
+                type="text"
+                value={bag.course ?? ""}
+                onChange={(e) => setBag({ ...bag, course: e.target.value.trim() || undefined })}
+                placeholder="○○CC"
+              />
+            </div>
+            <div className="bag-memo-field">
+              <label>ミス傾向（missTendency）</label>
+              <input
+                type="text"
+                value={bag.missTendency ?? ""}
+                onChange={(e) => setBag({ ...bag, missTendency: e.target.value.trim() || undefined })}
+                placeholder="左/右/ダフリなど"
+              />
+            </div>
+            <div className="bag-memo-field">
+              <label>スコアメモ（scoreMemo）</label>
+              <input
+                type="text"
+                value={bag.scoreMemo ?? ""}
+                onChange={(e) => setBag({ ...bag, scoreMemo: e.target.value.trim() || undefined })}
+                placeholder="79、80台前半"
+              />
+            </div>
+            <div className="bag-memo-field">
+              <label>自由メモ（notes）</label>
+              <textarea
+                value={bag.notes ?? ""}
+                onChange={(e) => setBag({ ...bag, notes: e.target.value.trim() || undefined })}
+                placeholder="任意"
+                rows={3}
+              />
+            </div>
+          </div>
+        ) : (
+          <dl className="bag-memo-view">
+            <div><dt>用途</dt><dd>{bag.purpose || "—"}</dd></div>
+            <div><dt>コース</dt><dd>{bag.course || "—"}</dd></div>
+            <div><dt>ミス傾向</dt><dd>{bag.missTendency || "—"}</dd></div>
+            <div><dt>スコアメモ</dt><dd>{bag.scoreMemo || "—"}</dd></div>
+            <div><dt>メモ</dt><dd>{bag.notes || "—"}</dd></div>
+          </dl>
+        )}
+      </section>
+
       <table className="bag-detail-table">
         <thead>
           <tr>

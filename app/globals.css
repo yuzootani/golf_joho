@@ -189,6 +189,18 @@ details summary::-webkit-details-marker {
 .bag-edit-name-input { width: 100%; max-width: 320px; padding: 8px 10px; font-size: 14px; border: 1px solid var(--color-border); border-radius: 6px; }
 .bag-edit-active-wrap { margin-bottom: 12px; }
 .bag-edit-active-wrap label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: 14px; }
+/* メモ欄カード */
+.bag-memo-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: 1.5rem; background: var(--color-surface); }
+.bag-memo-title { font-size: 0.9375rem; font-weight: 700; margin: 0 0 12px; }
+.bag-memo-form { display: flex; flex-direction: column; gap: 12px; }
+.bag-memo-field { display: flex; flex-direction: column; gap: 4px; }
+.bag-memo-field label { font-size: 12px; font-weight: 600; color: var(--color-text-muted); }
+.bag-memo-field input, .bag-memo-field textarea { padding: 8px 10px; font-size: 14px; border: 1px solid var(--color-border); border-radius: 6px; width: 100%; max-width: 400px; }
+.bag-memo-field textarea { resize: vertical; min-height: 60px; }
+.bag-memo-view { display: flex; flex-direction: column; gap: 8px; margin: 0; font-size: 14px; }
+.bag-memo-view > div { display: flex; gap: 12px; }
+.bag-memo-view dt { margin: 0; font-weight: 600; color: var(--color-text-muted); min-width: 80px; }
+.bag-memo-view dd { margin: 0; }
 /* モーダル */
 .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 100; padding: 16px; }
 .modal-box { background: var(--color-surface); border-radius: var(--radius-lg); padding: 20px; max-width: 400px; width: 100%; box-shadow: var(--shadow-md); }

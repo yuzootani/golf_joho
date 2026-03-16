@@ -26,6 +26,16 @@ export type Bag = {
   updatedAt: string;
   isActive: boolean;
   clubs: Club[];
+  /** 用途（例：競技/狭いコース/風/テスト） */
+  purpose?: string;
+  /** コース（例：○○CC） */
+  course?: string;
+  /** ミス傾向（例：左/右/ダフリなど自由記述） */
+  missTendency?: string;
+  /** スコアメモ（例：79、80台前半） */
+  scoreMemo?: string;
+  /** 自由メモ */
+  notes?: string;
 };
 
 /** 比較用カテゴリ順 */
