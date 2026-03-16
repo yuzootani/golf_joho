@@ -33,6 +33,16 @@ export const CLUB_TYPE_ORDER: ClubType[] = [
   "D", "FW", "UT", "IRON", "WEDGE", "PUTTER",
 ];
 
+/** 表示用 clubType ラベル（編集・一覧用） */
+export const CLUB_TYPE_DISPLAY_LABEL: Record<ClubType, string> = {
+  D: "ドライバー",
+  FW: "FW",
+  UT: "UT",
+  IRON: "アイアン",
+  WEDGE: "ウェッジ",
+  PUTTER: "パター",
+};
+
 /** シャフト重量帯の選択肢（編集用） */
 export const SHAFT_WEIGHT_BAND_OPTIONS: { value: string; label: string }[] = [
   { value: "unknown", label: "unknown" },
