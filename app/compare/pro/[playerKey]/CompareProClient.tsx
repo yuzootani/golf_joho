@@ -154,7 +154,7 @@ export default function CompareProClient({ playerKey }: Props) {
   const activeBag = bags.find((b) => b.isActive) ?? bags[0];
   const bagIdFromUrl = searchParams.get("bagId");
   const selectedBag = bagIdFromUrl
-    ? (bags.find((b) => b.id === bagIdFromUrl) ?? activeBag)
+    ? (bags.find((b) => b.bagId === bagIdFromUrl) ?? activeBag)
     : (activeBag ?? bags[0]);
   const myClubs = enabledClubs(selectedBag?.clubs ?? []);
   const proBag = proBags[playerKey];
@@ -208,13 +208,13 @@ export default function CompareProClient({ playerKey }: Props) {
           <label htmlFor="compare-bag-select" style={{ marginRight: 8, fontSize: 14 }}>比較するバッグ:</label>
           <select
             id="compare-bag-select"
-            value={selectedBag?.id ?? ""}
+            value={selectedBag?.bagId ?? ""}
             onChange={(e) => setBagIdParam(e.target.value)}
             style={{ minWidth: 200, padding: "6px 10px", fontSize: 14 }}
           >
             {bags.map((b) => (
-              <option key={b.id} value={b.id}>
-                {b.name ?? b.id}{b.isActive ? " (アクティブ)" : ""}
+              <option key={b.bagId} value={b.bagId}>
+                {b.name ?? b.bagId}{b.isActive ? " (アクティブ)" : ""}
               </option>
             ))}
           </select>
