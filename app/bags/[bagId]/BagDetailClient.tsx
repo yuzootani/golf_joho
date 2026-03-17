@@ -17,6 +17,12 @@ function makeSnapshot(bag: Bag): BagSnapshot {
 }
 import { getBags, saveBags, fetchInitialBags } from "@/lib/bagsStorage";
 
+/** 比較キー: label があれば label、なければ id */
+function clubKey(c: Club): string {
+  const L = (c.label ?? "").trim();
+  return L || c.id;
+}
+
 type BagDiff = {
   added: Club[];
   removed: Club[];
@@ -33,20 +39,62 @@ function computeDiffFromSnapshot(current: Bag, snap: BagSnapshot | null | undefi
   if (!snap) return null;
   const curClubs = current.clubs ?? [];
   const lastClubs = snap.clubs ?? [];
-  const added = curClubs.filter((c) => !lastClubs.some((s) => s.id === c.id));
-  const removed = lastClubs.filter((s) => !curClubs.some((c) => c.id === s.id));
+  const curByKey = new Map<string, Club>();
+  const lastByKey = new Map<string, Club>();
+  for (const c of curClubs) curByKey.set(clubKey(c), c);
+  for (const c of lastClubs) lastByKey.set(clubKey(c), c);
+
+  const added: Club[] = [];
+  const removed: Club[] = [];
   const changes: { club: Club; changes: string[] }[] = [];
+
   for (const c of curClubs) {
-    const prev = lastClubs.find((s) => s.id === c.id);
-    if (!prev) continue;
-    const lines: string[] = [];
-    if (String(prev.label ?? "") !== String(c.label ?? "")) lines.push(`label: ${prev.label ?? "—"} → ${c.label ?? "—"}`);
-    if (prev.loftDeg !== c.loftDeg) lines.push(`loftDeg: ${prev.loftDeg ?? "—"} → ${c.loftDeg ?? "—"}`);
-    if (String(prev.modelName ?? "") !== String(c.modelName ?? "")) lines.push(`modelName: ${prev.modelName ?? "—"} → ${c.modelName ?? "—"}`);
-    if (String(prev.shaftWeightBand ?? "") !== String(c.shaftWeightBand ?? "")) lines.push(`shaftWeightBand: ${prev.shaftWeightBand ?? "—"} → ${c.shaftWeightBand ?? "—"}`);
-    if (Boolean(prev.isEnabled !== false) !== Boolean(c.isEnabled !== false)) lines.push(`isEnabled: ${prev.isEnabled !== false ? "ON" : "OFF"} → ${c.isEnabled !== false ? "ON" : "OFF"}`);
-    if (lines.length > 0) changes.push({ club: c, changes: lines });
+    const k = clubKey(c);
+    if (!lastByKey.has(k)) added.push(c);
   }
+  for (const c of lastClubs) {
+    const k = clubKey(c);
+    if (!curByKey.has(k)) removed.push(c);
+  }
+
+  // 同一 label で「追加」と「削除」が両方出ている → 「変更」にまとめる
+  const addedKeys = new Set(added.map(clubKey));
+  const removedKeys = new Set(removed.map(clubKey));
+  const overlapKeys = [...addedKeys].filter((k) => removedKeys.has(k));
+  if (overlapKeys.length > 0) {
+    for (const k of overlapKeys) {
+      const curC = curByKey.get(k) ?? added.find((c) => clubKey(c) === k);
+      const lastC = lastByKey.get(k) ?? removed.find((c) => clubKey(c) === k);
+      if (curC && lastC) {
+        const lines: string[] = [];
+        if (String(lastC.label ?? "") !== String(curC.label ?? "")) lines.push(`label: ${lastC.label ?? "—"} → ${curC.label ?? "—"}`);
+        if (lastC.loftDeg !== curC.loftDeg) lines.push(`loftDeg: ${lastC.loftDeg ?? "—"} → ${curC.loftDeg ?? "—"}`);
+        if (String(lastC.modelName ?? "") !== String(curC.modelName ?? "")) lines.push(`modelName: ${lastC.modelName ?? "—"} → ${curC.modelName ?? "—"}`);
+        if (String(lastC.shaftWeightBand ?? "") !== String(curC.shaftWeightBand ?? "")) lines.push(`shaftWeightBand: ${lastC.shaftWeightBand ?? "—"} → ${curC.shaftWeightBand ?? "—"}`);
+        if (Boolean(lastC.isEnabled !== false) !== Boolean(curC.isEnabled !== false)) lines.push(`isEnabled: ${lastC.isEnabled !== false ? "ON" : "OFF"} → ${curC.isEnabled !== false ? "ON" : "OFF"}`);
+        changes.push({ club: curC, changes: lines.length > 0 ? lines : ["内容が更新されました"] });
+      }
+    }
+    const overlapSet = new Set(overlapKeys);
+    for (let i = added.length - 1; i >= 0; i--) if (overlapSet.has(clubKey(added[i]))) added.splice(i, 1);
+    for (let i = removed.length - 1; i >= 0; i--) if (overlapSet.has(clubKey(removed[i]))) removed.splice(i, 1);
+  }
+
+  // 同じキーで両方に存在するもの → 差分があれば「変更」
+  for (const k of curByKey.keys()) {
+    if (overlapKeys.includes(k)) continue;
+    const curC = curByKey.get(k)!;
+    const lastC = lastByKey.get(k);
+    if (!lastC) continue;
+    const lines: string[] = [];
+    if (String(lastC.label ?? "") !== String(curC.label ?? "")) lines.push(`label: ${lastC.label ?? "—"} → ${curC.label ?? "—"}`);
+    if (lastC.loftDeg !== curC.loftDeg) lines.push(`loftDeg: ${lastC.loftDeg ?? "—"} → ${curC.loftDeg ?? "—"}`);
+    if (String(lastC.modelName ?? "") !== String(curC.modelName ?? "")) lines.push(`modelName: ${lastC.modelName ?? "—"} → ${curC.modelName ?? "—"}`);
+    if (String(lastC.shaftWeightBand ?? "") !== String(curC.shaftWeightBand ?? "")) lines.push(`shaftWeightBand: ${lastC.shaftWeightBand ?? "—"} → ${curC.shaftWeightBand ?? "—"}`);
+    if (Boolean(lastC.isEnabled !== false) !== Boolean(curC.isEnabled !== false)) lines.push(`isEnabled: ${lastC.isEnabled !== false ? "ON" : "OFF"} → ${curC.isEnabled !== false ? "ON" : "OFF"}`);
+    if (lines.length > 0) changes.push({ club: curC, changes: lines });
+  }
+
   const memoChanges: string[] = [];
   if (String(snap.purpose ?? "") !== String(current.purpose ?? "")) memoChanges.push(`purpose: ${snap.purpose ?? "—"} → ${current.purpose ?? "—"}`);
   if (String(snap.course ?? "") !== String(current.course ?? "")) memoChanges.push(`course: ${snap.course ?? "—"} → ${current.course ?? "—"}`);
@@ -191,6 +239,7 @@ export default function BagDetailClient({ bagId }: Props) {
 
   function saveBag(updated: Bag) {
     const stored = getBags() ?? [];
+    // 保存順序: previousSnapshot = 保存直前の状態 → その後に clubs/notes を新状態で保存
     const prevSnapshot = lastSavedBag ? makeSnapshot(lastSavedBag) : undefined;
     const updatedWithTime = {
       ...updated,
@@ -329,13 +378,13 @@ export default function BagDetailClient({ bagId }: Props) {
           <h3 className="bag-diff-log-title">変更履歴（編集中・未保存）</h3>
           <ul className="bag-diff-log-list">
             {diffEdit.added.map((c) => (
-              <li key={c.id}>追加: {c.label || c.clubType} {c.modelName ? `（${c.modelName}）` : ""}</li>
+              <li key={clubKey(c)}>追加: {c.label || c.clubType} {c.modelName ? `（${c.modelName}）` : ""}</li>
             ))}
             {diffEdit.removed.map((c) => (
-              <li key={c.id}>削除: {c.label || c.clubType} {c.modelName ? `（${c.modelName}）` : ""}</li>
+              <li key={clubKey(c)}>削除: {c.label || c.clubType} {c.modelName ? `（${c.modelName}）` : ""}</li>
             ))}
             {diffEdit.changed.map(({ club, changes }) => (
-              <li key={club.id}>変更: {club.label || club.clubType} — {changes.join(" / ")}</li>
+              <li key={clubKey(club)}>変更: {club.label || club.clubType} — {changes.join(" / ")}</li>
             ))}
             {diffEdit.memoChanges.map((line, i) => (
               <li key={`memo-${i}`}>変更（メモ）: {line}</li>
@@ -344,25 +393,29 @@ export default function BagDetailClient({ bagId }: Props) {
         </section>
       )}
 
-      {diffFromPrevious && (diffFromPrevious.added.length > 0 || diffFromPrevious.removed.length > 0 || diffFromPrevious.changed.length > 0 || diffFromPrevious.memoChanges.length > 0) && (
-        <section className="bag-diff-log">
-          <h3 className="bag-diff-log-title">前回からの変更点</h3>
+      <section className="bag-diff-log">
+        <h3 className="bag-diff-log-title">前回からの変更点</h3>
+        {(!bag.previousSnapshot || !bag.previousSnapshot.clubs || bag.previousSnapshot.clubs.length === 0) ? (
+          <p className="bag-diff-log-empty">まだ変更がありません（保存後に表示されます）</p>
+        ) : (diffFromPrevious && (diffFromPrevious.added.length > 0 || diffFromPrevious.removed.length > 0 || diffFromPrevious.changed.length > 0 || diffFromPrevious.memoChanges.length > 0)) ? (
           <ul className="bag-diff-log-list">
             {diffFromPrevious.added.map((c) => (
-              <li key={c.id}>追加: {c.label || c.clubType}</li>
+              <li key={clubKey(c)}>追加: {c.label || c.clubType}</li>
             ))}
             {diffFromPrevious.removed.map((c) => (
-              <li key={c.id}>削除: {c.label || c.clubType}</li>
+              <li key={clubKey(c)}>削除: {c.label || c.clubType}</li>
             ))}
             {diffFromPrevious.changed.map(({ club, changes }) => (
-              <li key={club.id}>変更: {club.label || club.clubType} — {changes.join(" / ")}</li>
+              <li key={clubKey(club)}>変更: {club.label || club.clubType} — {changes.join(" / ")}</li>
             ))}
             {diffFromPrevious.memoChanges.map((line, i) => (
               <li key={`memo-${i}`}>変更（メモ）: {line}</li>
             ))}
           </ul>
-        </section>
-      )}
+        ) : (
+          <p className="bag-diff-log-empty">変更なし</p>
+        )}
+      </section>
 
       <section className="bag-memo-card">
         <h3 className="bag-memo-title">メモ欄</h3>
