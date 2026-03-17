@@ -12,7 +12,7 @@ import {
   type DisplayCategory,
 } from "@/lib/witbTypes";
 import { getProInfo } from "@/lib/pro-map";
-import { getBagsFromStorage } from "@/lib/bagsStorage";
+import { getBags, getBagsFromStorage } from "@/lib/bagsStorage";
 import { categoryCountDiffs, loftBandDiffs, shaftWeightBandDiffs } from "@/lib/compare";
 
 const CLUB_TYPE_LABEL: Record<ClubType, string> = {
@@ -129,9 +129,10 @@ export default function CompareProClient({ playerKey }: Props) {
   const [bags, setBags] = useState<Bag[]>([]);
   const [proBags, setProBags] = useState<Record<string, Bag>>({});
   const [loading, setLoading] = useState(true);
+  const [dataSource, setDataSource] = useState<"localStorage" | "api">("api");
 
   useEffect(() => {
-    const stored = getBagsFromStorage();
+    const stored = getBags();
     const bagsPromise = stored != null && stored.length > 0
       ? Promise.resolve(stored)
       : fetch("/api/bags").then((r) => r.json()).then((j: { bags?: Bag[] }) => Array.isArray(j?.bags) ? j.bags : []);
@@ -141,6 +142,7 @@ export default function CompareProClient({ playerKey }: Props) {
     ])
       .then(([bagsList, proRes]) => {
         setBags(bagsList);
+        setDataSource(stored != null && stored.length > 0 ? "localStorage" : "api");
         setProBags(typeof proRes === "object" && proRes !== null ? (proRes as Record<string, Bag>) : {});
       })
       .catch(() => {
@@ -204,8 +206,8 @@ export default function CompareProClient({ playerKey }: Props) {
       </div>
 
       {bags.length > 0 && (
-        <div className="compare-bag-select-wrap" style={{ marginBottom: 16 }}>
-          <label htmlFor="compare-bag-select" style={{ marginRight: 8, fontSize: 14 }}>比較するバッグ:</label>
+        <div className="compare-bag-select-wrap" style={{ marginBottom: 8 }}>
+          <label htmlFor="compare-bag-select" style={{ marginRight: 8, fontSize: 14 }}>比較するバッグ</label>
           <select
             id="compare-bag-select"
             value={selectedBag?.bagId ?? ""}
@@ -214,12 +216,16 @@ export default function CompareProClient({ playerKey }: Props) {
           >
             {bags.map((b) => (
               <option key={b.bagId} value={b.bagId}>
-                {b.name ?? b.bagId}{b.isActive ? " (アクティブ)" : ""}
+                {b.name || b.bagId}{b.isActive ? " (アクティブ)" : ""}
               </option>
             ))}
           </select>
         </div>
       )}
+
+      <p style={{ fontSize: 12, color: "var(--color-text-muted)", marginBottom: 16 }}>
+        source: {dataSource} | selectedBagId: {selectedBag?.bagId ?? "—"}
+      </p>
 
       <SummaryCards catDiffs={catDiffs} loftDiffs={loftDiffs} shaftDiffs={shaftDiffs} />
 
