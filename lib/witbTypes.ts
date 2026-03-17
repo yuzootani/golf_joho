@@ -10,6 +10,9 @@ export type ClubType =
   | "WEDGE"
   | "PUTTER";
 
+/** プロ参考用：情報の確度 */
+export type Confidence = "high" | "med" | "low";
+
 export type Club = {
   id: string;
   label: string;
@@ -18,6 +21,8 @@ export type Club = {
   shaftWeightBand?: string;
   modelName?: string;
   isEnabled?: boolean;
+  /** プロ参考用：確度（high/med/low）。表示例 [H][M][L] */
+  confidence?: Confidence;
 };
 
 export type Bag = {
@@ -35,6 +40,20 @@ export type Bag = {
   /** スコアメモ（例：79、80台前半） */
   scoreMemo?: string;
   /** 自由メモ */
+  notes?: string;
+  /** プロ参考用：出典URL（比較ページで出典リンクとして表示） */
+  sourceUrl?: string;
+  /** 保存直前のスナップショット（変更履歴用）。clubs とメモ欄のみ */
+  previousSnapshot?: BagSnapshot;
+};
+
+/** 変更履歴用スナップショット（clubs + メモ欄） */
+export type BagSnapshot = {
+  clubs: Club[];
+  purpose?: string;
+  course?: string;
+  missTendency?: string;
+  scoreMemo?: string;
   notes?: string;
 };
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import type { Bag, Club, ClubType } from "@/lib/witbTypes";
 import {
   CLUB_TYPE_ORDER,
@@ -31,6 +32,13 @@ function formatClubLine(c: Club): string {
   if (c.loftDeg != null) parts.push(`${c.loftDeg}°`);
   if (c.modelName) parts.push(c.modelName);
   return parts.join(" ");
+}
+
+function confidenceBadge(confidence: Club["confidence"]): string {
+  if (confidence === "high") return "[H]";
+  if (confidence === "med") return "[M]";
+  if (confidence === "low") return "[L]";
+  return "";
 }
 
 function SummaryCards({
@@ -75,7 +83,8 @@ function BagColumn({
   title,
   isTemplate,
   clubs,
-}: { title: string; isTemplate?: boolean; clubs: Club[] }) {
+  showConfidence,
+}: { title: string; isTemplate?: boolean; clubs: Club[]; showConfidence?: boolean }) {
   const byCat = groupClubsByDisplayCategory(clubs);
   const order: DisplayCategory[] = ["Woods", "UT", "Irons", "Wedges", "Putter"];
 
@@ -93,9 +102,15 @@ function BagColumn({
             <div key={cat} className="compare-category-block">
               <div className="compare-category-title">{DISPLAY_CAT_LABEL[cat]}</div>
               <ul className="compare-category-list">
-                {list.map((c) => (
-                  <li key={c.id}>{formatClubLine(c)}</li>
-                ))}
+                {list.map((c) => {
+                  const badge = showConfidence ? confidenceBadge(c.confidence) : "";
+                  return (
+                    <li key={c.id}>
+                      {formatClubLine(c)}
+                      {badge && <span className="compare-confidence-badge">{badge}</span>}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           );
@@ -108,6 +123,9 @@ function BagColumn({
 type Props = { playerKey: string };
 
 export default function CompareProClient({ playerKey }: Props) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [bags, setBags] = useState<Bag[]>([]);
   const [proBags, setProBags] = useState<Record<string, Bag>>({});
   const [loading, setLoading] = useState(true);
@@ -134,7 +152,11 @@ export default function CompareProClient({ playerKey }: Props) {
 
   const proInfo = getProInfo(playerKey)!;
   const activeBag = bags.find((b) => b.isActive) ?? bags[0];
-  const myClubs = enabledClubs(activeBag?.clubs ?? []);
+  const bagIdFromUrl = searchParams.get("bagId");
+  const selectedBag = bagIdFromUrl
+    ? (bags.find((b) => b.id === bagIdFromUrl) ?? activeBag)
+    : (activeBag ?? bags[0]);
+  const myClubs = enabledClubs(selectedBag?.clubs ?? []);
   const proBag = proBags[playerKey];
   const proClubsRaw = proBag?.clubs ? enabledClubs(proBag.clubs) : [];
   const useTemplate = proClubsRaw.length === 0;
@@ -152,17 +174,56 @@ export default function CompareProClient({ playerKey }: Props) {
     );
   }
 
+  const sourceUrl = proBag?.sourceUrl;
+
+  function setBagIdParam(bagId: string) {
+    const next = new URLSearchParams(searchParams.toString());
+    if (bagId) next.set("bagId", bagId);
+    else next.delete("bagId");
+    const q = next.toString();
+    router.replace(q ? `${pathname}?${q}` : pathname);
+  }
+
   return (
     <main className="compare-page">
       <p style={{ marginBottom: 8, fontSize: 14 }}>
         <Link href="/bags">← マイバッグ</Link>
       </p>
-      <h1 className="page-title">プロ参考セットとの差分</h1>
-      <p style={{ color: "var(--color-text-muted)", fontSize: 14, marginBottom: 16 }}>
-        {proInfo.displayName} 参考セットとの傾向比較です。表示は差分・傾向のみです。
-      </p>
+      <div className="compare-page-header">
+        <div>
+          <h1 className="page-title">プロ参考セットとの差分</h1>
+          <p style={{ color: "var(--color-text-muted)", fontSize: 14, marginBottom: 0 }}>
+            {proInfo.displayName} 参考セットとの傾向比較です。表示は差分・傾向のみです。
+          </p>
+        </div>
+        {sourceUrl && (
+          <div className="compare-source-link-wrap">
+            <a href={sourceUrl} target="_blank" rel="noreferrer" className="compare-source-link">出典リンク</a>
+          </div>
+        )}
+      </div>
+
+      {bags.length > 0 && (
+        <div className="compare-bag-select-wrap" style={{ marginBottom: 16 }}>
+          <label htmlFor="compare-bag-select" style={{ marginRight: 8, fontSize: 14 }}>比較するバッグ:</label>
+          <select
+            id="compare-bag-select"
+            value={selectedBag?.id ?? ""}
+            onChange={(e) => setBagIdParam(e.target.value)}
+            style={{ minWidth: 200, padding: "6px 10px", fontSize: 14 }}
+          >
+            {bags.map((b) => (
+              <option key={b.id} value={b.id}>
+                {b.name ?? b.id}{b.isActive ? " (アクティブ)" : ""}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
       <SummaryCards catDiffs={catDiffs} loftDiffs={loftDiffs} shaftDiffs={shaftDiffs} />
+
+      <p className="compare-disclaimer">本ページは差分・傾向の表示であり、断定・推奨はしない</p>
 
       <div className="compare-grid">
         <BagColumn
@@ -173,6 +234,7 @@ export default function CompareProClient({ playerKey }: Props) {
           title={useTemplate ? `プロ参考バッグ（${proInfo.displayName}）` : `プロ参考バッグ: ${proInfo.displayName}`}
           isTemplate={useTemplate}
           clubs={proClubsForDiff}
+          showConfidence={true}
         />
       </div>
 

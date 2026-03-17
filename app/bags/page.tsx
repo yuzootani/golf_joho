@@ -17,6 +17,21 @@ function generateBagId(): string {
   return `bag-${Date.now()}`;
 }
 
+function duplicateBag(source: Bag): Bag {
+  const now = new Date().toISOString();
+  return {
+    ...source,
+    bagId: generateBagId(),
+    name: `${source.name}（コピー）`,
+    updatedAt: now,
+    isActive: false,
+    clubs: (source.clubs ?? []).map((c, i) => ({
+      ...c,
+      id: `c-${Date.now()}-${i}`,
+    })),
+  };
+}
+
 export default function BagsListPage() {
   const router = useRouter();
   const [bags, setBags] = useState<Bag[]>([]);
@@ -70,17 +85,15 @@ export default function BagsListPage() {
   function handleNewBag() {
     const active = bags.find((b) => b.isActive) ?? bags[0];
     if (!active) return;
-    const newBag: Bag = {
-      ...active,
-      bagId: generateBagId(),
-      name: "コピー",
-      updatedAt: new Date().toISOString(),
-      isActive: false,
-      clubs: active.clubs?.map((c, i) => ({
-        ...c,
-        id: `c-${Date.now()}-${i}`,
-      })) ?? [],
-    };
+    const newBag = duplicateBag(active);
+    const next = [...bags, newBag];
+    setBags(next);
+    saveBagsToStorage(next);
+    router.push(`/bags/${encodeURIComponent(newBag.bagId)}`);
+  }
+
+  function handleDuplicateBag(source: Bag) {
+    const newBag = duplicateBag(source);
     const next = [...bags, newBag];
     setBags(next);
     saveBagsToStorage(next);
@@ -127,6 +140,13 @@ export default function BagsListPage() {
                     <span className="bags-card-meta">クラブ: {bag.clubs?.length ?? 0} 本</span>
                     {bag.isActive && <span className="bags-active">active</span>}
                   </Link>
+                  <button
+                    type="button"
+                    className="bags-duplicate-btn"
+                    onClick={(e) => { e.preventDefault(); handleDuplicateBag(bag); }}
+                  >
+                    複製
+                  </button>
                   {!bag.isActive && (
                     <button
                       type="button"

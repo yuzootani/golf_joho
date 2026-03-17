@@ -2,9 +2,60 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import type { Bag, Club, ClubType } from "@/lib/witbTypes";
+import type { Bag, Club, ClubType, BagSnapshot } from "@/lib/witbTypes";
 import { CLUB_TYPE_ORDER, SHAFT_WEIGHT_BAND_OPTIONS, CLUB_TYPE_DISPLAY_LABEL } from "@/lib/witbTypes";
+
+function makeSnapshot(bag: Bag): BagSnapshot {
+  return {
+    clubs: JSON.parse(JSON.stringify(bag.clubs ?? [])),
+    purpose: bag.purpose,
+    course: bag.course,
+    missTendency: bag.missTendency,
+    scoreMemo: bag.scoreMemo,
+    notes: bag.notes,
+  };
+}
 import { getBags, saveBags, fetchInitialBags } from "@/lib/bagsStorage";
+
+type BagDiff = {
+  added: Club[];
+  removed: Club[];
+  changed: { club: Club; changes: string[] }[];
+  memoChanges: string[];
+};
+
+function computeBagDiff(current: Bag, last: Bag | null): BagDiff | null {
+  if (!last) return null;
+  return computeDiffFromSnapshot(current, makeSnapshot(last));
+}
+
+function computeDiffFromSnapshot(current: Bag, snap: BagSnapshot | null | undefined): BagDiff | null {
+  if (!snap) return null;
+  const curClubs = current.clubs ?? [];
+  const lastClubs = snap.clubs ?? [];
+  const added = curClubs.filter((c) => !lastClubs.some((s) => s.id === c.id));
+  const removed = lastClubs.filter((s) => !curClubs.some((c) => c.id === s.id));
+  const changes: { club: Club; changes: string[] }[] = [];
+  for (const c of curClubs) {
+    const prev = lastClubs.find((s) => s.id === c.id);
+    if (!prev) continue;
+    const lines: string[] = [];
+    if (String(prev.label ?? "") !== String(c.label ?? "")) lines.push(`label: ${prev.label ?? "—"} → ${c.label ?? "—"}`);
+    if (prev.loftDeg !== c.loftDeg) lines.push(`loftDeg: ${prev.loftDeg ?? "—"} → ${c.loftDeg ?? "—"}`);
+    if (String(prev.modelName ?? "") !== String(c.modelName ?? "")) lines.push(`modelName: ${prev.modelName ?? "—"} → ${c.modelName ?? "—"}`);
+    if (String(prev.shaftWeightBand ?? "") !== String(c.shaftWeightBand ?? "")) lines.push(`shaftWeightBand: ${prev.shaftWeightBand ?? "—"} → ${c.shaftWeightBand ?? "—"}`);
+    if (Boolean(prev.isEnabled !== false) !== Boolean(c.isEnabled !== false)) lines.push(`isEnabled: ${prev.isEnabled !== false ? "ON" : "OFF"} → ${c.isEnabled !== false ? "ON" : "OFF"}`);
+    if (lines.length > 0) changes.push({ club: c, changes: lines });
+  }
+  const memoChanges: string[] = [];
+  if (String(snap.purpose ?? "") !== String(current.purpose ?? "")) memoChanges.push(`purpose: ${snap.purpose ?? "—"} → ${current.purpose ?? "—"}`);
+  if (String(snap.course ?? "") !== String(current.course ?? "")) memoChanges.push(`course: ${snap.course ?? "—"} → ${current.course ?? "—"}`);
+  if (String(snap.missTendency ?? "") !== String(current.missTendency ?? "")) memoChanges.push(`missTendency: ${snap.missTendency ?? "—"} → ${current.missTendency ?? "—"}`);
+  if (String(snap.scoreMemo ?? "") !== String(current.scoreMemo ?? "")) memoChanges.push(`scoreMemo: ${snap.scoreMemo ?? "—"} → ${current.scoreMemo ?? "—"}`);
+  if (String(snap.notes ?? "") !== String(current.notes ?? "")) memoChanges.push(`notes: ${snap.notes ?? "—"} → ${current.notes ?? "—"}`);
+  if (added.length === 0 && removed.length === 0 && changes.length === 0 && memoChanges.length === 0) return null;
+  return { added, removed, changed: changes, memoChanges };
+}
 
 function emptyClub(id: string): Club {
   return {
@@ -101,6 +152,7 @@ type Props = { bagId: string };
 
 export default function BagDetailClient({ bagId }: Props) {
   const [bag, setBag] = useState<Bag | null>(null);
+  const [lastSavedBag, setLastSavedBag] = useState<Bag | null>(null);
   const [loading, setLoading] = useState(true);
   const [editMode, setEditMode] = useState(false);
   const [editingClubIndex, setEditingClubIndex] = useState<number | null>(null);
@@ -110,10 +162,12 @@ export default function BagDetailClient({ bagId }: Props) {
   const loadBag = useCallback(() => {
     const stored = getBags();
     if (stored != null && stored.length > 0) {
-      const b = stored.find((bag) => bag.bagId === bagId);
-      const active = stored.find((bag) => bag.isActive);
+      const b = stored.find((bagItem) => bagItem.bagId === bagId);
+      const active = stored.find((bagItem) => bagItem.isActive);
       if (b) {
-        setBag(JSON.parse(JSON.stringify(b)));
+        const copy = JSON.parse(JSON.stringify(b)) as Bag;
+        setBag(copy);
+        setLastSavedBag(JSON.parse(JSON.stringify(b)) as Bag);
         setDataSource("localStorage");
         setActiveBagId(active?.bagId ?? null);
         setLoading(false);
@@ -121,9 +175,11 @@ export default function BagDetailClient({ bagId }: Props) {
       }
     }
     fetchInitialBags().then((list) => {
-      const b = list.find((bag) => bag.bagId === bagId);
-      const active = list.find((bag) => bag.isActive);
-      setBag(b ? JSON.parse(JSON.stringify(b)) : null);
+      const b = list.find((bagItem) => bagItem.bagId === bagId);
+      const active = list.find((bagItem) => bagItem.isActive);
+      const copy = b ? (JSON.parse(JSON.stringify(b)) as Bag) : null;
+      setBag(copy);
+      setLastSavedBag(copy ? (JSON.parse(JSON.stringify(b)) as Bag) : null);
       setDataSource("json");
       setActiveBagId(active?.bagId ?? null);
     }).catch(() => setBag(null)).finally(() => setLoading(false));
@@ -135,7 +191,12 @@ export default function BagDetailClient({ bagId }: Props) {
 
   function saveBag(updated: Bag) {
     const stored = getBags() ?? [];
-    const updatedWithTime = { ...updated, updatedAt: new Date().toISOString() };
+    const prevSnapshot = lastSavedBag ? makeSnapshot(lastSavedBag) : undefined;
+    const updatedWithTime = {
+      ...updated,
+      updatedAt: new Date().toISOString(),
+      previousSnapshot: prevSnapshot,
+    };
     const nextList = stored.map((b) => {
       if (b.bagId !== updated.bagId) {
         if (updated.isActive) return { ...b, isActive: false };
@@ -147,7 +208,9 @@ export default function BagDetailClient({ bagId }: Props) {
     if (idx === -1) nextList.push(updatedWithTime);
     else nextList[idx] = updatedWithTime;
     saveBags(nextList);
-    setBag(JSON.parse(JSON.stringify(updatedWithTime)));
+    const savedCopy = JSON.parse(JSON.stringify(updatedWithTime)) as Bag;
+    setBag(savedCopy);
+    setLastSavedBag(savedCopy);
     setActiveBagId(updated.isActive ? updated.bagId : (stored.find((b) => b.isActive)?.bagId ?? null));
     setEditMode(false);
   }
@@ -202,6 +265,8 @@ export default function BagDetailClient({ bagId }: Props) {
   }
 
   const sorted = [...bag.clubs].sort((a, b) => CLUB_TYPE_ORDER.indexOf(a.clubType) - CLUB_TYPE_ORDER.indexOf(b.clubType));
+  const diffEdit = editMode ? computeBagDiff(bag, lastSavedBag) : null;
+  const diffFromPrevious = bag.previousSnapshot ? computeDiffFromSnapshot(bag, bag.previousSnapshot) : null;
 
   return (
     <main className="bag-detail-page">
@@ -258,6 +323,46 @@ export default function BagDetailClient({ bagId }: Props) {
       <p style={{ fontSize: 14, color: "var(--color-text-muted)", marginBottom: 16 }}>
         更新: {new Date(bag.updatedAt).toLocaleDateString("ja-JP")} / クラブ {bag.clubs.length} 本
       </p>
+
+      {editMode && diffEdit && (
+        <section className="bag-diff-log">
+          <h3 className="bag-diff-log-title">変更履歴（編集中・未保存）</h3>
+          <ul className="bag-diff-log-list">
+            {diffEdit.added.map((c) => (
+              <li key={c.id}>追加: {c.label || c.clubType} {c.modelName ? `（${c.modelName}）` : ""}</li>
+            ))}
+            {diffEdit.removed.map((c) => (
+              <li key={c.id}>削除: {c.label || c.clubType} {c.modelName ? `（${c.modelName}）` : ""}</li>
+            ))}
+            {diffEdit.changed.map(({ club, changes }) => (
+              <li key={club.id}>変更: {club.label || club.clubType} — {changes.join(" / ")}</li>
+            ))}
+            {diffEdit.memoChanges.map((line, i) => (
+              <li key={`memo-${i}`}>変更（メモ）: {line}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {diffFromPrevious && (diffFromPrevious.added.length > 0 || diffFromPrevious.removed.length > 0 || diffFromPrevious.changed.length > 0 || diffFromPrevious.memoChanges.length > 0) && (
+        <section className="bag-diff-log">
+          <h3 className="bag-diff-log-title">前回からの変更点</h3>
+          <ul className="bag-diff-log-list">
+            {diffFromPrevious.added.map((c) => (
+              <li key={c.id}>追加: {c.label || c.clubType}</li>
+            ))}
+            {diffFromPrevious.removed.map((c) => (
+              <li key={c.id}>削除: {c.label || c.clubType}</li>
+            ))}
+            {diffFromPrevious.changed.map(({ club, changes }) => (
+              <li key={club.id}>変更: {club.label || club.clubType} — {changes.join(" / ")}</li>
+            ))}
+            {diffFromPrevious.memoChanges.map((line, i) => (
+              <li key={`memo-${i}`}>変更（メモ）: {line}</li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="bag-memo-card">
         <h3 className="bag-memo-title">メモ欄</h3>
