@@ -186,7 +186,11 @@ details summary::-webkit-details-marker {
 .bag-diff-log-title { font-size: 0.9375rem; font-weight: 700; margin: 0 0 8px; }
 .bag-diff-log-list { margin: 0; padding-left: 1.25rem; font-size: 13px; line-height: 1.6; }
 .bag-diff-log-list li { margin-bottom: 4px; }
-.bag-detail-table { width: 100%; border-collapse: collapse; border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; }
+.bag-detail-table-toolbar { margin-bottom: 10px; }
+.bag-detail-details-toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 0.875rem; cursor: pointer; user-select: none; }
+.bag-detail-details-toggle input { cursor: pointer; }
+.bag-detail-table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius); border: 1px solid var(--color-border); }
+.bag-detail-table { width: 100%; border-collapse: collapse; overflow: hidden; }
 .bag-detail-table th, .bag-detail-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--color-border); }
 .bag-detail-table th { background: #f1f5f9; font-weight: 600; font-size: 0.8125rem; }
 .bag-detail-table tr:last-child td { border-bottom: none; }
@@ -217,6 +221,18 @@ details summary::-webkit-details-marker {
 .bag-memo-view > div { display: flex; gap: 12px; }
 .bag-memo-view dt { margin: 0; font-weight: 600; color: var(--color-text-muted); min-width: 80px; }
 .bag-memo-view dd { margin: 0; }
+
+/* アイアンセットカード */
+.bag-iron-set-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: 1.5rem; background: var(--color-surface); }
+.bag-iron-set-title { font-size: 0.9375rem; font-weight: 700; margin: 0 0 12px; }
+.bag-iron-set-form { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.bag-iron-set-field { display: flex; flex-direction: column; gap: 4px; }
+.bag-iron-set-field label { font-size: 12px; font-weight: 600; color: var(--color-text-muted); }
+.bag-iron-set-field input, .bag-iron-set-field select { padding: 8px 10px; font-size: 14px; border: 1px solid var(--color-border); border-radius: 6px; width: 100%; }
+.bag-iron-set-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+.bag-iron-set-overwrite { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; font-size: 14px; color: var(--color-text); }
+.bag-iron-set-apply-btn { padding: 8px 14px; font-size: 14px; font-weight: 700; border-radius: var(--radius); cursor: pointer; background: var(--color-accent); color: #fff; border: none; }
+.bag-iron-set-status { margin: 8px 0 0; font-size: 13px; color: var(--color-text-muted); }
 /* モーダル */
 .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 100; padding: 16px; }
 .modal-box { background: var(--color-surface); border-radius: var(--radius-lg); padding: 20px; max-width: 400px; width: 100%; box-shadow: var(--shadow-md); }

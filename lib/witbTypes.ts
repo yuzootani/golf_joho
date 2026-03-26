@@ -13,13 +13,27 @@ export type ClubType =
 /** プロ参考用：情報の確度 */
 export type Confidence = "high" | "med" | "low";
 
+/** グリップサイズ（編集・表示用） */
+export type GripSize = "Std" | "Midsize" | "Oversize";
+
 export type Club = {
   id: string;
   label: string;
   clubType: ClubType;
   loftDeg?: number;
   shaftWeightBand?: string;
+  /** シャフト名（モデル等） */
+  shaftName?: string;
+  /** フレックス（R/S/X/TX など任意） */
+  shaftFlex?: string;
+  /** シャフト重量（g）。入っている場合は shaftWeightBand より表示優先 */
+  shaftWeightG?: number;
   modelName?: string;
+  /** グリップ名 */
+  gripName?: string;
+  gripSize?: GripSize;
+  /** ラップ数 */
+  gripWraps?: number;
   isEnabled?: boolean;
   /** プロ参考用：確度（high/med/low）。表示例 [H][M][L] */
   confidence?: Confidence;
@@ -31,6 +45,8 @@ export type Bag = {
   updatedAt: string;
   isActive: boolean;
   clubs: Club[];
+  /** アイアンセット（テンプレ） */
+  ironSet?: IronSet;
   /** 用途（例：競技/狭いコース/風/テスト） */
   purpose?: string;
   /** コース（例：○○CC） */
@@ -85,6 +101,23 @@ export const SHAFT_WEIGHT_BAND_OPTIONS: { value: string; label: string }[] = [
   { value: "125+", label: "125+" },
 ];
 
+/** グリップサイズ（編集用） */
+export const GRIP_SIZE_OPTIONS: { value: "" | GripSize; label: string }[] = [
+  { value: "", label: "未指定" },
+  { value: "Std", label: "Std" },
+  { value: "Midsize", label: "Midsize" },
+  { value: "Oversize", label: "Oversize" },
+];
+
+/** 一覧用: シャフト重量は shaftWeightG を優先、なければ shaftWeightBand */
+export function displayShaftWeightSummary(c: Club): string {
+  const g = c.shaftWeightG;
+  if (g != null && !Number.isNaN(g)) return `${g}g`;
+  const band = (c.shaftWeightBand ?? "").trim();
+  if (band && band !== "unknown") return band;
+  return "—";
+}
+
 /** ロフト帯（度） */
 export const LOFT_BANDS: { key: string; label: string; min: number; max: number }[] = [
   { key: "10-15", label: "10–15°", min: 10, max: 15 },
@@ -95,6 +128,32 @@ export const LOFT_BANDS: { key: string; label: string; min: number; max: number 
   { key: "47-52", label: "47–52°", min: 47, max: 52 },
   { key: "53-60", label: "53–60°", min: 53, max: 60 },
 ];
+
+/** アイアンセット用のラベル（反映対象） */
+export const IRON_SET_LABELS = ["3i", "4i", "5i", "6i", "7i", "8i", "9i", "PW"] as const;
+export type IronSetLabel = (typeof IRON_SET_LABELS)[number];
+
+/** アイアンセット（テンプレ） */
+export type IronSet = {
+  /** ヘッドモデル名（DBキー） */
+  headModel?: string;
+  /** シャフト名 */
+  shaftName?: string;
+  /** シャフトフレックス */
+  shaftFlex?: string;
+  /** シャフト重量（g） */
+  shaftWeightG?: number;
+  /** グリップ名 */
+  gripName?: string;
+  /** グリップサイズ */
+  gripSize?: GripSize;
+  /** グリップラップ数 */
+  gripWraps?: number;
+  /** 反映開始番手 */
+  includedStart?: IronSetLabel;
+  /** 反映終了番手 */
+  includedEnd?: IronSetLabel;
+};
 
 /** isEnabled !== false のクラブだけ返す */
 export function enabledClubs(clubs: Club[]): Club[] {

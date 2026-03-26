@@ -2,8 +2,17 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import type { Bag, Club, ClubType, BagSnapshot } from "@/lib/witbTypes";
-import { CLUB_TYPE_ORDER, SHAFT_WEIGHT_BAND_OPTIONS, CLUB_TYPE_DISPLAY_LABEL } from "@/lib/witbTypes";
+import type { Bag, Club, ClubType, BagSnapshot, GripSize, IronSet, IronSetLabel } from "@/lib/witbTypes";
+import {
+  CLUB_TYPE_ORDER,
+  SHAFT_WEIGHT_BAND_OPTIONS,
+  CLUB_TYPE_DISPLAY_LABEL,
+  GRIP_SIZE_OPTIONS,
+  IRON_SET_LABELS,
+  displayShaftWeightSummary,
+} from "@/lib/witbTypes";
+import ironHeadsDb from "@/data/club_db/iron_heads.json";
+import shaftsDb from "@/data/club_db/shafts.json";
 
 function makeSnapshot(bag: Bag): BagSnapshot {
   return {
@@ -21,6 +30,22 @@ import { getBags, saveBags, fetchInitialBags } from "@/lib/bagsStorage";
 function clubKey(c: Club): string {
   const L = (c.label ?? "").trim();
   return L || c.id;
+}
+
+function clubFieldDiffLines(lastC: Club, curC: Club): string[] {
+  const lines: string[] = [];
+  if (String(lastC.label ?? "") !== String(curC.label ?? "")) lines.push(`label: ${lastC.label ?? "—"} → ${curC.label ?? "—"}`);
+  if (lastC.loftDeg !== curC.loftDeg) lines.push(`loftDeg: ${lastC.loftDeg ?? "—"} → ${curC.loftDeg ?? "—"}`);
+  if (String(lastC.modelName ?? "") !== String(curC.modelName ?? "")) lines.push(`modelName: ${lastC.modelName ?? "—"} → ${curC.modelName ?? "—"}`);
+  if (String(lastC.shaftWeightBand ?? "") !== String(curC.shaftWeightBand ?? "")) lines.push(`shaftWeightBand: ${lastC.shaftWeightBand ?? "—"} → ${curC.shaftWeightBand ?? "—"}`);
+  if ((lastC.shaftWeightG ?? null) !== (curC.shaftWeightG ?? null)) lines.push(`shaftWeightG: ${lastC.shaftWeightG ?? "—"} → ${curC.shaftWeightG ?? "—"}`);
+  if (String(lastC.shaftName ?? "") !== String(curC.shaftName ?? "")) lines.push(`shaftName: ${lastC.shaftName ?? "—"} → ${curC.shaftName ?? "—"}`);
+  if (String(lastC.shaftFlex ?? "") !== String(curC.shaftFlex ?? "")) lines.push(`shaftFlex: ${lastC.shaftFlex ?? "—"} → ${curC.shaftFlex ?? "—"}`);
+  if (String(lastC.gripName ?? "") !== String(curC.gripName ?? "")) lines.push(`gripName: ${lastC.gripName ?? "—"} → ${curC.gripName ?? "—"}`);
+  if (String(lastC.gripSize ?? "") !== String(curC.gripSize ?? "")) lines.push(`gripSize: ${lastC.gripSize ?? "—"} → ${curC.gripSize ?? "—"}`);
+  if ((lastC.gripWraps ?? null) !== (curC.gripWraps ?? null)) lines.push(`gripWraps: ${lastC.gripWraps ?? "—"} → ${curC.gripWraps ?? "—"}`);
+  if (Boolean(lastC.isEnabled !== false) !== Boolean(curC.isEnabled !== false)) lines.push(`isEnabled: ${lastC.isEnabled !== false ? "ON" : "OFF"} → ${curC.isEnabled !== false ? "ON" : "OFF"}`);
+  return lines;
 }
 
 type BagDiff = {
@@ -66,12 +91,7 @@ function computeDiffFromSnapshot(current: Bag, snap: BagSnapshot | null | undefi
       const curC = curByKey.get(k) ?? added.find((c) => clubKey(c) === k);
       const lastC = lastByKey.get(k) ?? removed.find((c) => clubKey(c) === k);
       if (curC && lastC) {
-        const lines: string[] = [];
-        if (String(lastC.label ?? "") !== String(curC.label ?? "")) lines.push(`label: ${lastC.label ?? "—"} → ${curC.label ?? "—"}`);
-        if (lastC.loftDeg !== curC.loftDeg) lines.push(`loftDeg: ${lastC.loftDeg ?? "—"} → ${curC.loftDeg ?? "—"}`);
-        if (String(lastC.modelName ?? "") !== String(curC.modelName ?? "")) lines.push(`modelName: ${lastC.modelName ?? "—"} → ${curC.modelName ?? "—"}`);
-        if (String(lastC.shaftWeightBand ?? "") !== String(curC.shaftWeightBand ?? "")) lines.push(`shaftWeightBand: ${lastC.shaftWeightBand ?? "—"} → ${curC.shaftWeightBand ?? "—"}`);
-        if (Boolean(lastC.isEnabled !== false) !== Boolean(curC.isEnabled !== false)) lines.push(`isEnabled: ${lastC.isEnabled !== false ? "ON" : "OFF"} → ${curC.isEnabled !== false ? "ON" : "OFF"}`);
+        const lines = clubFieldDiffLines(lastC, curC);
         changes.push({ club: curC, changes: lines.length > 0 ? lines : ["内容が更新されました"] });
       }
     }
@@ -86,12 +106,7 @@ function computeDiffFromSnapshot(current: Bag, snap: BagSnapshot | null | undefi
     const curC = curByKey.get(k)!;
     const lastC = lastByKey.get(k);
     if (!lastC) continue;
-    const lines: string[] = [];
-    if (String(lastC.label ?? "") !== String(curC.label ?? "")) lines.push(`label: ${lastC.label ?? "—"} → ${curC.label ?? "—"}`);
-    if (lastC.loftDeg !== curC.loftDeg) lines.push(`loftDeg: ${lastC.loftDeg ?? "—"} → ${curC.loftDeg ?? "—"}`);
-    if (String(lastC.modelName ?? "") !== String(curC.modelName ?? "")) lines.push(`modelName: ${lastC.modelName ?? "—"} → ${curC.modelName ?? "—"}`);
-    if (String(lastC.shaftWeightBand ?? "") !== String(curC.shaftWeightBand ?? "")) lines.push(`shaftWeightBand: ${lastC.shaftWeightBand ?? "—"} → ${curC.shaftWeightBand ?? "—"}`);
-    if (Boolean(lastC.isEnabled !== false) !== Boolean(curC.isEnabled !== false)) lines.push(`isEnabled: ${lastC.isEnabled !== false ? "ON" : "OFF"} → ${curC.isEnabled !== false ? "ON" : "OFF"}`);
+    const lines = clubFieldDiffLines(lastC, curC);
     if (lines.length > 0) changes.push({ club: curC, changes: lines });
   }
 
@@ -117,6 +132,76 @@ function emptyClub(id: string): Club {
   };
 }
 
+function isEmptyString(v?: string): boolean {
+  return v == null || v.trim() === "";
+}
+
+function isEmptyNumber(v?: number): boolean {
+  return v == null || Number.isNaN(v);
+}
+
+function normalizeIronSetLabel(raw: string): IronSetLabel | null {
+  const t = raw.trim().toUpperCase();
+  if (t === "PW") return "PW";
+  const m = t.match(/^([3-9])I$/);
+  if (!m) return null;
+  const num = m[1];
+  return `${num}i` as IronSetLabel;
+}
+
+const ironHeadsByModel = ironHeadsDb as Record<string, Partial<Record<IronSetLabel, number>>>;
+const shaftWeightByName = shaftsDb as Record<string, number>;
+
+function applyIronSetToClubs(clubs: Club[], ironSet: IronSet, overwrite: boolean): { clubs: Club[]; appliedCount: number } {
+  const headModelKey = ironSet.headModel?.trim() ?? "";
+  const loftByLabel = headModelKey ? (ironHeadsByModel[headModelKey] ?? {}) : {};
+
+  const start = ironSet.includedStart ?? "3i";
+  const end = ironSet.includedEnd ?? "PW";
+  const startIdx = IRON_SET_LABELS.indexOf(start);
+  const endIdx = IRON_SET_LABELS.indexOf(end);
+  const minIdx = Math.min(startIdx, endIdx);
+  const maxIdx = Math.max(startIdx, endIdx);
+
+  let appliedCount = 0;
+  const next = clubs.map((c) => {
+    if (c.clubType !== "IRON") return c;
+    const clubLabel = normalizeIronSetLabel(c.label);
+    if (!clubLabel) return c;
+
+    const idx = IRON_SET_LABELS.indexOf(clubLabel);
+    if (idx < minIdx || idx > maxIdx) return c;
+
+    appliedCount++;
+
+    const templateShaftName = ironSet.shaftName?.trim() || undefined;
+    const templateShaftFlex = ironSet.shaftFlex?.trim() || undefined;
+    const templateShaftWeightG = ironSet.shaftWeightG;
+    const templateGripName = ironSet.gripName?.trim() || undefined;
+    const templateGripSize = ironSet.gripSize;
+    const templateGripWraps = ironSet.gripWraps;
+
+    const nextClub: Club = { ...c };
+
+    if (overwrite || isEmptyString(c.shaftName)) nextClub.shaftName = templateShaftName;
+    if (overwrite || isEmptyString(c.shaftFlex)) nextClub.shaftFlex = templateShaftFlex;
+    if (overwrite || isEmptyNumber(c.shaftWeightG)) nextClub.shaftWeightG = templateShaftWeightG;
+
+    if (overwrite || isEmptyString(c.gripName)) nextClub.gripName = templateGripName;
+    if (overwrite || c.gripSize == null) nextClub.gripSize = templateGripSize;
+    if (overwrite || isEmptyNumber(c.gripWraps)) nextClub.gripWraps = templateGripWraps;
+
+    const templateLoftDeg = (loftByLabel as Partial<Record<IronSetLabel, number>>)[clubLabel];
+    if (templateLoftDeg != null && (overwrite || isEmptyNumber(c.loftDeg))) {
+      nextClub.loftDeg = templateLoftDeg;
+    }
+
+    return nextClub;
+  });
+
+  return { clubs: next, appliedCount };
+}
+
 function ClubEditModal({
   club,
   onSave,
@@ -130,19 +215,35 @@ function ClubEditModal({
   const [clubType, setClubType] = useState<ClubType>(club.clubType);
   const [loftDeg, setLoftDeg] = useState(club.loftDeg === undefined ? "" : String(club.loftDeg));
   const [shaftWeightBand, setShaftWeightBand] = useState(club.shaftWeightBand ?? "unknown");
+  const [shaftName, setShaftName] = useState(club.shaftName ?? "");
+  const [shaftFlex, setShaftFlex] = useState(club.shaftFlex ?? "");
+  const [shaftWeightG, setShaftWeightG] = useState(club.shaftWeightG === undefined ? "" : String(club.shaftWeightG));
   const [modelName, setModelName] = useState(club.modelName ?? "");
+  const [gripName, setGripName] = useState(club.gripName ?? "");
+  const [gripSize, setGripSize] = useState<GripSize | "">(club.gripSize ?? "");
+  const [gripWraps, setGripWraps] = useState(club.gripWraps === undefined ? "" : String(club.gripWraps));
   const [isEnabled, setIsEnabled] = useState(club.isEnabled !== false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const deg = loftDeg.trim() === "" ? undefined : parseFloat(loftDeg);
+    const gRaw = shaftWeightG.trim();
+    const gNum = gRaw === "" ? undefined : parseFloat(gRaw);
+    const wrapsRaw = gripWraps.trim();
+    const wrapsNum = wrapsRaw === "" ? undefined : parseFloat(wrapsRaw);
     onSave({
       ...club,
       label: label.trim() || club.label,
       clubType,
       loftDeg: deg !== undefined && !Number.isNaN(deg) ? deg : undefined,
       shaftWeightBand: shaftWeightBand === "unknown" ? undefined : shaftWeightBand,
+      shaftName: shaftName.trim() || undefined,
+      shaftFlex: shaftFlex.trim() || undefined,
+      shaftWeightG: gNum !== undefined && !Number.isNaN(gNum) ? gNum : undefined,
       modelName: modelName.trim() || undefined,
+      gripName: gripName.trim() || undefined,
+      gripSize: gripSize === "" ? undefined : gripSize,
+      gripWraps: wrapsNum !== undefined && !Number.isNaN(wrapsNum) ? wrapsNum : undefined,
       isEnabled,
     });
   };
@@ -177,8 +278,36 @@ function ClubEditModal({
             </select>
           </div>
           <div className="modal-field">
+            <label>shaftWeightG（g・空OK）</label>
+            <input type="number" step="0.1" min="0" value={shaftWeightG} onChange={(e) => setShaftWeightG(e.target.value)} placeholder="例: 70" />
+          </div>
+          <div className="modal-field">
+            <label>shaftName</label>
+            <input value={shaftName} onChange={(e) => setShaftName(e.target.value)} placeholder="Ventus TR Blue 6 など" />
+          </div>
+          <div className="modal-field">
+            <label>shaftFlex（空OK）</label>
+            <input value={shaftFlex} onChange={(e) => setShaftFlex(e.target.value)} placeholder="R / S / X / TX など" />
+          </div>
+          <div className="modal-field">
             <label>modelName（空OK）</label>
-            <input value={modelName} onChange={(e) => setModelName(e.target.value)} placeholder="モデル名" />
+            <input value={modelName} onChange={(e) => setModelName(e.target.value)} placeholder="ヘッドモデル名" />
+          </div>
+          <div className="modal-field">
+            <label>gripName</label>
+            <input value={gripName} onChange={(e) => setGripName(e.target.value)} placeholder="グリップ名" />
+          </div>
+          <div className="modal-field">
+            <label>gripSize</label>
+            <select value={gripSize} onChange={(e) => setGripSize(e.target.value as GripSize | "")}>
+              {GRIP_SIZE_OPTIONS.map((o) => (
+                <option key={o.value || "none"} value={o.value}>{o.label}</option>
+              ))}
+            </select>
+          </div>
+          <div className="modal-field">
+            <label>gripWraps（空OK）</label>
+            <input type="number" step="0.5" min="0" value={gripWraps} onChange={(e) => setGripWraps(e.target.value)} placeholder="ラップ数" />
           </div>
           <div className="modal-field bag-edit-active-wrap">
             <label>
@@ -204,6 +333,9 @@ export default function BagDetailClient({ bagId }: Props) {
   const [loading, setLoading] = useState(true);
   const [editMode, setEditMode] = useState(false);
   const [editingClubIndex, setEditingClubIndex] = useState<number | null>(null);
+  const [showClubDetails, setShowClubDetails] = useState(false);
+  const [ironSetOverwrite, setIronSetOverwrite] = useState(false);
+  const [ironSetStatus, setIronSetStatus] = useState<string | null>(null);
   const [dataSource, setDataSource] = useState<"localStorage" | "json" | null>(null);
   const [activeBagId, setActiveBagId] = useState<string | null>(null);
 
@@ -316,6 +448,23 @@ export default function BagDetailClient({ bagId }: Props) {
   const sorted = [...bag.clubs].sort((a, b) => CLUB_TYPE_ORDER.indexOf(a.clubType) - CLUB_TYPE_ORDER.indexOf(b.clubType));
   const diffEdit = editMode ? computeBagDiff(bag, lastSavedBag) : null;
   const diffFromPrevious = bag.previousSnapshot ? computeDiffFromSnapshot(bag, bag.previousSnapshot) : null;
+
+  const ironSetDefaults: IronSet = {
+    includedStart: "3i",
+    includedEnd: "PW",
+  };
+  const ironSet: IronSet = { ...ironSetDefaults, ...(bag.ironSet ?? {}) };
+
+  function updateIronSet(patch: Partial<IronSet>) {
+    setBag({ ...bag!, ironSet: { ...ironSetDefaults, ...(bag!.ironSet ?? {}), ...patch } });
+  }
+
+  function handleApplyIronSet() {
+    const { clubs: nextClubs, appliedCount } = applyIronSetToClubs(bag!.clubs, ironSet, ironSetOverwrite);
+    setBag({ ...bag!, clubs: nextClubs });
+    setIronSetStatus(`アイアン${appliedCount}本に反映しました`);
+    window.setTimeout(() => setIronSetStatus(null), 2500);
+  }
 
   return (
     <main className="bag-detail-page">
@@ -478,42 +627,217 @@ export default function BagDetailClient({ bagId }: Props) {
         )}
       </section>
 
-      <table className="bag-detail-table">
-        <thead>
-          <tr>
-            <th>label</th>
-            <th>clubType</th>
-            <th>loftDeg</th>
-            <th>shaftWeightBand</th>
-            <th>modelName</th>
-            <th>isEnabled</th>
-            {editMode && <th>操作</th>}
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((c, i) => {
-            const rowIndex = bag.clubs.findIndex((x) => x.id === c.id);
-            return (
-              <tr key={c.id}>
-                <td>{c.label || "—"}</td>
-                <td>{CLUB_TYPE_DISPLAY_LABEL[c.clubType] ?? c.clubType}</td>
-                <td>{c.loftDeg != null ? `${c.loftDeg}°` : "—"}</td>
-                <td>{c.shaftWeightBand ?? "—"}</td>
-                <td>{c.modelName ?? "—"}</td>
-                <td>{c.isEnabled !== false ? "ON" : "OFF"}</td>
-                {editMode && (
-                  <td>
-                    <div className="bag-detail-row-actions">
-                      <button type="button" className="bag-detail-edit-row-btn" onClick={() => setEditingClubIndex(rowIndex)}>編集</button>
-                      <button type="button" className="bag-detail-delete-btn" onClick={() => deleteClub(rowIndex)}>削除</button>
-                    </div>
-                  </td>
-                )}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      {editMode && (
+        <section className="bag-iron-set-card">
+          <h3 className="bag-iron-set-title">アイアンセット</h3>
+          <div className="bag-iron-set-form">
+            <div className="bag-iron-set-field">
+              <label>headModel（loftDBキー）</label>
+              <input
+                value={ironSet.headModel ?? ""}
+                onChange={(e) => updateIronSet({ headModel: e.target.value.trim() || undefined })}
+                placeholder="例: Generic"
+              />
+            </div>
+            <div className="bag-iron-set-field">
+              <label>shaftName</label>
+              <input
+                value={ironSet.shaftName ?? ""}
+                onChange={(e) => {
+                  const nextShaftNameRaw = e.target.value;
+                  const nextShaftName = nextShaftNameRaw.trim() || undefined;
+
+                  let nextShaftWeightG = ironSet.shaftWeightG;
+                  if (isEmptyNumber(nextShaftWeightG) && nextShaftName) {
+                    const found = shaftWeightByName[nextShaftName];
+                    if (found != null) nextShaftWeightG = found;
+                  }
+                  updateIronSet({ shaftName: nextShaftName, shaftWeightG: nextShaftWeightG });
+                }}
+                placeholder="シャフト名"
+              />
+            </div>
+            <div className="bag-iron-set-field">
+              <label>shaftFlex</label>
+              <input
+                value={ironSet.shaftFlex ?? ""}
+                onChange={(e) => updateIronSet({ shaftFlex: e.target.value.trim() || undefined })}
+                placeholder="R / S / X / TX など"
+              />
+            </div>
+            <div className="bag-iron-set-field">
+              <label>shaftWeightG（g）</label>
+              <input
+                type="number"
+                step="0.1"
+                min="0"
+                value={ironSet.shaftWeightG ?? ""}
+                onChange={(e) => {
+                  const raw = e.target.value.trim();
+                  if (raw === "") return updateIronSet({ shaftWeightG: undefined });
+                  const num = Number(raw);
+                  updateIronSet({ shaftWeightG: Number.isNaN(num) ? undefined : num });
+                }}
+                placeholder="例: 70"
+              />
+            </div>
+            <div className="bag-iron-set-field">
+              <label>gripName</label>
+              <input
+                value={ironSet.gripName ?? ""}
+                onChange={(e) => updateIronSet({ gripName: e.target.value.trim() || undefined })}
+                placeholder="グリップ名"
+              />
+            </div>
+            <div className="bag-iron-set-field">
+              <label>gripSize</label>
+              <select
+                value={ironSet.gripSize ?? ""}
+                onChange={(e) => updateIronSet({ gripSize: e.target.value === "" ? undefined : (e.target.value as GripSize) })}
+              >
+                {GRIP_SIZE_OPTIONS.map((o) => (
+                  <option key={o.value || "none"} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="bag-iron-set-field">
+              <label>gripWraps（任意）</label>
+              <input
+                type="number"
+                step="0.5"
+                min="0"
+                value={ironSet.gripWraps ?? ""}
+                onChange={(e) => {
+                  const raw = e.target.value.trim();
+                  if (raw === "") return updateIronSet({ gripWraps: undefined });
+                  const num = Number(raw);
+                  updateIronSet({ gripWraps: Number.isNaN(num) ? undefined : num });
+                }}
+                placeholder="ラップ数"
+              />
+            </div>
+            <div className="bag-iron-set-field">
+              <label>includedStart</label>
+              <select
+                value={ironSet.includedStart ?? "3i"}
+                onChange={(e) => updateIronSet({ includedStart: e.target.value as IronSetLabel })}
+              >
+                {IRON_SET_LABELS.map((v) => (
+                  <option key={v} value={v}>
+                    {v}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="bag-iron-set-field">
+              <label>includedEnd</label>
+              <select
+                value={ironSet.includedEnd ?? "PW"}
+                onChange={(e) => updateIronSet({ includedEnd: e.target.value as IronSetLabel })}
+              >
+                {IRON_SET_LABELS.map((v) => (
+                  <option key={v} value={v}>
+                    {v}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className="bag-iron-set-actions">
+            <label className="bag-iron-set-overwrite">
+              <input
+                type="checkbox"
+                checked={ironSetOverwrite}
+                onChange={(e) => setIronSetOverwrite(e.target.checked)}
+              />
+              overwrite（既存を上書き）
+            </label>
+            <button type="button" className="bag-iron-set-apply-btn" onClick={handleApplyIronSet}>
+              アイアンに反映
+            </button>
+          </div>
+
+          {ironSetStatus && <p className="bag-iron-set-status">{ironSetStatus}</p>}
+        </section>
+      )}
+
+      <div className="bag-detail-table-toolbar">
+        <label className="bag-detail-details-toggle">
+          <input
+            type="checkbox"
+            checked={showClubDetails}
+            onChange={(e) => setShowClubDetails(e.target.checked)}
+          />
+          詳細表示（シャフト名・重量帯・グリップ）
+        </label>
+      </div>
+
+      <div className="bag-detail-table-scroll">
+        <table className="bag-detail-table">
+          <thead>
+            <tr>
+              <th>label</th>
+              <th>clubType</th>
+              <th>loftDeg</th>
+              <th>シャフト重量</th>
+              {showClubDetails && (
+                <>
+                  <th>shaftWeightBand</th>
+                  <th>shaftName</th>
+                  <th>shaftFlex</th>
+                  <th>gripName</th>
+                  <th>gripSize</th>
+                  <th>gripWraps</th>
+                </>
+              )}
+              <th>modelName</th>
+              <th>isEnabled</th>
+              {editMode && <th>操作</th>}
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((c) => {
+              const rowIndex = bag.clubs.findIndex((x) => x.id === c.id);
+              const bandCell = (() => {
+                const b = (c.shaftWeightBand ?? "").trim();
+                if (!b || b === "unknown") return "—";
+                return b;
+              })();
+              return (
+                <tr key={c.id}>
+                  <td>{c.label || "—"}</td>
+                  <td>{CLUB_TYPE_DISPLAY_LABEL[c.clubType] ?? c.clubType}</td>
+                  <td>{c.loftDeg != null ? `${c.loftDeg}°` : "—"}</td>
+                  <td>{displayShaftWeightSummary(c)}</td>
+                  {showClubDetails && (
+                    <>
+                      <td>{bandCell}</td>
+                      <td>{c.shaftName?.trim() ? c.shaftName : "—"}</td>
+                      <td>{c.shaftFlex?.trim() ? c.shaftFlex : "—"}</td>
+                      <td>{c.gripName?.trim() ? c.gripName : "—"}</td>
+                      <td>{c.gripSize ?? "—"}</td>
+                      <td>{c.gripWraps != null && !Number.isNaN(c.gripWraps) ? String(c.gripWraps) : "—"}</td>
+                    </>
+                  )}
+                  <td>{c.modelName ?? "—"}</td>
+                  <td>{c.isEnabled !== false ? "ON" : "OFF"}</td>
+                  {editMode && (
+                    <td>
+                      <div className="bag-detail-row-actions">
+                        <button type="button" className="bag-detail-edit-row-btn" onClick={() => setEditingClubIndex(rowIndex)}>編集</button>
+                        <button type="button" className="bag-detail-delete-btn" onClick={() => deleteClub(rowIndex)}>削除</button>
+                      </div>
+                    </td>
+                  )}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
 
       {editingClubIndex !== null && bag.clubs[editingClubIndex] && (
         <ClubEditModal
