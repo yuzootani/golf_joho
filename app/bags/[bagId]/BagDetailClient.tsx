@@ -23,6 +23,12 @@ import {
 } from "@/lib/witbTypes";
 import ironHeadsDb from "@/data/club_db/iron_heads.json";
 import shaftsDb from "@/data/club_db/shafts.json";
+import {
+  resolveHeadModelKey,
+  resolveShaftKey,
+  getLoftTable,
+  getShaftWeight,
+} from "@/lib/catalog";
 import { getBags, saveBags, fetchInitialBags } from "@/lib/bagsStorage";
 import { getMyClubsFromStorage, addMyClub } from "@/lib/myClubsStorage";
 
@@ -259,8 +265,27 @@ function applyIronSetToClubs(
   ironSet: IronSet,
   overwrite: boolean
 ): { clubs: Club[]; appliedCount: number } {
-  const headModelKey = ironSet.headModel?.trim() ?? "";
-  const loftByLabel = headModelKey ? (ironHeadsByModel[headModelKey] ?? {}) : {};
+  const headModelInput = ironSet.headModel?.trim() ?? "";
+  // カタログ照合 → 旧DBフォールバック
+  const catalogHeadKey = headModelInput
+    ? resolveHeadModelKey(headModelInput)
+    : null;
+  const loftByLabel: Partial<Record<IronSetLabel, number>> = catalogHeadKey
+    ? (getLoftTable(catalogHeadKey) ?? {})
+    : headModelInput
+    ? (ironHeadsByModel[headModelInput] ?? {})
+    : {};
+
+  // shaftWeightG: ironSetに明示されていなければカタログから補完
+  const catalogShaftKey = ironSet.shaftName?.trim()
+    ? resolveShaftKey(ironSet.shaftName)
+    : null;
+  const effectiveShaftWeightG =
+    ironSet.shaftWeightG != null
+      ? ironSet.shaftWeightG
+      : catalogShaftKey != null
+      ? (getShaftWeight(catalogShaftKey) ?? undefined)
+      : undefined;
 
   const start = ironSet.includedStart ?? "3i";
   const end = ironSet.includedEnd ?? "PW";
@@ -285,16 +310,14 @@ function applyIronSetToClubs(
     if (overwrite || isEmptyString(c.shaftFlex))
       nextClub.shaftFlex = ironSet.shaftFlex?.trim() || undefined;
     if (overwrite || isEmptyNumber(c.shaftWeightG))
-      nextClub.shaftWeightG = ironSet.shaftWeightG;
+      nextClub.shaftWeightG = effectiveShaftWeightG;
     if (overwrite || isEmptyString(c.gripName))
       nextClub.gripName = ironSet.gripName?.trim() || undefined;
     if (overwrite || c.gripSize == null) nextClub.gripSize = ironSet.gripSize;
     if (overwrite || isEmptyNumber(c.gripWraps))
       nextClub.gripWraps = ironSet.gripWraps;
 
-    const templateLoftDeg = (
-      loftByLabel as Partial<Record<IronSetLabel, number>>
-    )[clubLabel];
+    const templateLoftDeg = loftByLabel[clubLabel];
     if (templateLoftDeg != null && (overwrite || isEmptyNumber(c.loftDeg))) {
       nextClub.loftDeg = templateLoftDeg;
     }
@@ -1080,30 +1103,81 @@ export default function BagDetailClient({ bagId }: Props) {
           <h3 className="bag-iron-set-title">アイアンセット</h3>
           <div className="bag-iron-set-form">
             <div className="bag-iron-set-field">
-              <label>headModel（loftDBキー）</label>
+              <label>headModel（モデル名・自由入力）</label>
               <input
                 value={ironSet.headModel ?? ""}
                 onChange={(e) =>
-                  updateIronSet({ headModel: e.target.value.trim() || undefined })
+                  updateIronSet({ headModel: e.target.value || undefined })
                 }
-                placeholder="例: Generic"
+                placeholder="例: Mizuno Pro S-3"
               />
+              {(() => {
+                const raw = ironSet.headModel ?? "";
+                if (!raw.trim()) return null;
+                const key = resolveHeadModelKey(raw);
+                if (!key) {
+                  return (
+                    <span className="catalog-nomatch">DB未登録</span>
+                  );
+                }
+                const table = getLoftTable(key);
+                return (
+                  <div className="catalog-match-wrap">
+                    <span className="catalog-match-badge">一致: {key}</span>
+                    {table && (
+                      <div className="catalog-loft-preview">
+                        {(Object.entries(table) as [IronSetLabel, number][]).map(
+                          ([label, loft]) => (
+                            <span key={label} className="catalog-loft-cell">
+                              {label}:{loft}°
+                            </span>
+                          )
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
             <div className="bag-iron-set-field">
               <label>shaftName</label>
               <input
                 value={ironSet.shaftName ?? ""}
                 onChange={(e) => {
-                  const nextName = e.target.value.trim() || undefined;
+                  const nextName = e.target.value || undefined;
                   let nextWeight = ironSet.shaftWeightG;
                   if (isEmptyNumber(nextWeight) && nextName) {
-                    const found = shaftWeightByName[nextName];
+                    const found = shaftWeightByName[nextName.trim()];
                     if (found != null) nextWeight = found;
                   }
                   updateIronSet({ shaftName: nextName, shaftWeightG: nextWeight });
                 }}
-                placeholder="シャフト名"
+                placeholder="例: KBS S-Taper"
               />
+              {(() => {
+                const raw = ironSet.shaftName ?? "";
+                if (!raw.trim()) return null;
+                const key = resolveShaftKey(raw);
+                if (!key) {
+                  return (
+                    <span className="catalog-nomatch">DB未登録</span>
+                  );
+                }
+                const weight = getShaftWeight(key);
+                return (
+                  <div className="catalog-match-wrap">
+                    <span className="catalog-match-badge">
+                      一致: {key}
+                      {weight != null ? ` （${weight}g）` : ""}
+                    </span>
+                    {isEmptyNumber(ironSet.shaftWeightG) && weight != null && (
+                      <span className="catalog-auto-hint">
+                        ※ 反映時に shaftWeightG={weight}g を自動入力
+                      </span>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
             <div className="bag-iron-set-field">
               <label>shaftFlex</label>
