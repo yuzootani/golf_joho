@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 const NAV_ITEMS = [
   { href: "/", label: "ホーム" },
   { href: "/bags", label: "マイバッグ" },
+  { href: "/my-clubs", label: "クラブ庫" },
   { href: "/clubs", label: "名器図鑑" },
   { href: "/#更新ダイジェスト", label: "在庫・相場" },
   { href: "/vapor-fly-pro-3i", label: "中古チェック" },

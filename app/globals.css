@@ -245,6 +245,332 @@ details summary::-webkit-details-marker {
 .modal-actions button[type="submit"] { background: var(--color-accent); color: #fff; border: none; }
 .modal-actions button[type="button"] { background: var(--color-bg); border: 1px solid var(--color-border); }
 
+/* ── クラブ庫（/my-clubs）────────────────────────────── */
+.my-clubs-page {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+.my-clubs-sub {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  margin: 0 0 1.25rem;
+}
+.my-clubs-new-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+}
+.my-clubs-new-btn:hover { background: #e0f2fe; text-decoration: none; }
+.my-clubs-empty {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.my-clubs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.my-clubs-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.my-clubs-card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.my-clubs-card-type {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  background: #e0f2fe;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.my-clubs-card-name {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.my-clubs-card-label {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.my-clubs-card-details {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+.my-clubs-card-details > div {
+  display: flex;
+  gap: 8px;
+}
+.my-clubs-card-details dt {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  min-width: 56px;
+  flex-shrink: 0;
+}
+.my-clubs-card-details dd { margin: 0; }
+.my-clubs-card-date {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.my-clubs-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+.my-clubs-edit-btn {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color-text);
+}
+.my-clubs-edit-btn:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
+.my-clubs-delete-btn {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  cursor: pointer;
+  color: #b91c1c;
+}
+.my-clubs-delete-btn:hover { border-color: #b91c1c; }
+
+/* クラブ庫 フォームページ（/my-clubs/new, /my-clubs/[id]） */
+.my-clubs-form-page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+.my-clubs-form-error {
+  color: #b91c1c;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.my-clubs-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.my-clubs-form-section {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+.my-clubs-form-section-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 14px;
+}
+.my-clubs-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+.my-clubs-field:last-child { margin-bottom: 0; }
+.my-clubs-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.my-clubs-required {
+  font-size: 11px;
+  color: #b91c1c;
+  font-weight: 700;
+}
+.my-clubs-field input,
+.my-clubs-field select,
+.my-clubs-field textarea {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  width: 100%;
+  background: var(--color-surface);
+}
+.my-clubs-field textarea { resize: vertical; min-height: 60px; }
+.my-clubs-field-hint {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+.my-clubs-field-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+.my-clubs-form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+.my-clubs-form-cancel-btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+.my-clubs-form-save-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+}
+.my-clubs-form-save-btn:hover { background: var(--color-accent-hover); }
+.my-clubs-form-save-btn:disabled { opacity: 0.6; cursor: default; }
+
+/* バッグ詳細：クラブ庫関連 */
+.bag-detail-add-from-myclub-btn {
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: #fef9c3;
+  border: 1px solid #ca8a04;
+  color: #78350f;
+}
+.bag-detail-add-from-myclub-btn:hover { background: #fef08a; }
+.bag-myclub-badge {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-accent);
+  vertical-align: middle;
+  cursor: default;
+}
+.bag-detail-save-myclub-btn {
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #ca8a04;
+  background: #fef9c3;
+  color: #78350f;
+  white-space: nowrap;
+}
+.bag-detail-save-myclub-btn:hover { background: #fef08a; }
+.bag-detail-myclub-status {
+  font-size: 13px;
+  color: var(--color-success);
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+/* MyClubピッカーモーダル */
+.modal-box-wide {
+  max-width: 520px;
+}
+.modal-myclub-ref {
+  font-size: 12px;
+  color: var(--color-accent);
+  background: #e0f2fe;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 12px;
+}
+.modal-myclub-ref-hint {
+  color: var(--color-text-muted);
+  font-weight: 400;
+  margin-left: 4px;
+}
+.myclub-picker-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+.myclub-picker-item { margin: 0; }
+.myclub-picker-btn {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.myclub-picker-btn:hover { border-color: var(--color-accent); background: #f0f9ff; }
+.myclub-picker-type {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-accent);
+  background: #e0f2fe;
+  padding: 1px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.myclub-picker-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+.myclub-picker-label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+.myclub-picker-meta {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-left: auto;
+}
+.bag-diff-log-empty { color: var(--color-text-muted); font-size: 13px; margin: 0; }
+
 /* プロ比較ページ */
 .compare-page { max-width: 64rem; margin: 0 auto; padding: 0 1rem 3rem; }
 .compare-page-header { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }

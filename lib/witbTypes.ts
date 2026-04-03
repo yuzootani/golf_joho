@@ -16,6 +16,18 @@ export type Confidence = "high" | "med" | "low";
 /** グリップサイズ（編集・表示用） */
 export type GripSize = "Std" | "Midsize" | "Oversize";
 
+/** MyClub参照時の上書きフィールド */
+export type ClubOverrides = {
+  loftDeg?: number;
+  shaftName?: string;
+  shaftFlex?: string;
+  shaftWeightG?: number;
+  gripName?: string;
+  gripSize?: GripSize;
+  gripWraps?: number;
+  modelName?: string;
+};
+
 export type Club = {
   id: string;
   label: string;
@@ -29,6 +41,10 @@ export type Club = {
   /** シャフト重量（g）。入っている場合は shaftWeightBand より表示優先 */
   shaftWeightG?: number;
   modelName?: string;
+  /** クラブ庫への参照ID */
+  myClubId?: string;
+  /** myClubId参照時の上書き値（設定されたフィールドのみMyClubを上書き） */
+  overrides?: ClubOverrides;
   /** グリップ名 */
   gripName?: string;
   gripSize?: GripSize;
@@ -132,6 +148,38 @@ export const LOFT_BANDS: { key: string; label: string; min: number; max: number 
 /** アイアンセット用のラベル（反映対象） */
 export const IRON_SET_LABELS = ["3i", "4i", "5i", "6i", "7i", "8i", "9i", "PW"] as const;
 export type IronSetLabel = (typeof IRON_SET_LABELS)[number];
+
+/** マイクラブ（クラブ庫に登録した所有クラブ） */
+export type MyClub = {
+  /** ユニークID */
+  myClubId: string;
+  /** ヘッド名（モデル名）*/
+  headName: string;
+  /** 任意ラベル（例「普段のドライバー」） */
+  label?: string;
+  /** クラブカテゴリ */
+  clubType?: ClubType;
+  /** ロフト角（任意） */
+  loftDeg?: number;
+  /** シャフト名 */
+  shaftName?: string;
+  /** シャフトフレックス */
+  shaftFlex?: string;
+  /** シャフト重量（g） */
+  shaftWeightG?: number;
+  /** グリップ名 */
+  gripName?: string;
+  /** グリップサイズ */
+  gripSize?: GripSize;
+  /** グリップラップ数 */
+  gripWraps?: number;
+  /** 自由メモ */
+  memo?: string;
+  /** 登録日時 (ISO) */
+  createdAt: string;
+  /** 更新日時 (ISO) */
+  updatedAt?: string;
+};
 
 /** アイアンセット（テンプレ） */
 export type IronSet = {
