@@ -254,6 +254,78 @@ function normalizeIronSetLabel(raw: string): IronSetLabel | null {
   return `${m[1]}i` as IronSetLabel;
 }
 
+/** 「5」「5i」「PW」など1トークン → IronSetLabel */
+function parseIronToken(token: string): IronSetLabel | null {
+  const t = token.trim().toUpperCase();
+  if (t === "PW") return "PW";
+  const m = t.match(/^([3-9])I?$/);
+  if (!m) return null;
+  return `${m[1]}i` as IronSetLabel;
+}
+
+/**
+ * 範囲ラベル（例: 5-PW / 5〜PW / 5 PW）を解析。単一番手は null。
+ */
+function parseIronRangeLabel(raw: string): { start: IronSetLabel; end: IronSetLabel } | null {
+  const t = raw.trim();
+  if (!t) return null;
+  const parts = t.split(/[\s\-~〜–—\uFF0D\u2212]+/).filter((p) => p.length > 0);
+  if (parts.length !== 2) return null;
+  const start = parseIronToken(parts[0]);
+  const end = parseIronToken(parts[1]);
+  if (!start || !end) return null;
+  return { start, end };
+}
+
+function expandIronRange(start: IronSetLabel, end: IronSetLabel): IronSetLabel[] {
+  const a = IRON_SET_LABELS.indexOf(start);
+  const b = IRON_SET_LABELS.indexOf(end);
+  if (a < 0 || b < 0) return [];
+  const min = Math.min(a, b);
+  const max = Math.max(a, b);
+  return IRON_SET_LABELS.slice(min, max + 1);
+}
+
+/**
+ * label が「5-PW」形式のアイアン行を、5i〜PW の複数行に置き換える。
+ * myClubId / overrides は分割後は持たせない（番手別の実体に合わせる）。
+ */
+function splitIronRangeClubs(clubs: Club[]): { clubs: Club[]; replaced: number } {
+  const out: Club[] = [];
+  let replaced = 0;
+  const ts = Date.now();
+  let seq = 0;
+  for (const c of clubs) {
+    if (c.clubType !== "IRON") {
+      out.push(c);
+      continue;
+    }
+    const range = parseIronRangeLabel(c.label ?? "");
+    if (!range) {
+      out.push(c);
+      continue;
+    }
+    const labels = expandIronRange(range.start, range.end);
+    if (labels.length <= 1) {
+      out.push(c);
+      continue;
+    }
+    replaced++;
+    for (const lbl of labels) {
+      seq += 1;
+      out.push({
+        ...c,
+        id: `c-${ts}-${seq}-${Math.random().toString(36).slice(2, 9)}`,
+        label: lbl,
+        loftDeg: undefined,
+        myClubId: undefined,
+        overrides: undefined,
+      });
+    }
+  }
+  return { clubs: out, replaced };
+}
+
 const ironHeadsByModel = ironHeadsDb as Record<
   string,
   Partial<Record<IronSetLabel, number>>
@@ -614,6 +686,7 @@ export default function BagDetailClient({ bagId }: Props) {
   const [showClubDetails, setShowClubDetails] = useState(false);
   const [ironSetOverwrite, setIronSetOverwrite] = useState(false);
   const [ironSetStatus, setIronSetStatus] = useState<string | null>(null);
+  const [ironSplitStatus, setIronSplitStatus] = useState<string | null>(null);
   const [dataSource, setDataSource] = useState<"localStorage" | "json" | null>(
     null
   );
@@ -840,6 +913,22 @@ export default function BagDetailClient({ bagId }: Props) {
     window.setTimeout(() => setIronSetStatus(null), 2500);
   }
 
+  /** 「5-PW」など範囲ラベルのアイアンを 5i〜PW に分割 */
+  function handleSplitIronRanges() {
+    if (!bag) return;
+    const { clubs: nextClubs, replaced } = splitIronRangeClubs(bag.clubs);
+    if (replaced === 0) {
+      setIronSplitStatus(
+        "分割対象がありません（アイアンで label が「5-PW」「5〜PW」形式の行のみ）"
+      );
+      window.setTimeout(() => setIronSplitStatus(null), 3500);
+      return;
+    }
+    setBag({ ...bag, clubs: nextClubs });
+    setIronSplitStatus(`範囲ラベルを ${replaced} 件、番手別に分割しました`);
+    window.setTimeout(() => setIronSplitStatus(null), 3000);
+  }
+
   // ─── render ─────────────────────────────────────────────────────────────
 
   return (
@@ -894,12 +983,23 @@ export default function BagDetailClient({ bagId }: Props) {
             >
               ◎ クラブ庫から追加
             </button>
+            <button
+              type="button"
+              className="bag-detail-split-iron-btn"
+              onClick={handleSplitIronRanges}
+              title="例: label「5-PW」を 5i・6i・…・PW の複数行に分割し、アイアンセット反映で番手別ロフトが入ります"
+            >
+              アイアン範囲を自動分割（5-PW→各番手）
+            </button>
           </>
         )}
       </div>
 
       {saveToMyClubStatus && (
         <p className="bag-detail-myclub-status">{saveToMyClubStatus}</p>
+      )}
+      {editMode && ironSplitStatus && (
+        <p className="bag-detail-iron-split-status">{ironSplitStatus}</p>
       )}
 
       {editMode && (
